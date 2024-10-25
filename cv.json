@@ -125,9 +125,65 @@
   "projects": [
     {
       "name": "Project",
+      "isActive": true,
       "startDate": "2019-01-01",
       "endDate": "2021-01-01",
-      "description": "Description...",
+      "description": "Description de prueba para poder hacer puebas en el layout",
+      "highlights": [
+        "Won award at AIHacks 2016"
+      ],
+      "url": "https://project.com/"
+    },
+    {
+      "name": "Project",
+      "isActive": true,
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Description de prueba para poder hacer puebas en el layout",
+      "highlights": [
+        "Won award at AIHacks 2016"
+      ],
+      "url": "https://project.com/"
+    },
+    {
+      "name": "Project",
+      "isActive": true,
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Description de prueba para poder hacer puebas en el layout",
+      "highlights": [
+        "Won award at AIHacks 2016"
+      ],
+      "url": "https://project.com/"
+    },
+    {
+      "name": "Project",
+      "isActive": true,
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Description de prueba para poder hacer puebas en el layout",
+      "highlights": [
+        "Won award at AIHacks 2016"
+      ],
+      "url": "https://project.com/"
+    },
+    {
+      "name": "Project",
+      "isActive": true,
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Description de prueba para poder hacer puebas en el layout",
+      "highlights": [
+        "Won award at AIHacks 2016"
+      ],
+      "url": "https://project.com/"
+    },
+    {
+      "name": "Project",
+      "isActive": true,
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Description de prueba para poder hacer puebas en el layout",
       "highlights": [
         "Won award at AIHacks 2016"
       ],
