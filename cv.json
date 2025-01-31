@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Franco Silva",
-    "label": "Desarrollador web con 1 año de experiencia",
+    "label": "Desarrollador web",
     "image": "",
     "email": "franco.silva.code@gmail.com",
     "phone": "249 171 92 36",
@@ -39,11 +39,11 @@
     },
     {
       "name": "Envelope",
-      "position": "Residente",
+      "position": "Residente - Prácticas profesionales",
       "url": "https://company.com",
       "startDate": "2023-06-19",
       "endDate": "2024-01-19",
-      "summary": "Prácticas profesionales, creación de tema de wordpress desde cero hasta producción y adaptarlo a diferentes empresas",
+      "summary": "Creación de tema de wordpress desde cero hasta producción y adaptarlo a diferentes empresas con diseño responsivo y escalable.",
       "highlights": [
         "Creación de un tema de wordpress desde cero, "
       ]
@@ -101,6 +101,15 @@
     },
     {
       "name": "SCSS",
+      "level": "Master",
+      "keywords": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    },
+    {
+      "name": "Tailwindcss",
       "level": "Master",
       "keywords": [
         "HTML",
@@ -183,7 +192,7 @@
       "endDate": "2024-01-01",
       "description": "Tema de wordpress adaptable para diferentes empresas, es responsive y utiliza las mejores pracicas para que sea mantenible y escalable",
       "highlights": [
-        "php,js,wordpress,css"
+        "php,js,wordpress,css,mysql"
       ],
       "url": "https://dev-gymfitnessappwordpress.pantheonsite.io/"
     },
@@ -194,7 +203,7 @@
       "endDate": "2025-12-01",
       "description": "Aplicación para administrar los pedidos de los clientes en un restaurante.",
       "highlights": [
-        "laravel,react,tailwindcss"
+        "laravel,react,tailwindcss,mysql"
       ],
       "url": "https://fs-react-quiosco.vercel.app/auth/login"
     },
@@ -210,15 +219,15 @@
       "url": "https://appsalon-lv-fs.mnz.dom.my.id/auth/registro"
     },
     {
-      "name": "Project",
-      "isActive": true,
-      "startDate": "2019-01-01",
-      "endDate": "2021-01-01",
-      "description": "Description de prueba para poder hacer puebas en el layout",
+      "name": "Devstagram",
+      "isActive": false,
+      "startDate": "2024-01-01",
+      "endDate": "2024-05-01",
+      "description": "Clon de instagram con funcionalidades básicas.",
       "highlights": [
-        "Won award at AIHacks 2016"
+        "laravel,tailwindcss,blade,mysql"
       ],
-      "url": "https://project.com/"
+      "url": "https://mukpotu.nyc.dom.my.id/login"
     }
   ]
 }
