@@ -220,7 +220,8 @@
       "highlights": [
         "laravel,react,tailwindcss,mysql"
       ],
-      "url": "https://fs-react-quiosco.vercel.app/auth/login"
+      "url": "https://fs-react-quiosco.vercel.app/auth/login",
+      "description_url": "/projects/1a-quiosco-laravel"
     },
     {
       "name": "AppSalon",
@@ -231,7 +232,8 @@
       "highlights": [
         "laravel,vue,tailwindcss,mysql"
       ],
-      "url": "https://appsalon-lv-fs.mnz.dom.my.id/auth/registro"
+      "url": "https://appsalon-lv-fs.mnz.dom.my.id/auth/registro",
+      "description_url": "/projects/1b-appsalon-laravel"
     },
     {
       "name": "Devstagram",
@@ -242,7 +244,8 @@
       "highlights": [
         "laravel,blade,tailwindcss,mysql"
       ],
-      "url": "https://mukpotu.nyc.dom.my.id/login"
+      "url": "https://mukpotu.nyc.dom.my.id/login",
+      "description_url": "/projects/1b-devstagram-laravel"
     }
   ]
 }
