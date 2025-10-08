@@ -1,41 +1,48 @@
 ---
-import Section from '@/components/Section.astro';
+import Section from "@/components/Section.astro";
 
-import { projects } from '@cv';
+import { projects } from "@cv";
 ---
-
+<div id="proyectos"></div>
 <Section title="Proyectos">
   <ul>
     {
-      projects.map(({ url, description, name, highlights, isActive }) => {
-        return (
-          <li>
-            <article>
-              <header>
-                <h3>
-                  <a
-                    href={url}
-                    title={`Ver el proyecto ${name}`}
-                    target="_blank"
-                  >
-                    {name}
-                  </a>
+      projects.map(
+        ({ url, description, name, highlights, isActive, description_url }) => {
+          return (
+            <li>
+              <article>
+                <header>
+                  <h3>
+                    <a
+                      href={url}
+                      title={`Ver el proyecto ${name}`}
+                      target="_blank"
+                    >
+                      {name}
+                    </a>
 
-                  {isActive && <span>&bull;</span>}
-                </h3>
-                <p>{description}</p>
-              </header>
-              <footer>
-                <span>
-                  {highlights.map((highlight) => {
-                    return <li>{highlight}</li>;
-                  })}
-                </span>
-              </footer>
-            </article>
-          </li>
-        );
-      })
+                    {isActive && <span>&bull;</span>}
+                  </h3>
+                  <p>{description}</p>
+                </header>
+                <footer>
+                  <span>
+                    {highlights.map((highlight) => {
+                      return <li>{highlight}</li>;
+                    })}
+                  </span>
+                  {description_url && (
+                    <a href={description_url} class="description_url">
+                      Descripción del proyecto
+                    </a>
+                  )}
+                </footer>
+              </article>
+            </li>
+          );
+        }
+      )
     }
   </ul>
 </Section>
@@ -86,6 +93,13 @@ import { projects } from '@cv';
     animation-duration: 3s;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
+  }
+
+  .description_url {
+    display: inline-block;
+    text-align: center;
+    font-size: 0.7rem;
+    margin: 5px 0 0px 5px;
   }
 
   footer {

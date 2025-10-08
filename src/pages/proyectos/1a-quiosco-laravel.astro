@@ -1,0 +1,151 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Quiosco App Laravel">
+  <main>
+    <a href="/#proyectos" class="a_back">Regresar</a>
+    <h1>Quiosco App Laravel</h1>
+    <p>
+      Aplicación para gestionar los pedidos de los clientes en un restaurante.
+      El administrador puede gestionar los pedidos y cosas generales como los
+      productos y categorias.
+    </p>
+
+    <div class="contenedor">
+      <p class="descripcion">
+        Este proyecto esta hecho en la parte del frontend con React, React
+        Router Dom, Tailwindcss y en la parte del backend está hecha con Laravel
+        API y Mysql para la base de datos
+      </p>
+
+      <p class="descripcion">
+        En este proyecto cada usuario puede registrarse para poder pedir su
+        orden, una vez que se registre puede iniciar sesión con sus
+        credenciales. Tiene una parte de adminsitrador el cual puede gestionar
+        los pedidos y disponibilidad de los productos.
+      </p>
+
+      <p class="descripcion">
+        En este proyecto cada usuario puede registrarse para poder pedir su
+        orden, una vez que se registre puede iniciar sesión con sus
+        credenciales.
+      </p>
+      <img
+        src="/images/react-quiosco/01.png"
+        alt="Imagen registro"
+        class="imagen"
+      />
+      <img
+        src="/images/react-quiosco/02.png"
+        alt="Imagen iniciar sesión"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        El usuario puede pedir los productos que quiera e ir viendo que es lo
+        que lleva su pedido y poder realizar la orden. Una vez que la orden esta
+        lista se sale de la vista para hacer pedido para poder volver a hacer
+        otro.
+      </p>
+      <img
+        src="/images/react-quiosco/03.png"
+        alt="Imagen iniciar sesión"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        Al administrador le llegan las ordenes de los usuarios.
+      </p>
+      <img
+        src="/images/react-quiosco/04.png"
+        alt="Imagen iniciar sesión"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        También puede gestionar la disponibilidad de los productos como marcar
+        como completado un pedido.
+      </p>
+      <img
+        src="/images/react-quiosco/05.png"
+        alt="Imagen iniciar sesión"
+        class="imagen"
+      />
+
+      <div>
+        <div>
+          Puedes probar la aplicación con las siguientes credenciales:
+
+          <h3>Usuario</h3>
+          <br />
+          <strong>user:</strong> gon1@gmail.com
+          <br />
+          <strong>pass:</strong> gon2025???
+          <br />
+          <br />
+
+          <h3>Administrador</h3>
+          <br />
+          <strong>user:</strong> levi@gmail.com
+          <br />
+          <strong>pass:</strong> levi2025!!!
+        </div>
+        
+        <p class="descripcion">
+          Puede registrarse con un correo y verificar su funcionamiento.
+          <a
+            target="_blank"
+            class="enlace"
+            href="https://fs-react-quiosco.vercel.app/">Enlace</a
+          >
+        </p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .a_back {
+    display: block;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .a_back:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    width: 85%;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .descripcion {
+    font-size: 1rem;
+  }
+
+  .imagen {
+    max-width: 100%;
+    margin: 2rem auto;
+  }
+
+  @media (width >= 768px) {
+    .imagen {
+      max-width: 50%;
+    }
+  }
+
+  .enlace {
+    text-decoration: underline;
+  }
+</style>
