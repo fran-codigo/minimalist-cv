@@ -1,0 +1,143 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Devstagram Laravel">
+  <main>
+    <a href="/#proyectos" class="a_back">Regresar</a>
+    <h1>Devstagram Laravel - Clon de Instagrams</h1>
+    <p>
+      Clon de Instagram con las funcionalidades básicas hecho con Laravel y
+      Tailwindcss.
+    </p>
+
+    <div class="contenedor">
+      <p class="descripcion">
+        Este proyecto esta hecho con php, laravel, livewire, tailwindcss, mysql.
+      </p>
+      <p class="descripcion">
+        Este proyecto es un clon de instagram el cual contiene algunas de las
+        funcionalidades más importantes de esta red social como lo son registro
+        y login de usuarios, crear publicaciones, seguir a otras cuentas, dar me
+        gusta a las publicaciones, crear comentarios a las publicaciones, editar
+        tu perfil.
+      </p>
+      <p class="descripcion">
+        En la parte de registro hay validaciones. El correo debe ser único y el
+        nombre de usuario también debe ser único.
+      </p>
+      <img
+        src="/images/devstagram/1.png"
+        alt="Imagen de registro"
+        class="imagen"
+      />
+      <img
+        src="/images/devstagram/2.png"
+        alt="Imagen de registro"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        Una vez ingreses con tus credenciales, podrás ver la página de tu perfil
+        donde se muestran las publicaciones que has realizado. Puedes seguir a
+        otros usuarios ubicandolos con la url de tu perfil.
+      </p>
+      <img
+        src="/images/devstagram/3.png"
+        alt="Imagen de registro"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        Puedes realizar publicaciones con una descripción y una imagen, ambos
+        son requeridos.
+      </p>
+      <img
+        src="/images/devstagram/4.png"
+        alt="Imagen de registro"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        Puedes agregar comentarios a las publicaciones, dar 'me gusta', y si es
+        tu publicación, también puedes eliminarla.
+      </p>
+      <img
+        src="/images/devstagram/5.png"
+        alt="Imagen de registro"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        De igual forma puedes cambiar datos de tu perfil como el nombre de
+        usuario y la imagen.
+      </p>
+      <img
+        src="/images/devstagram/6.png"
+        alt="Imagen de registro"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        Puede registrarse con un correo y verificar su funcionamiento.
+        <a
+          target="_blank"
+          class="enlace"
+          href="https://mukpotu.nyc.dom.my.id/login">Enlace</a
+        >
+        <br />
+        Puedes seguirme en el siguiente enlace
+        <a
+          class="enlace"
+          href="https://mukpotu.nyc.dom.my.id/franstudio"
+          target="_blank">Enlace</a
+        >
+      </p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .a_back {
+    display: block;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .a_back:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    width: 85%;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .descripcion {
+    font-size: 1rem;
+  }
+
+  .imagen {
+    max-width: 100%;
+    margin: 2rem auto;
+  }
+
+  @media (width >= 768px) {
+    .imagen {
+      max-width: 50%;
+    }
+  }
+
+  .enlace {
+    text-decoration: underline;
+  }
+</style>
