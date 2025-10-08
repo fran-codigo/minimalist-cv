@@ -51,7 +51,7 @@ const printInfo = [email, phone, linkedinUrl].filter(Boolean).join(' • ');
         {
           phone && (
             <a
-              href={`mailto:${phone}`}
+              href={`tel:${phone}`}
               title={`Llamar por télefono a ${name} al numero ${phone}`}
               target="_blank"
               rel="noopener noreferrer"
