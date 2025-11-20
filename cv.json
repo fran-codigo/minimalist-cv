@@ -201,6 +201,18 @@
   ],
   "projects": [
     {
+      "name": "App Tortilleria",
+      "isActive": false,
+      "startDate": "2025-09-05",
+      "endDate": "2025-11-20",
+      "description": "Aplicación para registrar las ventas de una tortillería.",
+      "highlights": [
+        "laravel,vue,tailwindcss,mysql"
+      ],
+      "url": "",
+      "description_url": "/proyectos/1d-app-tortilleria"
+    },
+    {
       "name": "Tema de wordpress",
       "isActive": false,
       "startDate": "2023-06-19",

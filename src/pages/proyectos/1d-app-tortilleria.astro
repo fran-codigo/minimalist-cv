@@ -1,0 +1,55 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="App Tortilleria">
+  <main>
+    <a href="/#proyectos" class="a_back">Regresar</a>
+    <h1>App Tortilleria</h1>
+  </main>
+</Layout>
+
+<style>
+  .a_back {
+    display: block;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .a_back:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    width: 85%;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .descripcion {
+    font-size: 1rem;
+  }
+
+  .imagen {
+    max-width: 100%;
+    margin: 2rem auto;
+  }
+
+  @media (width >= 768px) {
+    .imagen {
+      max-width: 50%;
+    }
+  }
+
+  .enlace {
+    text-decoration: underline;
+  }
+</style>
