@@ -202,7 +202,7 @@
   "projects": [
     {
       "name": "App Tortilleria",
-      "isActive": false,
+      "isActive": true,
       "startDate": "2025-09-05",
       "endDate": "2025-11-20",
       "description": "Aplicación para registrar las ventas de una tortillería.",
