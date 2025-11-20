@@ -1,0 +1,107 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="App Tortilleria">
+  <main>
+    <a href="/#proyectos" class="a_back">Regresar</a>
+    <h1>App Tortilleria</h1>
+    <p>
+      Aplicación para registrar las ventas de una tortillería. Hecho con Laravel
+      como API y Vue como frontend.Para la base de datos esta usando Mysql.
+    </p>
+
+    <div class="contenedor">
+      <p class="descripcion">
+        El administrador puede iniciar sesión con sus credenciales.
+      </p>
+      <img
+        src="/images/app-tortilleria/1.jpg"
+        alt="Imagen de registro"
+        class="imagen"
+      />
+      <p class="descripcion">
+        Una vez iniciada sesión, el administrador puede ver las ventas del día y
+        registrar las ventas que se generen en el día mostrando los datos más
+        importantes de cada venta. Puede registrar cada venta por cantidad de kg
+        o por monto en pesos y ver la hora en que se hizo la venta.
+      </p>
+      <img
+        src="/images/app-tortilleria/2.jpg"
+        alt="Imagen de registro"
+        class="imagen"
+      />
+      <img
+        src="/images/app-tortilleria/3.jpg"
+        alt="Imagen de registro"
+        class="imagen"
+      />
+      <img
+        src="/images/app-tortilleria/4.jpg"
+        alt="Imagen de registro"
+        class="imagen"
+      />
+      <p class="descripcion">
+        Puede ver el historial de ventas y buscar por fecha.
+      </p>
+      <img
+        src="/images/app-tortilleria/5.jpg"
+        alt="Imagen de registro"
+        class="imagen"
+      />
+      <p class="descripcion">
+        Puede ver el historial del precio y crear nuevos precios. El último precio creado va a ser el que se va a tomar y mostrar en la página de ventas.
+      </p>
+      <img
+        src="/images/app-tortilleria/6.jpg"
+        alt="Imagen de registro"
+        class="imagen"
+      />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .a_back {
+    display: block;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .a_back:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    width: 85%;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .descripcion {
+    font-size: 1rem;
+  }
+
+  .imagen {
+    max-width: 100%;
+    margin: 2rem auto;
+  }
+
+  @media (width >= 768px) {
+    .imagen {
+      max-width: 50%;
+    }
+  }
+
+  .enlace {
+    text-decoration: underline;
+  }
+</style>

@@ -14,14 +14,15 @@ import { projects } from "@cv";
               <article>
                 <header>
                   <h3>
-                    <a
-                      href={url}
-                      title={`Ver el proyecto ${name}`}
-                      target="_blank"
-                    >
-                      {name}
-                    </a>
-
+                    {url ? (
+                      <a
+                        href={url}
+                        title={`Ver el proyecto ${name}`}
+                        target="_blank"
+                      >
+                        {name}
+                      </a>
+                    ) : name}
                     {isActive && <span>&bull;</span>}
                   </h3>
                   <p>{description}</p>
