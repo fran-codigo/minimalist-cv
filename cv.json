@@ -201,6 +201,18 @@
   ],
   "projects": [
     {
+      "name": "App Liga de fútbol",
+      "isActive": true,
+      "startDate": "2025-11-01",
+      "endDate": "",
+      "description": "Aplicación para la gestión de una liga local de fútbol.",
+      "highlights": [
+        "laravel,vue,tailwindcss,mysql"
+      ],
+      "url": "",
+      "description_url": "/proyectos/1e-app-liga"
+    },
+    {
       "name": "App Tortilleria",
       "isActive": true,
       "startDate": "2025-09-05",
