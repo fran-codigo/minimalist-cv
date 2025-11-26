@@ -1,0 +1,204 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="App Liga de fútbol">
+  <main>
+    <a href="/#proyectos" class="a_back">Regresar</a>
+    <h1>App Liga de fútbol</h1>
+    <p>
+      Aplicación para la gestión de una liga local de fútbol. Hecho con Laravel
+      como API y Vue como frontend.Para la base de datos esta usando Mysql.
+    </p>
+
+    <div class="contenedor">
+      <h2>Parte del Administrador</h2>
+      <p class="descripcion">
+        Este proyecto es para llevar el seguimiento de una liga de fútbol local
+        en el que hay un administrador el cual lleva la gestión de la liga. El
+        proyecto cuenta con un inicio de sesión que al hacer login puedes
+        acceder al panel de administración.
+      </p>
+
+      <img
+        src="/images/app-liga/1.jpg"
+        alt="Imagen de administración"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        Una vez entras al administrador puedes ver la información más destacadas
+        como el número de equipos registrados, el número de jornadas creadas y
+        el número de partidos jugados. Se muestra la tabla de posiciones
+        ordenada como una liga profesional. También puedes ver los próximos
+        partidos por fecha.
+      </p>
+
+      <img
+        src="/images/app-liga/2.jpg"
+        alt="Imagen de tabla de posiciones"
+        class="imagen"
+      />
+      <img
+        src="/images/app-liga/3.jpg"
+        alt="Imagen de próximos partidos"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        El administrador puede ver los equipos registrados. Puede crear equipos,
+        eliminarlos y editarlos.
+      </p>
+      <img
+        src="/images/app-liga/4.jpg"
+        alt="Imagen de gestión de equipos"
+        class="imagen"
+      />
+      <img
+        src="/images/app-liga/5.jpg"
+        alt="Imagen de creación de equipos"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        Puede ver las jornadas, crear jornadas y eliminarlas. La jornada se
+        puede crear por número o nombre de la jornada, al actualizarla puedes
+        cambiar esto.
+      </p>
+      <img
+        src="/images/app-liga/6.jpg"
+        alt="Imagen de gestión de jornadas"
+        class="imagen"
+      />
+      <img
+        src="/images/app-liga/7.jpg"
+        alt="Imagen de creación de jornadas"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        En la parte de los partidos puede verlos, crearlos, editarlos,
+        eliminarlos y actualizar el marcador.
+      </p>
+      <img
+        src="/images/app-liga/7.jpg"
+        alt="Imagen de creación de jornadas"
+        class="imagen"
+      />
+      <img
+        src="/images/app-liga/8.jpg"
+        alt="Imagen de gestión de partidos"
+        class="imagen"
+      />
+      <img
+        src="/images/app-liga/9.jpg"
+        alt="Imagen de creación de marcador"
+        class="imagen"
+      />
+      <img
+        src="/images/app-liga/10.jpg"
+        alt="Imagen de actualización de marcador"
+        class="imagen"
+      />
+
+      <h2>Parte Pública</h2>
+
+      <p class="descripcion">
+        La aplicación cuenta con una landing page la cual muestra información
+        relevante de la liga para los que esten interesados en seguirla. Muestra
+        la temporada actual y el número de equipos participantes, los próximos
+        10 partidos,la tabla de posiciones. También puedes ver la ubicación en
+        donde se llevan a cabo los partidos. Puedes ver todos los partidos que
+        hay en la temporada. Ver todos los partidos de cada equipo de la liga.
+      </p>
+
+      <h3>Landing Page</h3>
+      <img
+        src="/images/app-liga/11.jpg"
+        alt="Imagen del header de la landing page"
+        class="imagen"
+      />
+
+      <img
+        src="/images/app-liga/12.jpg"
+        alt="Imagen de los próximos partidos"
+        class="imagen"
+      />
+
+      <img
+        src="/images/app-liga/13.jpg"
+        alt="Imagen de la tabla de posiciones en la landing page"
+        class="imagen"
+      />
+      <img
+        src="/images/app-liga/14.jpg"
+        alt="Imagen de la tabla de posiciones en la landing page"
+        class="imagen"
+      />
+
+      <h3>Detalles de un equipo</h3>
+      <img
+        src="/images/app-liga/15.jpg"
+        alt="Imagen de la tabla de posiciones en la landing page"
+        class="imagen"
+      />
+      <h3>Detalles de una jornada</h3>
+      <img
+        src="/images/app-liga/16.jpg"
+        alt="Imagen de la tabla de posiciones en la landing page"
+        class="imagen"
+      />
+      <h3>Detalles de los partidos de la liga</h3>
+      <img
+        src="/images/app-liga/17.jpg"
+        alt="Imagen de la tabla de posiciones en la landing page"
+        class="imagen"
+      />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .a_back {
+    display: block;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .a_back:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    width: 85%;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .descripcion {
+    font-size: 1rem;
+  }
+
+  .imagen {
+    max-width: 100%;
+    margin: 2rem auto;
+  }
+
+  @media (width >= 768px) {
+    .imagen {
+      max-width: 50%;
+    }
+  }
+
+  .enlace {
+    text-decoration: underline;
+  }
+</style>
