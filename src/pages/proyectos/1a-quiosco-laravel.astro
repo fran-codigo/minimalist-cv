@@ -1,11 +1,9 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
 ---
 
-<Layout title="Quiosco App Laravel">
-  <main>
-    <a href="/#proyectos" class="a_back">Regresar</a>
-    <h1>Quiosco App Laravel</h1>
+<ProjectLayout title="Quiosco App Laravel">
+  <div>
     <p>
       Aplicación para gestionar los pedidos de los clientes en un restaurante.
       El administrador puede gestionar los pedidos y cosas generales como los
@@ -31,16 +29,18 @@ import Layout from "@/layouts/Layout.astro";
         orden, una vez que se registre puede iniciar sesión con sus
         credenciales.
       </p>
-      <img
-        src="/images/react-quiosco/01.png"
-        alt="Imagen registro"
-        class="imagen"
-      />
-      <img
-        src="/images/react-quiosco/02.png"
-        alt="Imagen iniciar sesión"
-        class="imagen"
-      />
+      <div class="group-images">
+        <img
+          src="/images/react-quiosco/01.png"
+          alt="Imagen registro"
+          class="imagen"
+        />
+        <img
+          src="/images/react-quiosco/02.png"
+          alt="Imagen iniciar sesión"
+          class="imagen"
+        />
+      </div>
 
       <p class="descripcion">
         El usuario puede pedir los productos que quiera e ir viendo que es lo
@@ -91,7 +91,7 @@ import Layout from "@/layouts/Layout.astro";
           <br />
           <strong>pass:</strong> levi2025!!!
         </div>
-        
+
         <p class="descripcion">
           Puede registrarse con un correo y verificar su funcionamiento.
           <a
@@ -102,50 +102,5 @@ import Layout from "@/layouts/Layout.astro";
         </p>
       </div>
     </div>
-  </main>
-</Layout>
-
-<style>
-  .a_back {
-    display: block;
-    margin-bottom: 1rem;
-    text-decoration: none;
-  }
-
-  .a_back:hover {
-    text-decoration: underline;
-  }
-
-  main {
-    width: 85%;
-    padding: 2rem;
-    margin: 0 auto;
-  }
-
-  h1 {
-    margin-bottom: 1rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-  }
-
-  .descripcion {
-    font-size: 1rem;
-  }
-
-  .imagen {
-    max-width: 100%;
-    margin: 2rem auto;
-  }
-
-  @media (width >= 768px) {
-    .imagen {
-      max-width: 50%;
-    }
-  }
-
-  .enlace {
-    text-decoration: underline;
-  }
-</style>
+  </div>
+</ProjectLayout>
