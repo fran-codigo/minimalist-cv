@@ -1,7 +1,7 @@
 ---
-import Section from '@/components/Section.astro';
+import Section from "@/components/Section.astro";
 
-import { work } from '@cv';
+import { work } from "@cv";
 ---
 
 <Section title="Experiencia">
@@ -11,7 +11,7 @@ import { work } from '@cv';
         ({ name, startDate, endDate, position, summary, highlights }) => {
           const startYear = new Date(startDate).getFullYear();
           const endYear =
-            endDate != null ? new Date(endDate).getFullYear() : 'Actual';
+            endDate != null ? new Date(endDate).getFullYear() : "Actual";
           const years = `${startYear} - ${endYear}`;
 
           return (
@@ -22,7 +22,6 @@ import { work } from '@cv';
                     <h3>{name}</h3>
                     <h4>{position}</h4>
                   </div>
-
                   <time>{years}</time>
                 </header>
                 <footer>
@@ -30,10 +29,9 @@ import { work } from '@cv';
                 </footer>
               </article>
               <div class="highlights">
-                <h3></h3>
                 <ul class="">
                   {highlights.map((highlight) => {
-                    return <li>{highlight}</li>;
+                    return <li>- {highlight}</li>;
                   })}
                 </ul>
               </div>
@@ -74,15 +72,13 @@ import { work } from '@cv';
     color: #555;
   }
 
-  .highlights ul {
-    font-size: 12px;
-    margin-top: 10px;
-    list-style: circle;
-    color: #667;
+  footer {
+    margin: 15px 0;
   }
 
-  .highlights ul li {
-    margin: 0 0 0 10px;
-    padding: 0;
+  .highlights ul {
+    font-size: 13px;
+    margin-top: 10px;
+    color: #667;
   }
 </style>
