@@ -1,11 +1,9 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
 ---
 
-<Layout title="Devstagram Laravel">
-  <main>
-    <a href="/#proyectos" class="a_back">Regresar</a>
-    <h1>Devstagram Laravel - Clon de Instagrams</h1>
+<ProjectLayout title="Devstagram Laravel - Clon de Instagram">
+  <div>
     <p>
       Clon de Instagram con las funcionalidades básicas hecho con Laravel y
       Tailwindcss.
@@ -26,16 +24,18 @@ import Layout from "@/layouts/Layout.astro";
         En la parte de registro hay validaciones. El correo debe ser único y el
         nombre de usuario también debe ser único.
       </p>
-      <img
-        src="/images/devstagram/1.png"
-        alt="Imagen de registro"
-        class="imagen"
-      />
-      <img
-        src="/images/devstagram/2.png"
-        alt="Imagen de registro"
-        class="imagen"
-      />
+      <div class="group-images">
+        <img
+          src="/images/devstagram/1.png"
+          alt="Imagen de registro"
+          class="imagen"
+        />
+        <img
+          src="/images/devstagram/2.png"
+          alt="Imagen de registro"
+          class="imagen"
+        />
+      </div>
 
       <p class="descripcion">
         Una vez ingreses con tus credenciales, podrás ver la página de tu perfil
@@ -94,50 +94,5 @@ import Layout from "@/layouts/Layout.astro";
         >
       </p>
     </div>
-  </main>
-</Layout>
-
-<style>
-  .a_back {
-    display: block;
-    margin-bottom: 1rem;
-    text-decoration: none;
-  }
-
-  .a_back:hover {
-    text-decoration: underline;
-  }
-
-  main {
-    width: 85%;
-    padding: 2rem;
-    margin: 0 auto;
-  }
-
-  h1 {
-    margin-bottom: 1rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-  }
-
-  .descripcion {
-    font-size: 1rem;
-  }
-
-  .imagen {
-    max-width: 100%;
-    margin: 2rem auto;
-  }
-
-  @media (width >= 768px) {
-    .imagen {
-      max-width: 50%;
-    }
-  }
-
-  .enlace {
-    text-decoration: underline;
-  }
-</style>
+  </div>
+</ProjectLayout>

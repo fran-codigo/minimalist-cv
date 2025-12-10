@@ -1,11 +1,9 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
 ---
 
-<Layout title="AppSalon Laravel, Vue">
-  <main>
-    <a href="/#proyectos" class="a_back">Regresar</a>
-    <h1>AppSalon Laravel</h1>
+<ProjectLayout title="AppSalon Laravel">
+  <div>
     <p>
       Aplicación para gestionar las citas de los clientes en una barberia y se
       puede adaptar a un salón de belleza, dentista, nutricionista, etc.
@@ -35,17 +33,19 @@ import Layout from "@/layouts/Layout.astro";
         eliminarla, notificando al administrador por medio de un correo
         electrónico.
       </p>
-      <img
-        src="/images/app-salon/4-agendar.jpg"
-        alt="Imagen de citas"
-        class="imagen"
-      />
+      <div class="group-images">
+        <img
+          src="/images/app-salon/4-agendar.jpg"
+          alt="Imagen de citas"
+          class="imagen"
+        />
 
-      <img
-        src="/images/app-salon/3-agendar.jpg"
-        alt="Imagen de citas"
-        class="imagen"
-      />
+        <img
+          src="/images/app-salon/3-agendar.jpg"
+          alt="Imagen de citas"
+          class="imagen"
+        />
+      </div>
 
       <p class="descripcion">
         En la parte del administrador podrá ver todas las citas agendadas por
@@ -86,7 +86,7 @@ import Layout from "@/layouts/Layout.astro";
           <strong>pass:</strong> 12345678
         </div>
 
-        <p  class="descripcion">
+        <p class="descripcion">
           Puedes registrarte con un correo y verificar su funcionamiento.
           <a
             target="_blank"
@@ -97,50 +97,5 @@ import Layout from "@/layouts/Layout.astro";
         </p>
       </div>
     </div>
-  </main>
-</Layout>
-
-<style>
-  .a_back {
-    display: block;
-    margin-bottom: 1rem;
-    text-decoration: none;
-  }
-
-  .a_back:hover {
-    text-decoration: underline;
-  }
-
-  main {
-    width: 85%;
-    padding: 2rem;
-    margin: 0 auto;
-  }
-
-  h1 {
-    margin-bottom: 1rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-  }
-
-  .descripcion {
-    font-size: 1rem;
-  }
-
-  .imagen {
-    max-width: 100%;
-    margin: 2rem auto;
-  }
-
-  @media (width >= 768px) {
-    .imagen {
-      max-width: 50%;
-    }
-  }
-
-  .enlace {
-    text-decoration: underline;
-  }
-</style>
+  </div>
+</ProjectLayout>

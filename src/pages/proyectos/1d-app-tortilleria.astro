@@ -1,11 +1,9 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
 ---
 
-<Layout title="App Tortilleria">
-  <main>
-    <a href="/#proyectos" class="a_back">Regresar</a>
-    <h1>App Tortilleria</h1>
+<ProjectLayout title="App Tortilleria">
+  <div>
     <p>
       Aplicación para registrar las ventas de una tortillería. Hecho con Laravel
       como API y Vue como frontend.Para la base de datos esta usando Mysql.
@@ -26,21 +24,23 @@ import Layout from "@/layouts/Layout.astro";
         importantes de cada venta. Puede registrar cada venta por cantidad de kg
         o por monto en pesos y ver la hora en que se hizo la venta.
       </p>
-      <img
-        src="/images/app-tortilleria/2.jpg"
-        alt="Imagen de registro"
-        class="imagen"
-      />
-      <img
-        src="/images/app-tortilleria/3.jpg"
-        alt="Imagen de registro"
-        class="imagen"
-      />
-      <img
-        src="/images/app-tortilleria/4.jpg"
-        alt="Imagen de registro"
-        class="imagen"
-      />
+      <div class="group-images">
+        <img
+          src="/images/app-tortilleria/2.jpg"
+          alt="Imagen de registro"
+          class="imagen"
+        />
+        <img
+          src="/images/app-tortilleria/3.jpg"
+          alt="Imagen de registro"
+          class="imagen"
+        />
+        <img
+          src="/images/app-tortilleria/4.jpg"
+          alt="Imagen de registro"
+          class="imagen"
+        />
+      </div>
       <p class="descripcion">
         Puede ver el historial de ventas y buscar por fecha.
       </p>
@@ -50,7 +50,9 @@ import Layout from "@/layouts/Layout.astro";
         class="imagen"
       />
       <p class="descripcion">
-        Puede ver el historial del precio y crear nuevos precios. El último precio creado va a ser el que se va a tomar y mostrar en la página de ventas.
+        Puede ver el historial del precio y crear nuevos precios. El último
+        precio creado va a ser el que se va a tomar y mostrar en la página de
+        ventas.
       </p>
       <img
         src="/images/app-tortilleria/6.jpg"
@@ -59,26 +61,37 @@ import Layout from "@/layouts/Layout.astro";
       />
 
       <p class="descripcion">
-        Una nueva funcionalidad que he agregado a la aplicación es la parte de usuarios en donde se pueden crear nuevos usuarios, editarlos, activar o desactivar. El usuario puede ser de tipo admin y de tipo empleado. El de tipo admin tiene acceso a todo el panel de administración, mientras tanto el de tipo empleado solo tiene acceso a ciertas partes del sistema. El tipo admin es el que puede crearlos, editarlos y cambiar de estado.
+        Una nueva funcionalidad que he agregado a la aplicación es la parte de
+        usuarios en donde se pueden crear nuevos usuarios, editarlos, activar o
+        desactivar. El usuario puede ser de tipo admin y de tipo empleado. El de
+        tipo admin tiene acceso a todo el panel de administración, mientras
+        tanto el de tipo empleado solo tiene acceso a ciertas partes del
+        sistema. El tipo admin es el que puede crearlos, editarlos y cambiar de
+        estado.
       </p>
-      <img
-        src="/images/app-tortilleria/9.jpg"
-        alt="Imagen de gestión de usuarios"
-        class="imagen"
-      />
-      <img
-        src="/images/app-tortilleria/10.jpg"
-        alt="Imagen de creación de usuarios"
-        class="imagen"
-      />
-      <img
-        src="/images/app-tortilleria/11.jpg"
-        alt="Imagen de vista de empleado"
-        class="imagen"
-      />
+      <div class="group-images">
+        <img
+          src="/images/app-tortilleria/9.jpg"
+          alt="Imagen de gestión de usuarios"
+          class="imagen"
+        />
+        <img
+          src="/images/app-tortilleria/10.jpg"
+          alt="Imagen de creación de usuarios"
+          class="imagen"
+        />
+        <img
+          src="/images/app-tortilleria/11.jpg"
+          alt="Imagen de vista de empleado"
+          class="imagen"
+        />
+      </div>
 
       <p class="descripcion">
-        En este proyecto igual se agrego una parte de estadisticas en las cuales se muestran datos importantes que pueden servir para crear un mejor servicio y saber las tendencias del negocio, de momento he agreagado los siguientes datos:
+        En este proyecto igual se agrego una parte de estadisticas en las cuales
+        se muestran datos importantes que pueden servir para crear un mejor
+        servicio y saber las tendencias del negocio, de momento he agreagado los
+        siguientes datos:
       </p>
       <ul>
         <li>- Hora pico de ventas</li>
@@ -89,61 +102,18 @@ import Layout from "@/layouts/Layout.astro";
         <li>- Gráfica con tendencia de ventas</li>
         <li>- Gráfica con tendencia de ventas por hora</li>
       </ul>
-      <img
-        src="/images/app-tortilleria/7.jpg"
-        alt="Imagen de estadísticas"
-        class="imagen"
-      />
-      <img
-        src="/images/app-tortilleria/8.jpg"
-        alt="Imagen de estadísticas"
-        class="imagen"
-      />
+      <div class="group-images">
+        <img
+          src="/images/app-tortilleria/7.jpg"
+          alt="Imagen de estadísticas"
+          class="imagen"
+        />
+        <img
+          src="/images/app-tortilleria/8.jpg"
+          alt="Imagen de estadísticas"
+          class="imagen"
+        />
+      </div>
     </div>
-  </main>
-</Layout>
-
-<style>
-  .a_back {
-    display: block;
-    margin-bottom: 1rem;
-    text-decoration: none;
-  }
-
-  .a_back:hover {
-    text-decoration: underline;
-  }
-
-  main {
-    width: 85%;
-    padding: 2rem;
-    margin: 0 auto;
-  }
-
-  h1 {
-    margin-bottom: 1rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-  }
-
-  .descripcion {
-    font-size: 1rem;
-  }
-
-  .imagen {
-    max-width: 100%;
-    margin: 2rem auto;
-  }
-
-  @media (width >= 768px) {
-    .imagen {
-      max-width: 50%;
-    }
-  }
-
-  .enlace {
-    text-decoration: underline;
-  }
-</style>
+  </div>
+</ProjectLayout>
