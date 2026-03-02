@@ -1,0 +1,214 @@
+---
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
+---
+
+<ProjectLayout title="Cuponcitos - Programa de Lealtad y Recompensas">
+  <div>
+    <p>
+      Plataforma SaaS para la gestión de programas de fidelización mediante
+      cupones digitales. Desarrollada con Laravel como API y Vue.js como
+      frontend. Utiliza MySQL como base de datos.
+    </p>
+
+    <div class="contenedor">
+      <h2>Sistema de Autenticación</h2>
+      <p class="descripcion">
+        El proyecto cuenta con un sistema completo de autenticación que incluye
+        registro de usuarios, inicio de sesión, recuperación de contraseña y
+        verificación de correo electrónico. El sistema está protegido con rate
+        limiting para prevenir ataques de fuerza bruta.
+      </p>
+
+      <div class="group-images">
+        <img
+          src="/images/cuponcitos/cuponcitos-1.jpg"
+          alt="Sistema de autenticación"
+          class="imagen"
+        />
+        <img
+          src="/images/cuponcitos/cuponcitos-2.jpg"
+          alt="Sistema de autenticación"
+          class="imagen"
+        />
+        <img
+          src="/images/cuponcitos/cuponcitos-3.jpg"
+          alt="Sistema de autenticación"
+          class="imagen"
+        />
+      </div>
+
+      <h2>Panel de Administración</h2>
+      <p class="descripcion">
+        Cada negocio registrado tiene acceso a un panel de administración donde
+        puede gestionar todos los aspectos de su programa de fidelización. El
+        panel permite visualizar estadísticas clave del programa, incluyendo el
+        número de clientes, cupones emitidos y canjeados.
+      </p>
+
+      <img
+        src="/images/cuponcitos/cuponcitos-4.jpg"
+        alt="Panel de administración"
+        class="imagen"
+      />
+
+      <h2>Sistema de Cupones</h2>
+      <p class="descripcion">
+        El sistema permite generar cupones con códigos únicos. Los cupones
+        pueden tener diferentes estados: disponibles, canjeados o vencidos. Los
+        administradores pueden crear cupones, cambiar su estado y agregar puntos
+        a los clientes.
+      </p>
+
+      <div class="group-images">
+        <img
+          src="/images/cuponcitos/cuponcitos-5.jpg"
+          alt="Gestión de cupones"
+          class="imagen"
+        />
+        <img
+          src="/images/cuponcitos/cuponcitos-6.jpg"
+          alt="Creación de cupones"
+          class="imagen"
+        />
+      </div>
+
+      <h2>Gestión de Productos</h2>
+      <p class="descripcion">
+        El administrador puede crear, editar, eliminar y activar/desactivar
+        productos. Los productos se utilizan como premios canjeables por los
+        clientes. Cada producto puede configurarse como recompensa disponible en
+        el programa de lealtad.
+      </p>
+
+      <div class="group-images">
+        <img
+          src="/images/cuponcitos/cuponcitos-7.jpg"
+          alt="Lista de productos"
+          class="imagen"
+        />
+        <img
+          src="/images/cuponcitos/cuponcitos-8.jpg"
+          alt="Creación de productos"
+          class="imagen"
+        />
+      </div>
+
+      <h2>Condiciones del Negocio</h2>
+      <p class="descripcion">
+        Los negocios pueden establecer sus propias condiciones de recompensas,
+        como la cantidad de puntos necesarios para obtener un producto gratis o
+        un descuento. Estas condiciones pueden activarse o desactivarse según
+        las necesidades del negocio.
+      </p>
+
+      <div class="group-images">
+        <img
+          src="/images/cuponcitos/cuponcitos-9.jpg"
+          alt="Condiciones del negocio"
+          class="imagen"
+        />
+        <img
+          src="/images/cuponcitos/cuponcitos-10.jpg"
+          alt="Condiciones del negocio"
+          class="imagen"
+        />
+      </div>
+
+      <h2>Perfil de Usuario</h2>
+      <p class="descripcion">
+        Los usuarios pueden gestionar su información personal, incluyendo cambio
+        de correo electrónico y contraseña. El sistema mantiene un historial de
+        cambios para mayor seguridad.
+      </p>
+
+      <img
+        src="/images/cuponcitos/cuponcitos-11.jpg"
+        alt="Perfil de usuario"
+        class="imagen"
+      />
+
+      <h2>Sistema de Pagos</h2>
+      <p class="descripcion">
+        El proyecto incluye un sistema de suscripciones con integración de
+        pagos. Los negocios pueden elegir diferentes planes y gestionar su
+        facturación desde el panel de administración. El sistema registra el
+        historial de pagos y permite visualizar los precios de los planes
+        disponibles.
+      </p>
+
+      <img
+        src="/images/cuponcitos/cuponcitos-12.jpg"
+        alt="Planes disponibles"
+        class="imagen"
+      />
+
+      <h2>Página Pública del Negocio</h2>
+      <p class="descripcion">
+        Cada negocio obtiene una página pública personalizada con un ID único y
+        slug SEO-friendly. Esta página muestra la información del negocio, los
+        productos disponibles para canje y las condiciones activas del programa
+        de fidelización.
+      </p>
+
+      <p class="descripcion">
+        Los clientes pueden verificar sus cupones ingresando el código en la
+        página pública del negocio. El sistema valida el cupón y muestra su
+        estado actual, incluyendo si es válido, ya fue canjeado o está vencido.
+      </p>
+
+      <img
+        src="/images/cuponcitos/cuponcitos-13.jpg"
+        alt="Página pública del negocio"
+        class="imagen"
+      />
+
+      <h2>Landing Page</h2>
+      <p class="descripcion">
+        Existe una landing page que muestra las características del proyecto y
+        cuenta con un apartado para registrarte y obtener el plan gratuito con
+        10 cupones para tu negocio.
+      </p>
+
+      <img
+        src="/images/cuponcitos/cuponcitos-14.jpg"
+        alt="Landing page"
+        class="imagen"
+      />
+
+      <h2>Super Administrador</h2>
+      <p class="descripcion">
+        Existe un rol de super administrador que gestiona la plataforma
+        completa. Este rol puede visualizar todas las estadísticas de la
+        plataforma, gestionar todos los negocios registrados, configurar los
+        planes de precios y enviar notificaciones a los usuarios.
+      </p>
+      <div class="group-images">
+        <img
+          src="/images/cuponcitos/cuponcitos-15.jpg"
+          alt="Estadísticas de la plataforma"
+          class="imagen"
+        />
+        <img
+          src="/images/cuponcitos/cuponcitos-16.jpg"
+          alt="Gestión de negocios"
+          class="imagen"
+        />
+      </div>
+
+      <div class="descripcion">
+        <div>
+          La aplicación ya está en producción   
+        </div>
+        <p class="descripcion">
+          Puedes registrarte con un correo y verificar su funcionamiento.
+          <a
+            target="_blank"
+            class="enlace"
+            href="https://cuponcitos.app">cuponcitos.app</a
+          >
+          <br />
+        </p>
+      </div>
+    </div>
+  </div>
+</ProjectLayout>

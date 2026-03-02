@@ -201,6 +201,18 @@
   ],
   "projects": [
     {
+      "name": "Cuponcitos - SASS",
+      "isActive": true,
+      "startDate": "2025-08-01",
+      "endDate": "",
+      "description": "Aplicación para administrar cupones y recompensas de negocios.",
+      "highlights": [
+        "laravel,vue,tailwindcss,mysql"
+      ],
+      "url": "https://cuponcitos.app",
+      "description_url": "/proyectos/1f-cuponcitos"
+    },
+    {
       "name": "App Liga de fútbol",
       "isActive": true,
       "startDate": "2025-11-01",
