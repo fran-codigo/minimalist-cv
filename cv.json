@@ -6,7 +6,7 @@
     "email": "franco.silva.code@gmail.com",
     "phone": "249 171 92 36",
     "url": "https://franco-silva.site",
-    "summary": "Desarrollador Web con un año de experiencia. He creado temas personalizados de WordPress desde cero y desarrollado aplicaciones fullstack utilizando PHP y JavaScript. Actualmente trabajo como desarrollador backend especializado en Laravel, construyendo APIs e integrando una amplia variedad de funcionalidades.",
+    "summary": "Desarrollador Full-Stack con más de dos años de experiencia construyendo soluciones web a medida utilizando PHP (Laravel), Vue.js, Nuxt, Node (Express) y WordPress. Especializado en el diseño e implementación de APIs RESTful, optimización de rendimiento y arquitectura backend escalable. Experiencia integrando servicios en la nube como Amazon Web Services (AWS), incluyendo reconocimiento facial con Amazon Rekognition, así como implementación de sistemas de autenticación segura y funcionalidades avanzadas para aplicaciones web y móviles. Me enfoco en desarrollar soluciones robustas en backend sin descuidar la experiencia del usuario en interfaces dinámicas y mantenibles. Busco integrarme a un equipo donde pueda aportar solidez técnica y seguir creciendo en entornos de alto impacto.",
     "location": {
       "city": "Puebla",
       "countryCode": "MX",
@@ -26,6 +26,24 @@
     ]
   },
   "work": [
+    {
+      "name": "Proyectos personales | Freelance",
+      "position": "Desarrollador FullStack",
+      "url": "",
+      "startDate": "2025-07-01",
+      "endDate": "",
+      "summary": "Desarrollo de aplicaciones web fullstack utilizando Laravel, Vue y Nuxt.js. Diseño e implementación de APIs REST, autenticación y manejo de roles. Modelado de base de datos y optimización de consultas. Implementación de arquitectura modular y buenas prácticas (Clean Code, validaciones, manejo de errores).",
+      "highlights": [
+        "Desarrollo de aplicaciones web fullstack utilizando Laravel, Vue y Nuxt.js",
+        "Diseño e implementación de APIs REST, autenticación y manejo de roles",
+        "Modelado de base de datos y optimización de consultas",
+        "Implementación de arquitectura modular y buenas prácticas",
+        " cuponcitos.app – Plataforma web para gestión y visualización de cupones digitales",
+        "Sistema para gestión de liga de fútbol – Aplicación web para la gestión de una liga de fútbol (temporadas, partidos, jugadores, goleadores)",
+        "Aplicación para gestionar eventos - Aplicación web para gestionar eventos, los usuarios pueden inscribirse a eventos que el administrador cree",
+        "Aplicación para gestionar prestamos – Aplicación web para gestionar prestamos y clientes"
+      ]
+    },
     {
       "name": "SatoriTech",
       "position": "Desarrollador Backend",
@@ -88,103 +106,37 @@
   ],
   "skills": [
     {
-      "name": "Web Development",
-      "level": "Master",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ]
+      "name": "PHP"
     },
     {
-      "name": "HTML",
-      "level": "Master",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ]
+      "name": "Laravel"
     },
     {
-      "name": "SCSS",
-      "level": "Master",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ]
+      "name": "Node"
     },
     {
-      "name": "Tailwindcss",
-      "level": "Master",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ]
+      "name": "Express"
     },
     {
-      "name": "PHP",
-      "level": "Master",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ]
+      "name": "JavaScript"
     },
     {
-      "name": "JAVASCRIPT",
-      "level": "Master",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ]
+      "name": "Vue"
     },
     {
-      "name": "LARAVEL",
-      "level": "Master",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ]
+      "name": "Nuxt"
     },
     {
-      "name": "VUE",
-      "level": "Master",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ]
+      "name": "React"
     },
     {
-      "name": "NUXT",
-      "level": "Master",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ]
+      "name": "TailwindCSS"
     },
     {
-      "name": "MYSQL",
-      "level": "Master",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ]
+      "name": "Git"
     },
     {
-      "name": "GIT",
-      "level": "Master",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ]
+      "name": "WordPress"
     }
   ],
   "languages": [
