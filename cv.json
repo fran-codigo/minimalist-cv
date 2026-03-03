@@ -160,6 +160,15 @@
       ]
     },
     {
+      "name": "NUXT",
+      "level": "Master",
+      "keywords": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    },
+    {
       "name": "MYSQL",
       "level": "Master",
       "keywords": [
@@ -211,6 +220,18 @@
       ],
       "url": "https://cuponcitos.app",
       "description_url": "/proyectos/1f-cuponcitos"
+    },
+    {
+      "name": "Eventos App",
+      "isActive": true,
+      "startDate": "2026-02-01",
+      "endDate": "",
+      "description": "Aplicación para administrar eventos donde los usuaros pueden inscribirse.",
+      "highlights": [
+        "nuxt,vue,tailwindcss,postgresql,nuxt-ui,drizzle"
+      ],
+      "url": "",
+      "description_url": "/proyectos/1g-eventos-app"
     },
     {
       "name": "App Liga de fútbol",

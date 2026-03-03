@@ -1,0 +1,155 @@
+---
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
+---
+
+<ProjectLayout title="Eventos App">
+  <div>
+    <p>
+      Plataforma web para la gestión y registro de eventos con capacidad
+      limitada. Desarrollada con Nuxt 4, Vue 3, Nuxt UI 4 y Tailwind CSS.
+      Utiliza PostgreSQL con Drizzle ORM y Neon para la base de datos.
+    </p>
+
+    <div class="contenedor">
+      <h2>Acerca del proyecto</h2>
+      <p class="descripcion">
+        Este proyecto surge de la necesidad de tener un sistema centralizado
+        donde los organizadores puedan publicar eventos con cupos limitados y
+        los asistentes puedan registrarse de forma autónoma. El problema
+        principal era que no había una forma fácil de gestionar cupos y evitar
+        sobreventa.
+      </p>
+
+      <h2>Stack Tecnológico</h2>
+      <p class="descripcion">
+        El proyecto está construido con Nuxt 4 como framework principal,
+        utilizando Vue 3 con Composition API. Para el frontend utilizo Nuxt UI 4
+        con Tailwind CSS para los estilos. En el backend uso Nitro (el servidor
+        de Nuxt) con Drizzle ORM para interactuar con PostgreSQL en Neon. La
+        autenticación la manejo con nuxt-auth-utils y Zod para la validación de
+        datos.
+      </p>
+
+      <h2>Parte Pública</h2>
+      <p class="descripcion">
+        La aplicación cuenta con una landing page donde se muestran los eventos
+        próximos. Cada evento muestra información básica como el título, fecha,
+        ubicación y si hay cupos disponibles o está agotado.
+      </p>
+
+      <p class="descripcion">
+        Al hacer clic en un evento, se puede ver la descripción completa, fecha,
+        hora, ubicación y la cantidad de lugares disponibles. Si el usuario está
+        interesado y hay cupos, puede registrarse directamente desde aquí.
+      </p>
+
+      <div class="group-images">
+        <img
+          src="/images/eventos-app/eventos-app-1.jpg"
+          alt="Landing page con eventos próximos"
+          class="imagen"
+        />
+        <img
+          src="/images/eventos-app/eventos-app-2.jpg"
+          alt="Landing page con eventos próximos"
+          class="imagen"
+        />
+        <img
+          src="/images/eventos-app/eventos-app-10.jpg"
+          alt="Pagina de evento"
+          class="imagen"
+        />
+      </div>
+
+      <h2>Autenticación</h2>
+      <p class="descripcion">
+        Para registrarse, el usuario necesita proporcionar su nombre, correo
+        electrónico y una contraseña. Una vez creada la cuenta, puede iniciar
+        sesión para acceder a su panel personal.
+      </p>
+
+      <div class="group-images">
+        <img
+          src="/images/eventos-app/eventos-app-3.jpg"
+          alt="Página de registro"
+          class="imagen"
+        />
+        <img
+          src="/images/eventos-app/eventos-app-4.jpg"
+          alt="Página de inicio de sesión"
+          class="imagen"
+        />
+      </div>
+
+      <h2>Panel del Usuario</h2>
+      <p class="descripcion">
+        Una vez autenticado, el usuario tiene acceso a "Mis Eventos" donde puede
+        ver todos los eventos a los que está inscrito, tanto próximos como
+        pasados. Desde aquí también puede cancelar su asistencia si ya no puede
+        asistir, lo cual libera su lugar automáticamente para que otra persona
+        pueda inscribirse.
+      </p>
+
+      <img
+        src="/images/eventos-app/eventos-app-5.jpg"
+        alt="Panel de usuario con mis eventos"
+        class="imagen"
+      />
+
+      <h2>Sistema de Tickets</h2>
+      <p class="descripcion">
+        Al inscribirse a un evento, se genera automáticamente un ticket con un
+        identificador único de 16 caracteres. Este ticket es visible en el panel
+        del usuario y puede copiarlo al portapapeles con un clic. El sistema
+        garantiza que cada ticket sea único.
+      </p>
+
+      <img
+        src="/images/eventos-app/eventos-app-6.jpg"
+        alt="Vista de eventos pasados"
+        class="imagen"
+      />
+
+      <h2>Panel de Administración</h2>
+      <p class="descripcion">
+        El administrador tiene acceso a un panel completo donde puede gestionar
+        todos los eventos. Desde aquí puede crear nuevos eventos especificando
+        título, descripción, fecha, hora, ubicación e imagen. También puede
+        editar eventos existentes o eliminarlos si es necesario.
+      </p>
+
+      <div class="group-images">
+        <img
+          src="/images/eventos-app/eventos-app-7.jpg"
+          alt="Lista de eventos en el panel de administración"
+          class="imagen"
+        />
+        <img
+          src="/images/eventos-app/eventos-app-8.jpg"
+          alt="Formulario de creación de evento"
+          class="imagen"
+        />
+      </div>
+
+      <p class="descripcion">
+        Una funcionalidad importante es la gestión de cupos. El administrador
+        define un cupo máximo al crear el evento, y el sistema va reduciendo
+        automáticamente conforme los usuarios se registran. Si un usuario
+        cancela, el cupo se libera automáticamente.
+      </p>
+
+      <p class="descripcion">
+        En la sección de detalles de cada evento, el administrador puede ver la
+        lista completa de asistentes registrados, junto con su información de
+        contacto y el ID del ticket. Esto es útil para verificar la asistencia
+        el día del evento.
+      </p>
+
+      <img
+        src="/images/eventos-app/eventos-app-9.jpg"
+        alt="Lista de asistentes registrados"
+        class="imagen"
+      />
+    </div>
+  </div>
+</ProjectLayout>
