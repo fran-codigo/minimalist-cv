@@ -1,0 +1,149 @@
+---
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
+---
+
+<ProjectLayout title="Canchitas App">
+  <div>
+    <p>
+      Red social que permite a equipos locales de fútbol y basketball registrar,
+      gestionar y compartir sus partidos con su comunidad. Desarrollada con Nuxt
+      4, Vue 3, Nuxt UI 4 y Tailwind CSS. Utiliza PostgreSQL con Drizzle ORM y
+      Neon para la base de datos.
+    </p>
+
+    <div class="contenedor">
+      <h2>Acerca del proyecto</h2>
+      <p class="descripcion">
+        Este proyecto surge de la necesidad de crear un espacio digital donde
+        equipos locales de fútbol y basketball puedan centralizar sus
+        resultados, generar comunidad alrededor de sus partidos y compartir su
+        pasión deportiva con un público más amplio. Tiene un apartado de fans
+        donde estos los pueden seguir y dar me gusta a sus resultados
+      </p>
+
+      <h2>Stack Tecnológico</h2>
+      <p class="descripcion">
+        El proyecto está construido con Nuxt 4 como framework principal,
+        utilizando Vue 3 con Composition API. Para el frontend utilizo Nuxt UI 4
+        con Tailwind CSS para los estilos. En el backend uso Nitro (el servidor
+        de Nuxt) con Drizzle ORM para interactuar con PostgreSQL en Neon. La
+        autenticación la manejo con nuxt-auth-utils, validación con Zod, y el
+        envío de correos con Nodemailer.
+      </p>
+
+      <h2>Landing Page</h2>
+      <p class="descripcion">
+        La página de inicio presenta la marca "canchitas.app" con un diseño dark
+        y branding fuerte. Incluye CTAS para registrarte como equipo como fan.
+      </p>
+
+      <img
+        src="/images/canchitas-app/1.jpg"
+        alt="Vista general de Canchitas App"
+        class="imagen"
+      />
+
+      <h2>Autenticación</h2>
+      <p class="descripcion">
+        Sistema de registro e inicio de sesión donde los usuarios pueden crear
+        una cuenta con su equipo. Incluye verificación por código enviado por
+        email.
+      </p>
+
+      <div class="group-images">
+        <img
+          src="/images/canchitas-app/2.jpg"
+          alt="Página de registro"
+          class="imagen"
+        />
+        <img
+          src="/images/canchitas-app/3.jpg"
+          alt="Página de inicio de sesión"
+          class="imagen"
+        />
+      </div>
+
+      <h2>Panel del Equipo (Dashboard)</h2>
+      <p class="descripcion">
+        Área privada donde los capitanes/administradores pueden crear y
+        gestionar torneos, registrar partidos con marcador, fecha y ubicación,
+        administrar jugadores del equipo, y ver el historial de partidos.
+      </p>
+
+      <div class="group-images">
+        <img
+          src="/images/canchitas-app/4.jpg"
+          alt="Dashboard del equipo"
+          class="imagen"
+        />
+        <img
+          src="/images/canchitas-app/5.jpg"
+          alt="Gestión de torneos"
+          class="imagen"
+        />
+        <img
+          src="/images/canchitas-app/6.jpg"
+          alt="Registro de partido"
+          class="imagen"
+        />
+        <img
+          src="/images/canchitas-app/7.jpg"
+          alt="Gestión de jugadores"
+          class="imagen"
+        />
+      </div>
+
+      <h2>Sección Social</h2>
+      <p class="descripcion">
+        Feed público donde se muestran los partidos de todos los equipos,
+        permitiendo explorar partidos de otros equipos, buscar equipos por
+        código y ver el perfil público de equipos.
+      </p>
+
+      <div class="group-images">
+        <img
+          src="/images/canchitas-app/8.jpg"
+          alt="Feed social"
+          class="imagen"
+        />
+        <img
+          src="/images/canchitas-app/9.jpg"
+          alt="Búsqueda de equipos"
+          class="imagen"
+        />
+      </div>
+
+      <h2>Perfil Público del Equipo</h2>
+      <p class="descripcion">
+        Cada equipo tiene una página pública única (ej:
+        canchitas.app/equipos/mi-equipo) donde cualquier persona puede ver la
+        lista de partidos jugados, resultados recientes y próximos partidos
+        programados.
+      </p>
+      <img
+        src="/images/canchitas-app/11.jpg"
+        alt="Perfil público del equipo"
+        class="imagen"
+      />
+
+      <h2>Dashboard General de la aplicación</h2>
+      <p class="descripcion">
+        Vista general de todos los equipos registrados, con estadísticas
+        agregadas como cantidad total de partidos jugados, cantidad de equipos,
+        y cantidad de jugadores.
+      </p>
+      <img
+        src="/images/canchitas-app/10.jpg"
+        alt="Dashboard general de la aplicación"
+        class="imagen"
+      />
+
+      <p class="descripcion">
+        Puedes probar la aplicación en: <a
+          href="https://canchitas.app"
+          target="_blank">canchitas.app</a
+        >
+      </p>
+    </div>
+  </div>
+</ProjectLayout>
