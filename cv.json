@@ -172,6 +172,18 @@
       "url": "https://cuponcitos.app",
       "description_url": "/proyectos/1f-cuponcitos"
     },
+     {
+      "name": "Canchitas - App",
+      "isActive": true,
+      "startDate": "2026-03-15",
+      "endDate": "",
+      "description": "Red social para compartir resultados de los partidos de fútbol",
+      "highlights": [
+        "nuxt,nuxt-ui,drizzle,postgresql,tailwindcss"
+      ],
+      "url": "https://canchitas.app",
+      "description_url": "/proyectos/1h-canchitas-app"
+    },
     {
       "name": "Eventos App",
       "isActive": true,
@@ -242,18 +254,6 @@
       ],
       "url": "https://appsalon-lv-fs.mnz.dom.my.id/auth/registro",
       "description_url": "/proyectos/1b-appsalon-laravel"
-    },
-    {
-      "name": "Devstagram",
-      "isActive": false,
-      "startDate": "2024-01-01",
-      "endDate": "2024-05-01",
-      "description": "Clon de instagram con funcionalidades básicas.",
-      "highlights": [
-        "laravel,blade,tailwindcss,mysql"
-      ],
-      "url": "https://mukpotu.nyc.dom.my.id/login",
-      "description_url": "/proyectos/1c-devstagram-laravel"
     }
   ]
 }
