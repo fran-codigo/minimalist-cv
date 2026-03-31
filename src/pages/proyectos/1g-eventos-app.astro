@@ -150,6 +150,52 @@ import ProjectLayout from "@/layouts/ProjectLayout.astro";
         alt="Lista de asistentes registrados"
         class="imagen"
       />
+
+      <h2>Resumen de Comentarios con IA</h2>
+      <p class="descripcion">
+        Esta funcionalidad permite que el administrador genere automáticamente
+        un resumen de los comentarios de un evento usando el Vercel AI SDK, el
+        cual se muestra como primera opción en la página pública del evento.
+      </p>
+
+      <p class="descripcion">
+        <strong>Tecnologías utilizadas:</strong>
+        Vercel AI SDK para la generación de texto, Drizzle ORM para la persistencia
+        en PostgreSQL y Zod para la validación de datos.
+      </p>
+
+      <p class="descripcion">
+        <strong>Regla de negocio:</strong>
+        El resumen solo se puede generar cuando el evento tiene 6 o más comentarios
+        visibles.
+      </p>
+
+      <p class="descripcion">
+        <strong>Flujo de trabajo:</strong>
+        Desde el panel de administración, el admin puede generar, regenerar o eliminar
+        el resumen. En la vista pública, el resumen aparece destacado con la etiqueta
+        "Generado con IA".
+      </p>
+
+      <p class="descripcion">
+        <strong>Referencia de diseño:</strong>
+        Me inspiré en funcionalidades similares de plataformas como Mercado Libre,
+        adaptando la idea al contexto de eventos para ofrecer una vista rápida y valiosa
+        del feedback de los usuarios.
+      </p>
+
+      <div class="group-images">
+        <img
+          src="/images/eventos-app/eventos-app-11.jpg"
+          alt="Botón para generar resumen en panel de administración"
+          class="imagen"
+        />
+        <img
+          src="/images/eventos-app/eventos-app-12.jpg"
+          alt="Resumen generado con IA en página pública"
+          class="imagen"
+        />
+      </div>
     </div>
   </div>
 </ProjectLayout>
