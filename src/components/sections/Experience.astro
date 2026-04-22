@@ -29,9 +29,9 @@ import { work } from "@cv";
                 </footer>
               </article>
               <div class="highlights">
-                <ul class="">
+                <ul>
                   {highlights.map((highlight) => {
-                    return <li>- {highlight}</li>;
+                    return <li>{highlight}</li>;
                   })}
                 </ul>
               </div>
@@ -76,9 +76,22 @@ import { work } from "@cv";
     margin: 15px 0;
   }
 
+  footer p {
+    color: var(--color-text-base);
+  }
+
   .highlights ul {
-    font-size: 13px;
+    font-size: 0.85rem;
     margin-top: 10px;
     color: var(--color-text-base);
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .highlights li {
+    line-height: 1.4;
   }
 </style>
