@@ -1,0 +1,142 @@
+---
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
+---
+
+<ProjectLayout title="RandomTeams">
+    <div>
+        <p>
+            Aplicación para generar equipos aleatorios de forma justa a partir
+            de una lista de nombres. Permite guardar sorteos, explorar historial
+            y compartir resultados con amigos. Desarrollada con Nuxt 4, Vue 3,
+            Nuxt UI 4 y Tailwind CSS. Utiliza Turso (SQLite) con Drizzle ORM y
+            autenticación con GitHub.
+        </p>
+
+        <div class="contenedor">
+            <h2>Stack Tecnológico</h2>
+            <p class="descripcion">
+                El proyecto está construido con Nuxt 4 como framework principal,
+                utilizando Vue 3 con Composition API. Para el frontend utilizo
+                Nuxt UI 4 con Tailwind CSS para estilos neo-brutalistas. En el
+                backend uso Nitro (el servidor de Nuxt) con Drizzle ORM para
+                interactuar con Turso (SQLite). La autenticación la manejo con
+                nuxt-auth-utils integrada con GitHub, y la validación de datos
+                con Zod.
+            </p>
+
+            <h2>Landing Page</h2>
+            <p class="descripcion">
+                La página de inicio presenta un diseño neo-brutalista potente
+                que introduce el concepto de RandomTeams. Incluye CTAs para
+                registrarse con GitHub y comenzar a generar equipos
+                inmediatamente, con ejemplos visuales del resultado.
+            </p>
+
+            <img
+                src="/images/randomteams/1.png"
+                alt="Vista general de RandomTeams"
+                class="imagen"
+            />
+
+            <h2>Autenticación con GitHub</h2>
+            <p class="descripcion">
+                Sistema de autenticación simple basado en OAuth con GitHub. Los
+                usuarios hacen clic en "Iniciar sesión con GitHub" y se
+                autentica con un token seguro, sin requerir contraseña ni
+                proceso de registro complejo.
+            </p>
+
+            <img
+                src="/images/randomteams/2.png"
+                alt="Página de autenticación"
+                class="imagen"
+            />
+
+            <h2>Generador de Equipos</h2>
+            <p class="descripcion">
+                Interfaz principal donde los usuarios introducen nombres
+                (manualmente o importando un archivo) y especifican la cantidad
+                de equipos deseados. El algoritmo genera equipos aleatorios y
+                balanceados, mostrando el resultado con un diseño visual limpio
+                y neo-brutalista.
+            </p>
+
+            <div class="group-images">
+                <img
+                    src="/images/randomteams/3.png"
+                    alt="Agregar nombres"
+                    class="imagen"
+                />
+                <img
+                    src="/images/randomteams/4.png"
+                    alt="Establecer número de equipos"
+                    class="imagen"
+                />
+                <img
+                    src="/images/randomteams/5.png"
+                    alt="Generador de equipos"
+                    class="imagen"
+                />
+            </div>
+
+            <h2>Mis Listas (Dashboard)</h2>
+            <p class="descripcion">
+                Gestione sus listas guardadas para la generación de equipos.
+                Acceda a su panel privado para visualizar o utilizar sus
+                listados de participantes en cualquier momento.
+            </p>
+
+            <img
+                src="/images/randomteams/6.png"
+                alt="Listado de sorteos guardados"
+                class="imagen"
+            />
+
+            <h2>Mis Equipos (Dashboard)</h2>
+            <p class="descripcion">
+                Área privada donde los usuarios autenticados pueden ver el
+                listado de todos sus sorteos guardados. Muestra información
+                resumida de cada grupo (nombre, descripción, cantidad de
+                participantes) y permite acciones rápidas como eliminar o ver
+                detalle.
+            </p>
+
+            <img
+                src="/images/randomteams/7.png"
+                alt="Dashboard de mis equipos"
+                class="imagen"
+            />
+
+            <h2>Detalle de Grupo</h2>
+            <p class="descripcion">
+                Vista detallada de un sorteo guardado que muestra todos los
+                detalles: nombre del grupo, descripción, lista completa de
+                participantes, equipos generados con sus integrantes, y la fecha
+                de creación. Permite regenerar equipos, editar información o
+                eliminar el sorteo.
+            </p>
+
+            <img
+                src="/images/randomteams/8.png"
+                alt="Listado de sorteos guardados"
+                class="imagen"
+            />
+
+            <h2>Diseño Neo-brutalista</h2>
+            <p class="descripcion">
+                RandomTeams mantiene una identidad visual consistente basada en
+                neo-brutalismo: tipografía fuerte, colores sólidos, formas
+                geométricas, y espacios limpios. Este enfoque se refleja en toda
+                la aplicación, desde la landing page hasta los detalles de cada
+                componente, creando una experiencia memorable y moderna.
+            </p>
+
+            <p class="descripcion">
+                Puedes probar la aplicación en: <a
+                    href="https://randomteams.app"
+                    target="_blank">randomteams.app</a
+                >
+            </p>
+        </div>
+    </div>
+</ProjectLayout>

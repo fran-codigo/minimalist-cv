@@ -29,9 +29,9 @@ import { work } from "@cv";
                 </footer>
               </article>
               <div class="highlights">
-                <ul class="">
+                <ul>
                   {highlights.map((highlight) => {
-                    return <li>- {highlight}</li>;
+                    return <li>{highlight}</li>;
                   })}
                 </ul>
               </div>
@@ -52,11 +52,11 @@ import { work } from "@cv";
 
   article h3 {
     font-weight: 500;
-    color: #111;
+    color: var(--color-text-heading);
   }
 
   article h4 {
-    color: #222;
+    color: var(--color-text-subheading);
     font-weight: 400;
   }
 
@@ -69,16 +69,29 @@ import { work } from "@cv";
 
   time {
     font-size: 0.85rem;
-    color: #555;
+    color: var(--color-text-muted);
   }
 
   footer {
     margin: 15px 0;
   }
 
+  footer p {
+    color: var(--color-text-base);
+  }
+
   .highlights ul {
-    font-size: 13px;
+    font-size: 0.85rem;
     margin-top: 10px;
-    color: #667;
+    color: var(--color-text-base);
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .highlights li {
+    line-height: 1.4;
   }
 </style>

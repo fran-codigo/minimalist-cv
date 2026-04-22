@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "ssd-init": {
+      "source": "fran-codigo/fran-skills",
+      "sourceType": "github",
+      "computedHash": "9e3e5507a7d2edb27a8151d45d18e4af0af6a99ed7ec1680172dd8913c9d5dab"
+    }
+  }
+}
