@@ -1,0 +1,7 @@
+interface:
+  display_name: "SSD Init"
+  short_description: "Define e implementa features con un solo agente"
+  default_prompt: "Use $ssd-init to turn this feature idea into a reviewed proposal and then implement it without running project scripts or installing dependencies."
+
+policy:
+  allow_implicit_invocation: true

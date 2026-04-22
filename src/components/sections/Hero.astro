@@ -24,7 +24,13 @@ const printInfo = [email, phone, linkedinUrl].filter(Boolean).join(' • ');
 <Section>
   <div class="container">
     <div class="info">
-      <h1>{name}</h1>
+      <header>
+        <h1>{name}</h1>
+        <button id="theme-toggle" class="no-print" aria-label="Cambiar tema">
+          <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </header>
       <h2>{label}</h2>
       <span>
         <WorldMap />
@@ -87,12 +93,61 @@ const printInfo = [email, phone, linkedinUrl].filter(Boolean).join(' • ');
   </div>
 </Section>
 
+<script>
+  const toggleTheme = () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    if (isDark) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  };
+
+  const btn = document.getElementById('theme-toggle');
+  if (btn) {
+    btn.addEventListener('click', toggleTheme);
+  }
+</script>
+
 <style>
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #theme-toggle {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  #theme-toggle:hover {
+    background: var(--color-badge-bg);
+    color: var(--color-text-heading);
+  }
+
+  :global(html:not(.dark)) .sun {
+    display: none;
+  }
+  :global(html.dark) .moon {
+    display: none;
   }
 
   .info {
@@ -107,7 +162,7 @@ const printInfo = [email, phone, linkedinUrl].filter(Boolean).join(' • ');
   }
 
   h2 {
-    color: #444;
+    color: var(--color-text-subheading);
     font-weight: 500;
     font-size: 1.1rem;
     text-wrap: balance;
@@ -121,7 +176,7 @@ const printInfo = [email, phone, linkedinUrl].filter(Boolean).join(' • ');
   }
 
   span {
-    color: #666;
+    color: var(--color-text-muted);
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -130,7 +185,7 @@ const printInfo = [email, phone, linkedinUrl].filter(Boolean).join(' • ');
   }
 
   footer {
-    color: 555;
+    color: var(--color-text-muted);
     font-size: 0.65rem;
     display: flex;
     gap: 4px;
@@ -138,11 +193,11 @@ const printInfo = [email, phone, linkedinUrl].filter(Boolean).join(' • ');
   }
 
   footer a {
-    color: #aaa;
+    color: var(--color-text-light);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #eee;
+    border: 1px solid var(--color-border);
     padding: 4px;
     height: 32px;
     width: 32px;
@@ -151,7 +206,7 @@ const printInfo = [email, phone, linkedinUrl].filter(Boolean).join(' • ');
   }
 
   footer a:hover {
-    background: #eee;
-    border: 1px solid #ddd;
+    background: var(--color-badge-bg);
+    border: 1px solid var(--color-border-hover);
   }
 </style>
