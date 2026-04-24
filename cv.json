@@ -6,7 +6,7 @@
     "email": "franco.silva.code@gmail.com",
     "phone": "249 171 92 36",
     "url": "https://franco-silva.site",
-    "summary": "Desarrollador Full-Stack con más de dos años de experiencia construyendo soluciones web a medida utilizando PHP (Laravel), Vue.js, Nuxt, Node (Express) y WordPress. Especializado en el diseño e implementación de APIs RESTful, optimización de rendimiento y arquitectura backend escalable. Experiencia integrando servicios en la nube como Amazon Web Services (AWS), incluyendo reconocimiento facial con Amazon Rekognition, así como implementación de sistemas de autenticación segura y funcionalidades avanzadas para aplicaciones web y móviles. Me enfoco en desarrollar soluciones robustas en backend sin descuidar la experiencia del usuario en interfaces dinámicas y mantenibles.",
+    "summary": "Desarrollador Full-Stack con más de dos años de experiencia construyendo soluciones web a medida utilizando PHP (Laravel), Vue.js, Nuxt, Node (Express) y WordPress. Especializado en el diseño e implementación de APIs RESTful, optimización de rendimiento y arquitectura backend escalable. Experiencia integrando servicios en la nube como Amazon Web Services (AWS), incluyendo reconocimiento facial con Amazon Rekognition, así como implementación de sistemas de autenticación segura y funcionalidades avanzadas para aplicaciones web y móviles. También desarrollo temas de WordPress a medida, creando estructuras escalables y mantenibles para distintas empresas. Me enfoco en desarrollar soluciones robustas en backend sin descuidar la experiencia del usuario en interfaces dinámicas y mantenibles.",
     "location": {
       "city": "Puebla",
       "countryCode": "MX",
@@ -39,7 +39,9 @@
         "Implementación de arquitectura modular y buenas prácticas",
         " cuponcitos.app – Plataforma web para gestión y visualización de cupones digitales",
         "Sistema para gestión de liga de fútbol – Aplicación web para la gestión de una liga de fútbol (temporadas, partidos, jugadores, goleadores)",
-        "Aplicación para gestionar eventos - Aplicación web para gestionar eventos, los usuarios pueden inscribirse a eventos que el administrador cree",
+        "Aplicación para gestionar eventos – Aplicación web para gestionar eventos, los usuarios pueden inscribirse a eventos que el administrador cree",
+        "Canchitas App – Red social para compartir resultados de partidos de fútbol amateur",
+        "RandomTeams – Aplicación para crear equipos aleatorios para diferentes propósitos",
         "Aplicación para gestionar prestamos – Aplicación web para gestionar prestamos y clientes"
       ]
     },
