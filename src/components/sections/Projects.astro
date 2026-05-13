@@ -2,13 +2,16 @@
 import Section from "@/components/Section.astro";
 
 import { projects } from "@cv";
+
+const topProjects = projects.filter(project => project.isFeatured).slice(0, 6);
 ---
 <div id="proyectos"></div>
 <Section title="Proyectos">
   <ul>
     {
-      projects.map(
+      topProjects.map(
         ({ url, description, name, highlights, isActive, description_url }) => {
+
           return (
             <li>
               <article>
@@ -46,6 +49,9 @@ import { projects } from "@cv";
       )
     }
   </ul>
+  <div style="margin-top: 1rem; text-align: center;">
+    <a href="/proyectos" class="view-all-projects" style="text-decoration: underline; color: var(--color-text-heading); font-size: 0.85rem;">Ver todos los proyectos</a>
+  </div>
 </Section>
 
 <style>

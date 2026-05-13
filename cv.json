@@ -160,6 +160,7 @@
     {
       "name": "Cuponcitos - SASS",
       "isActive": true,
+      "isFeatured": true,
       "startDate": "2025-08-01",
       "endDate": "",
       "description": "Aplicación para administrar cupones y recompensas de negocios.",
@@ -170,6 +171,7 @@
     {
       "name": "Canchitas - App",
       "isActive": true,
+      "isFeatured": true,
       "startDate": "2026-03-15",
       "endDate": "",
       "description": "Red social para compartir resultados de los partidos de fútbol",
@@ -180,6 +182,7 @@
     {
       "name": "RandomTeams",
       "isActive": true,
+      "isFeatured": true,
       "startDate": "2026-04-01",
       "endDate": "",
       "description": "Aplicación para crear equipos aleatorios para diferentes propositos.",
@@ -200,6 +203,7 @@
     {
       "name": "App Liga de fútbol",
       "isActive": true,
+      "isFeatured": true,
       "startDate": "2025-11-01",
       "endDate": "",
       "description": "Aplicación para la gestión de una liga local de fútbol.",
@@ -210,6 +214,7 @@
     {
       "name": "App Tortilleria",
       "isActive": true,
+      "isFeatured": false,
       "startDate": "2025-09-05",
       "endDate": "2025-11-20",
       "description": "Aplicación para registrar las ventas de una tortillería.",
@@ -220,6 +225,7 @@
     {
       "name": "Tema de wordpress",
       "isActive": false,
+      "isFeatured": true,
       "startDate": "2023-06-19",
       "endDate": "2024-01-01",
       "description": "Tema de wordpress adaptable para diferentes empresas, es responsive y utiliza las mejores pracicas para que sea mantenible y escalable",
@@ -229,6 +235,7 @@
     {
       "name": "QuiscoApp",
       "isActive": true,
+      "isFeatured": false,
       "startDate": "2024-01-01",
       "endDate": "2025-12-01",
       "description": "Aplicación para administrar los pedidos de los clientes en un restaurante. El administrador puede gestionar los pedidos y cosas generales como los productos y categorias.",
@@ -239,6 +246,7 @@
     {
       "name": "AppSalon",
       "isActive": true,
+      "isFeatured": false,
       "startDate": "2024-09-20",
       "endDate": "2026-01-01",
       "description": "Aplicación para gestionar las citas de los clientes de una estetica. Se puede adaptar a diferentes tipos de negocios que requieran gestión de citas.",
