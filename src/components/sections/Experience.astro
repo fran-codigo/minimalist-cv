@@ -5,7 +5,7 @@ import { work } from "@cv";
 ---
 
 <Section title="Experiencia">
-  <ul>
+  <ul class="experience-list">
     {
       work.map(
         ({ name, startDate, endDate, position, summary, highlights }) => {
@@ -16,9 +16,9 @@ import { work } from "@cv";
 
           return (
             <li>
-              <article>
+              <article class="experience-item">
                 <header>
-                  <div class="">
+                  <div>
                     <h3>{name}</h3>
                     <h4>{position}</h4>
                   </div>
@@ -44,10 +44,15 @@ import { work } from "@cv";
 </Section>
 
 <style>
-  ul {
+  .experience-list {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 28px;
+  }
+
+  .experience-item {
+    border-left: 1px solid var(--color-border);
+    padding-left: 18px;
   }
 
   article h3 {
@@ -64,34 +69,49 @@ import { work } from "@cv";
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 16px;
     margin-bottom: 4px;
   }
 
   time {
+    flex: 0 0 auto;
     font-size: 0.85rem;
     color: var(--color-text-muted);
   }
 
   footer {
-    margin: 15px 0;
+    margin: 12px 0;
   }
 
   footer p {
     color: var(--color-text-base);
+    line-height: 1.6;
   }
 
   .highlights ul {
     font-size: 0.85rem;
-    margin-top: 10px;
+    margin-top: 8px;
     color: var(--color-text-base);
     list-style-type: disc;
     padding-left: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
   }
 
   .highlights li {
-    line-height: 1.4;
+    line-height: 1.5;
+    padding-left: 2px;
+  }
+
+  @media (width <= 560px) {
+    header {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .experience-item {
+      padding-left: 14px;
+    }
   }
 </style>

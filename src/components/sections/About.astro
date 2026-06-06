@@ -6,7 +6,15 @@ const { summary } = basics;
 ---
 
 <Section title="Sobre mi">
-  <p>
+  <p class="summary">
     {summary}
   </p>
 </Section>
+
+<style>
+  .summary {
+    max-width: 68ch;
+    line-height: 1.65;
+    color: var(--color-text-base);
+  }
+</style>
