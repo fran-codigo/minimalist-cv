@@ -184,6 +184,16 @@
       "description_url": "/proyectos/1i-randomteams"
     },
     {
+      "name": "DotLog",
+      "isActive": true,
+      "startDate": "2026-04-01",
+      "endDate": "",
+      "description": "Aplicación para registrar habitos por mes",
+      "highlights": ["nuxt,nuxt-ui,tailwindcss,drizzle,turso,googleauth"],
+      "url": "https://dotlogg.netlify.app/",
+      "description_url": "/proyectos/1j-dotlog"
+    },
+    {
       "name": "Eventos App",
       "isActive": true,
       "startDate": "2026-02-01",

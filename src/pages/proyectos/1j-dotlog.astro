@@ -1,0 +1,98 @@
+---
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
+---
+
+<ProjectLayout title="Dotlog">
+    <div>
+        <p>
+            Dotlog es una aplicación para llevar un registro diario de hábitos y
+            acciones importantes con una regla central: lo que se confirma queda
+            bloqueado. La experiencia está inspirada en una terminal, con una
+            interfaz oscura, directa y enfocada en crear disciplina mediante
+            fricción útil.
+        </p>
+
+        <div class="contenedor">
+            <h2>Stack Tecnológico</h2>
+            <p class="descripcion">
+                El proyecto está construido con Nuxt y Vue, utilizando Nuxt UI y
+                Tailwind CSS para una interfaz tipo terminal. Incluye
+                autenticación con Google, manejo de sesión, soporte multi-idioma
+                en español e inglés, modo de color y una arquitectura orientada
+                a registros diarios, hábitos mensuales y métricas de progreso.
+            </p>
+
+            <h2>Landing Page</h2>
+            <p class="descripcion">
+                La página inicial presenta el concepto de Dotlog como una
+                libreta digital inmutable. Comunica de inmediato el objetivo del
+                producto: registrar la acción más importante del día, definir
+                hasta cuatro hábitos mensuales y bloquear la edición para
+                mantener honestidad en el seguimiento personal.
+            </p>
+
+            <img src="/images/dotlog/1.jpg" alt="Landing Page" class="imagen" />
+
+            <h2>Registro Diario Inmutable</h2>
+            <p class="descripcion">
+                La experiencia principal funciona como una tabla mensual donde
+                cada día puede registrar una acción principal y el avance de los
+                hábitos definidos. Una vez confirmado el día, la fila queda
+                bloqueada, evitando ediciones retroactivas y reforzando la idea
+                de un registro honesto.
+            </p>
+
+            <img
+                src="/images/dotlog/2.jpg"
+                alt="Registro Diario Inmutable"
+                class="imagen"
+            />
+
+            <h2>Hábitos Mensuales</h2>
+            <p class="descripcion">
+                Dotlog limita el seguimiento a cuatro hábitos por mes. Esta
+                restricción mantiene el sistema simple, reduce ruido y obliga al
+                usuario a enfocarse en los hábitos que realmente importan
+                durante cada ciclo.
+            </p>
+
+            <img
+                src="/images/dotlog/3.jpg"
+                alt="Hábitos Mensuales"
+                class="imagen"
+            />
+
+            <h2>Privacidad y Encriptación</h2>
+            <p class="descripcion">
+                La acción principal del día se encripta localmente antes de
+                guardarse, utilizando AES-GCM. Este enfoque protege el contenido
+                más personal del registro y mantiene la lectura ligada a la
+                clave del usuario.
+            </p>
+
+            <h2>Métricas de Progreso</h2>
+            <p class="descripcion">
+                La aplicación muestra indicadores como tasa de éxito mensual,
+                rachas activas y días perfectos. Estas métricas permiten revisar
+                el rendimiento del mes sin convertir el producto en una app
+                sobrecargada de reportes.
+            </p>
+
+            <h2>Diseño tipo Terminal</h2>
+            <p class="descripcion">
+                Dotlog mantiene una identidad visual sobria y técnica: fondo
+                oscuro, tipografía monoespaciada, comandos, estados del sistema
+                y una estructura visual inspirada en logs. El diseño refuerza la
+                idea de registro, permanencia y claridad.
+            </p>
+
+            <p class="descripcion">
+                Puedes probar la aplicación en: <a
+                    href="https://dotlogg.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer">dotlogg.netlify.app</a
+                >
+            </p>
+        </div>
+    </div>
+</ProjectLayout>
