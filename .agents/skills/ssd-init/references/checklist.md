@@ -4,6 +4,8 @@
 
 - Que supuestos estoy haciendo?
 - La solicitud es ambigua en algo que cambie la implementacion?
+- Ya revise el codigo o docs para no preguntarle al usuario algo que el repo responde?
+- Si debo preguntar, puedo formular una sola pregunta con respuesta recomendada?
 - Existe una solucion mas simple que la primera idea?
 - Que contara exactamente como exito?
 
@@ -16,9 +18,9 @@
 
 ## Antes de terminar
 
-- Mantube el cambio lo mas pequeno posible?
-- Limpié solo los residuos creados por mi cambio?
-- Dejé una forma concreta de verificar el resultado?
+- Mantuve el cambio lo mas pequeno posible?
+- Limpie solo los residuos creados por mi cambio?
+- Deje una forma concreta de verificar el resultado?
 - Expuse claramente supuestos, tradeoffs y riesgos restantes?
 
 ## Preguntas utiles de revision

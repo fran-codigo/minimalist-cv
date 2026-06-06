@@ -1,10 +1,29 @@
 {
   "version": 1,
   "skills": {
+    "frontend-design": {
+      "source": "fran-codigo/fran-skills",
+      "sourceType": "github",
+      "skillPath": "frontend-design/SKILL.md",
+      "computedHash": "516bd2154eb843a8240e43d5b285229129853114ad7075a5e141e1c08e408c84"
+    },
+    "grill-me": {
+      "source": "fran-codigo/fran-skills",
+      "sourceType": "github",
+      "skillPath": "grill-me/SKILL.md",
+      "computedHash": "cf756f3ad602efa511d416d8b40752cfed30699a41955d3aa6900a6ce60a1220"
+    },
+    "project-changelog": {
+      "source": "fran-codigo/fran-skills",
+      "sourceType": "github",
+      "skillPath": "project-changelog/SKILL.md",
+      "computedHash": "bd5d1231a59c60200123004a980771adc66bc0483b072c3edebf0eecb38b1aab"
+    },
     "ssd-init": {
       "source": "fran-codigo/fran-skills",
       "sourceType": "github",
-      "computedHash": "9e3e5507a7d2edb27a8151d45d18e4af0af6a99ed7ec1680172dd8913c9d5dab"
+      "skillPath": "ssd-init/SKILL.md",
+      "computedHash": "8952fa270eb44434bc56c5dbd848e7af434449bd56fc79de38075f951dc22307"
     }
   }
 }

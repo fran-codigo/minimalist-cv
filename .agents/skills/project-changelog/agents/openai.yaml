@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Changelog"
+  short_description: "Registra cambios del proyecto"
+  default_prompt: "Use $project-changelog to registrar el cambio actual del proyecto en su changelog."
