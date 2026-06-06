@@ -1,0 +1,81 @@
+---
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
+---
+
+<ProjectLayout title="Cafetería Astro | WordPress">
+    <div>
+        <p>
+            Sitio web para una cafetería construido con arquitectura headless:
+            Astro funciona como frontend estático y WordPress como CMS,
+            exponiendo el contenido mediante REST API. El objetivo técnico fue
+            separar presentación y administración de contenido para mantener una
+            experiencia rápida, flexible y fácil de actualizar.
+        </p>
+
+        <div class="contenedor">
+            <h2>Arquitectura Headless</h2>
+            <p class="descripcion">
+                El proyecto usa WordPress únicamente como panel de administración
+                y fuente de datos. Astro consume los endpoints de la REST API
+                para renderizar páginas, secciones y contenido dinámico sin
+                depender del tema tradicional de WordPress. Esta separación
+                permite conservar la comodidad editorial de WordPress y obtener
+                un frontend más ligero y controlado.
+            </p>
+
+            <h2>Frontend con Astro</h2>
+            <p class="descripcion">
+                Astro se encarga de la estructura visual, rutas, componentes y
+                renderizado del sitio. La prioridad fue generar una interfaz
+                rápida, con poco JavaScript en cliente y una composición simple
+                de componentes reutilizables para secciones como hero, menú,
+                categorías, productos destacados e información del negocio.
+            </p>
+
+            <h2>WordPress REST API</h2>
+            <p class="descripcion">
+                El contenido se obtiene desde WordPress mediante peticiones a su
+                REST API. Esto permite administrar textos, páginas, entradas,
+                imágenes y posibles productos o categorías desde el dashboard de
+                WordPress, mientras Astro consume esos datos para construir la
+                vista pública del sitio.
+            </p>
+
+            <h2>Modelado de Contenido</h2>
+            <p class="descripcion">
+                La estructura está pensada para que el contenido del negocio sea
+                editable sin tocar código. WordPress puede gestionar colecciones
+                como bebidas, alimentos, promociones, imágenes y páginas
+                informativas. Desde Astro se normalizan esos datos para
+                presentarlos como secciones limpias y consistentes.
+            </p>
+
+            <h2>Rendimiento y SEO</h2>
+            <p class="descripcion">
+                Al usar Astro como capa de presentación, el sitio puede entregar
+                HTML pre-renderizado, reducir JavaScript innecesario y mejorar
+                tiempos de carga. La arquitectura también facilita el control de
+                metadatos, títulos, descripciones y estructura semántica para
+                SEO.
+            </p>
+
+            <h2>Ventajas Técnicas</h2>
+            <p class="descripcion">
+                Esta implementación combina un CMS conocido para administración
+                de contenido con un frontend moderno y desacoplado. El resultado
+                es una base más mantenible que un tema WordPress tradicional:
+                mejor control visual, despliegue independiente, menor carga en
+                cliente y posibilidad de evolucionar el frontend sin cambiar el
+                panel editorial.
+            </p>
+
+            <p class="descripcion">
+                Puedes ver el sitio en: <a
+                    href="https://astro-coffeeshop.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer">astro-coffeeshop.vercel.app</a
+                >
+            </p>
+        </div>
+    </div>
+</ProjectLayout>
