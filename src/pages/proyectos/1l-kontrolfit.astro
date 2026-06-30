@@ -1,0 +1,88 @@
+---
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
+---
+
+<ProjectLayout title="KontrolFit">
+  <div>
+    <p>
+      Sistema web para gimnasios pequeños y medianos que centraliza socios, planes, pagos, visitas diarias, vencimientos, asistencias e ingresos básicos desde una cabina de administración simple. Reemplaza cuadernos, planillas y registros manuales con una herramienta rápida y clara para recepción y administración.
+    </p>
+
+    <div class="contenedor">
+      <h2>Resumen del Producto</h2>
+      <p class="descripcion">
+        KontrolFit permite saber rápidamente quién está al día, quién debe, qué pagos ingresaron, qué visitas se registraron y qué socios asistieron. El sistema ordena la gestión diaria evitando pérdida de información de socios, dificultades para saber quién pagó y quién debe, socios activos sin pago real asociado, vencimientos calculados manualmente con errores, visitas diarias mezcladas con socios reales, poca visibilidad de ingresos diarios o mensuales, y falta de historial confiable de pagos y asistencias.
+      </p>
+
+      <h2>Login Admin</h2>
+      <p class="descripcion">
+        Pantalla de inicio de sesión para acceder al panel de administración.
+      </p>
+
+      <img src="/images/kontrolfit/0.png" alt="Login Admin KontrolFit" class="imagen" />
+
+      <h2>Dashboard Básico</h2>
+      <p class="descripcion">
+        Indicadores: socios activos, socios vencidos, socios inactivos, cobros del día (incluyendo pagos y visitas diarias), ingresos del mes (incluyendo pagos y visitas diarias), asistencias del día, nuevos socios del mes.
+      </p>
+
+      <img src="/images/kontrolfit/1.png" alt="Dashboard KontrolFit" class="imagen" />
+
+      <h2>Gestión de Socios</h2>
+      <p class="descripcion">
+        El sistema permite crear, editar, listar, buscar y desactivar socios. Cada socio tiene código único generado automáticamente (formato LLLLNNNN), nombre completo, teléfono, fecha de inscripción, plan actual, fecha de vencimiento, estado operativo y observaciones. Los estados son: active (activo y con vencimiento vigente), expired (activo pero vencido o sin vencimiento vigente), e inactive (desactivado).
+      </p>
+
+      <img src="/images/kontrolfit/2.jpg" alt="Gestión de Socios KontrolFit" class="imagen" />
+
+      <h2>Registro de Pagos</h2>
+      <p class="descripcion">
+        El sistema permite registrar pagos asociados a un socio con datos: socio, plan, monto, método de pago, fecha de pago, período cubierto calculado por el sistema, observaciones. Métodos: efectivo, transferencia, tarjeta, otro. El plan se precarga con el plan actual del socio, el monto se precarga con el precio del plan y es editable, la fecha se precarga con hoy. El sistema muestra un preview del período que cubrirá el pago antes de guardarlo. El botón de registrar pago se bloquea si no hay preview válido.
+      </p>
+
+      <img src="/images/kontrolfit/3.png" alt="Registro de Pagos KontrolFit" class="imagen" />
+
+      <h2>Visitas Diarias</h2>
+      <p class="descripcion">
+        Las visitas de un día se gestionan separadas de socios. Datos: nombre del visitante, plan de visita diaria, fecha de visita (por defecto hoy), costo tomado automáticamente desde el precio del plan, observaciones opcionales. Reglas: no se crea socio, solo se aceptan planes activos con duration_days = 1, el dashboard suma visitas diarias en ingresos del día y del mes.
+      </p>
+
+      <img src="/images/kontrolfit/4.png" alt="Visitas Diarias KontrolFit" class="imagen" />
+
+      <h2>Registro de Asistencia</h2>
+      <p class="descripcion">
+        El sistema registra entrada de socios con fecha y hora automática. Se puede registrar por código o socio. El socio debe existir, no debe estar inactivo, debe tener suscripción vigente, y debe existir un pago activo que cubra la fecha actual. Si no hay pago activo, la asistencia se bloquea y se solicita registrar pago. Datos guardados: socio, fecha y hora, estado de membresía al momento del ingreso.
+      </p>
+
+      <img src="/images/kontrolfit/5.png" alt="Registro de Asistencia KontrolFit" class="imagen" />
+
+      <h2>Gestión de Planes</h2>
+      <p class="descripcion">
+        El sistema permite crear, editar y desactivar planes con nombre, precio, duración en días, descripción opcional y estado activo/inactivo. Ejemplos: visita diaria, musculación mensual, funcional 3 veces por semana, plan anual.
+      </p>
+
+      <img src="/images/kontrolfit/6.png" alt="Gestión de Planes KontrolFit" class="imagen" />
+
+      <h2>Control de Vencimientos</h2>
+      <p class="descripcion">
+        La vista de vencimientos muestra socios vencidos, al día o próximos a vencer. Incluye: socio, código, plan, fecha de vencimiento, días restantes o días vencidos, estado, acción de contacto por WhatsApp. Filtros: operativos, vencidos, vencen hoy, próximos 7 días, al día, por plan.
+      </p>
+
+      <img src="/images/kontrolfit/7.png" alt="Control de Vencimientos KontrolFit" class="imagen" />
+
+      <h2>Configuración (Backup)</h2>
+      <p class="descripcion">
+        Panel de configuración para realizar copias de seguridad de la base de datos del sistema.
+      </p>
+
+      <img src="/images/kontrolfit/8.png" alt="Configuración Backup KontrolFit" class="imagen" />
+
+      <h2>Consulta Pública de Socios</h2>
+      <p class="descripcion">
+        Vista pública donde los socios pueden consultar su información personal, estado de membresía, vencimiento y historial de pagos.
+      </p>
+
+      <img src="/images/kontrolfit/9.jpg" alt="Consulta Pública de Socios KontrolFit" class="imagen" />
+    </div>
+  </div>
+</ProjectLayout>

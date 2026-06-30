@@ -175,7 +175,7 @@
     {
       "name": "RandomTeams",
       "isActive": true,
-      "isFeatured": true,
+      "isFeatured": false,
       "startDate": "2026-04-01",
       "endDate": "",
       "description": "Aplicación para crear equipos aleatorios para diferentes propositos.",
@@ -203,6 +203,17 @@
       "highlights": ["nuxt,vue,tailwindcss,postgresql,nuxt-ui,drizzle"],
       "url": "",
       "description_url": "/proyectos/1g-eventos-app"
+    },
+    {
+      "name": "KontrolFit",
+      "isActive": true,
+      "isFeatured": true,
+      "startDate": "2026-06-01",
+      "endDate": "",
+      "description": "Sistema web para gimnasios pequeños y medianos que centraliza socios, planes, pagos, visitas diarias, vencimientos, asistencias e ingresos básicos desde una cabina de administración simple.",
+      "highlights": ["laravel,vue,tailwindcss,mysql"],
+      "url": "",
+      "description_url": "/proyectos/1l-kontrolfit"
     },
     {
       "name": "App Liga de fútbol",
