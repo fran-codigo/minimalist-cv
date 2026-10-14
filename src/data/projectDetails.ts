@@ -66,10 +66,10 @@ export const projectDetails: ProjectDetail[] = [
       { title: 'Reglas de fidelización configurables', description: 'Las condiciones de puntos y recompensas se activan o desactivan desde el panel de cada negocio.' },
     ],
     gallery: [
-      { src: '/images/cuponcitos/cuponcitos-4.jpg', caption: 'Panel de administración del negocio' },
-      { src: '/images/cuponcitos/cuponcitos-5.jpg', caption: 'Gestión de cupones digitales' },
-      { src: '/images/cuponcitos/cuponcitos-7.jpg', caption: 'Catálogo de recompensas' },
-      { src: '/images/cuponcitos/cuponcitos-13.jpg', caption: 'Página pública del negocio' },
+      { src: '/images/cuponcitos/new/1.jpg', caption: 'Panel de administración del negocio' },
+      { src: '/images/cuponcitos/new/2.jpg', caption: 'Gestión de cupones digitales' },
+      { src: '/images/cuponcitos/new/3.jpg', caption: 'Catálogo de recompensas' },
+      { src: '/images/cuponcitos/new/4.jpg', caption: 'Página pública del negocio' },
     ],
   },
   {
