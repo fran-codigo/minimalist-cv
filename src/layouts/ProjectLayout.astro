@@ -1,79 +1,271 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import Layout from '@/layouts/Layout.astro';
+import ProjectGallery from '@/components/projects/ProjectGallery.astro';
+import PixelButton from '@/components/retro/PixelButton.astro';
+import StatusBadge from '@/components/retro/StatusBadge.astro';
+import SkillChip from '@/components/retro/SkillChip.astro';
+import { projectDetails } from '@/data/projectDetails';
+import { basics, projects } from '@cv';
 
-interface Props {
-  title: string;
-}
-
+interface Props { title: string; }
 const { title } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '');
+const position = projectDetails.findIndex(project => project.path === path);
+const detail = projectDetails[position];
+if (!detail) throw new Error(`Falta el caso de estudio para ${path}`);
+const project = projects.find(project => project.description_url === path);
+const previous = projectDetails[position - 1];
+const next = projectDetails[position + 1];
+const url = project?.url || detail.url;
+const stackLabels: Record<string, string> = {
+  laravel: 'Laravel', vue: 'Vue', nuxt: 'Nuxt', 'nuxt-ui': 'Nuxt UI',
+  react: 'React', go: 'Go', wails: 'Wails', gorm: 'GORM', php: 'PHP',
+  mysql: 'MySQL', postgresql: 'PostgreSQL', sqlite: 'SQLite', drizzle: 'Drizzle',
+  turso: 'Turso', tailwindcss: 'Tailwind CSS', tailwind: 'Tailwind CSS',
+  astro: 'Astro', wordpress: 'WordPress', github: 'GitHub', googleauth: 'Google Auth',
+};
+const stack = detail.stack ?? [...new Set(project?.highlights.flatMap(item => item.split(',').map(item => item.trim()).filter(Boolean)) ?? [])].map(item => stackLabels[item] ?? item);
+const sections = [
+  { id: 'contexto', label: 'Contexto' },
+  { id: 'funciones', label: 'Funciones principales' },
+  { id: 'tecnologia', label: 'Decisiones técnicas' },
+  ...(detail.gallery.length ? [{ id: 'galeria', label: 'Galería' }] : []),
+  { id: 'documentacion', label: 'En detalle' },
+];
 ---
 
-<Layout title={title}>
-  <main>
-    <a href="/#proyectos" class="a_back">Regresar</a>
-    <h1>{title}</h1>
+<Layout title={`${title} · ${basics.name}`} description={detail.summary}>
+  <main class="project-page">
+    <header class="project-topbar no-print">
+      <a href="/proyectos" class="back-link"><span aria-hidden="true">←</span> Todos los proyectos</a>
+      <a href="/" class="portfolio-link">FRANCO SILVA <span aria-hidden="true">/</span> PORTAFOLIO</a>
+    </header>
 
-    <slot />
+    <article aria-labelledby="project-title">
+      <header class="project-hero">
+        <div class="project-intro">
+          <p class="eyebrow">CASO DE ESTUDIO / {String(position + 1).padStart(2, '0')}</p>
+          <h1 id="project-title">{detail.title}<span aria-hidden="true">_</span></h1>
+          <p class="project-summary">{detail.summary}</p>
+          <div class="project-actions no-print">
+            {url && <PixelButton href={url} external>Visitar sitio <span aria-hidden="true">↗</span></PixelButton>}
+            <PixelButton href="#funciones" variant="secondary">Explorar el proyecto <span aria-hidden="true">↓</span></PixelButton>
+          </div>
+        </div>
+        <aside class="project-facts" aria-label="Ficha del proyecto">
+          <p class="facts-label">FICHA DE MISIÓN <span aria-hidden="true">＋</span></p>
+          <p class="project-category">{detail.category}</p>
+          {project && <div class="project-status"><StatusBadge status={project.isActive ? 'active' : 'archived'} />{project.isFeatured && <StatusBadge status="featured" />}<span class="project-year">Desde {project.startDate.slice(0, 4)}</span></div>}
+          <p class="stack-label">STACK / HERRAMIENTAS</p>
+          <ul class="project-stack" aria-label="Tecnologías del proyecto">{stack.map(name => <li><SkillChip name={name} /></li>)}</ul>
+        </aside>
+      </header>
+
+      <div class="project-cover">
+        {detail.gallery.length ? <ProjectGallery images={detail.gallery.slice(0, 1)} variant="cover" name={detail.title} /> : <div class="project-cover-fallback" role="img" aria-label={`${detail.title}, proyecto sin captura disponible`}><span aria-hidden="true">&lt;/&gt;</span><p>{detail.title}</p><span class="fallback-label">ASTRO × WORDPRESS / HEADLESS</span></div>}
+        {detail.mediaNote && <p class="media-note">{detail.mediaNote}</p>}
+      </div>
+
+      <details class="mobile-index no-print">
+        <summary>En esta página <span aria-hidden="true">＋</span></summary>
+        <nav aria-label="Índice del proyecto en móvil"><ol>{sections.map(({ id, label }) => <li><a href={`#${id}`}>{label}</a></li>)}</ol></nav>
+      </details>
+
+      <div class="case-layout">
+        <aside class="case-index no-print">
+          <nav aria-label="Índice del proyecto">
+            <p class="index-label">EN ESTA PÁGINA</p>
+            <ol>{sections.map(({ id, label }, index) => <li><a href={`#${id}`}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{label}</a></li>)}</ol>
+            <a class="index-return" href="#project-title">Volver al inicio ↑</a>
+          </nav>
+        </aside>
+
+        <div class="case-content">
+          <section id="contexto" class="case-section" aria-labelledby="context-title">
+            <p class="section-kicker">01 / CONTEXTO</p>
+            <h2 id="context-title">El problema y la solución</h2>
+            <div class="context-block"><h3>El punto de partida</h3><p>{detail.need}</p></div>
+            <div class="context-block solution"><h3>La propuesta</h3><p>{detail.solution}</p></div>
+          </section>
+
+          <section id="funciones" class="case-section" aria-labelledby="features-title">
+            <p class="section-kicker">02 / PRODUCTO</p>
+            <h2 id="features-title">Funciones principales</h2>
+            <ol class="feature-list">{detail.features.map(({ title, description }, index) => <li><span class="feature-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{title}</h3><p>{description}</p></li>)}</ol>
+          </section>
+
+          <section id="tecnologia" class="case-section" aria-labelledby="technology-title">
+            <p class="section-kicker">03 / IMPLEMENTACIÓN</p>
+            <h2 id="technology-title">Decisiones técnicas</h2>
+            <ul class="decision-list">{detail.decisions.map(({ title, description }) => <li><h3><span aria-hidden="true">↳</span> {title}</h3><p>{description}</p></li>)}</ul>
+          </section>
+
+          {detail.gallery.length > 0 && <section id="galeria" class="case-section gallery-section" aria-labelledby="gallery-title">
+            <p class="section-kicker">04 / CAPTURAS</p>
+            <h2 id="gallery-title">El proyecto en pantalla</h2>
+            <p class="section-description">Una selección de vistas del proyecto. Pulsa una captura para verla a tamaño completo.</p>
+            {detail.mediaNote && <p class="media-note">{detail.mediaNote}</p>}
+            <ProjectGallery images={detail.gallery} name={detail.title} />
+          </section>}
+
+          <section id="documentacion" class="case-section documentation-section" aria-labelledby="documentation-title">
+            <p class="section-kicker">{detail.gallery.length ? '05' : '04'} / DOCUMENTACIÓN</p>
+            <h2 id="documentation-title">Explorar en detalle</h2>
+            <p class="section-description">El recorrido completo por los módulos, las reglas y las pantallas del proyecto.</p>
+            <details class="project-documentation">
+              <summary><span>Leer documentación completa</span><span class="documentation-toggle" aria-hidden="true">＋</span></summary>
+              <div class="project-reading"><slot /></div>
+            </details>
+          </section>
+        </div>
+      </div>
+    </article>
+
+    <nav class="project-pagination no-print" aria-label="Otros proyectos">
+      {previous && <a href={previous.path} class="previous"><span class="pagination-label">← PROYECTO ANTERIOR</span><span>{previous.title}</span></a>}
+      {next && <a href={next.path} class="next"><span class="pagination-label">SIGUIENTE PROYECTO →</span><span>{next.title}</span></a>}
+    </nav>
+    <footer class="project-footer no-print"><a href="/proyectos">← Volver a todos los proyectos</a><span>© {new Date().getFullYear()} {basics.name}</span></footer>
   </main>
 </Layout>
 
-<style is:global>
-  .a_back {
-    display: block;
-    margin-bottom: 1rem;
-    text-decoration: none;
+<script>
+  // La documentación también se incluye en el PDF aunque estuviera plegada.
+  let printDetails: HTMLDetailsElement[] = [];
+  let printing = false;
+  window.addEventListener('beforeprint', () => {
+    if (printing) return;
+    printing = true;
+    printDetails = [...document.querySelectorAll<HTMLDetailsElement>('.project-documentation:not([open])')];
+    printDetails.forEach(details => { details.open = true; });
+  });
+  window.addEventListener('afterprint', () => {
+    printDetails.forEach(details => { details.open = false; });
+    printDetails = [];
+    printing = false;
+  });
+</script>
+
+<style>
+  @font-face { font-family: 'Source Sans 3'; src: url('/fonts/source-sans-3.ttf') format('truetype'); font-style: normal; font-weight: 200 900; font-display: swap; }
+  .project-page { --font-reading: 'Source Sans 3', sans-serif; width: min(1160px, calc(100% - 4rem)); margin: 0 auto; font-family: var(--font-reading); font-size: 1.125rem; line-height: 1.7; }
+  .project-topbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; min-height: 90px; border-bottom: 1px solid var(--color-border); font-family: var(--font-body); }
+  .back-link { display: inline-flex; align-items: center; gap: 0.7rem; min-height: 44px; font-size: 1.2rem; color: var(--color-text-base); }
+  .back-link > span { color: var(--color-red-light); }
+  .portfolio-link { color: var(--color-text-muted); font-size: 1rem; }
+  .portfolio-link > span { color: var(--color-red-light); margin-inline: 0.4rem; }
+  .project-hero { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 3rem; align-items: center; padding: 3.5rem 0 2.5rem; }
+  .project-intro .eyebrow { margin-bottom: 1.2rem; }
+  h1 { font-size: clamp(1.05rem, 2.8vw, 1.9rem); line-height: 1.8; overflow-wrap: anywhere; }
+  h1 > span { color: var(--color-red); }
+  .project-summary { margin-top: 1.2rem; max-width: 55ch; font: 1.25rem / 1.7 var(--font-reading); color: var(--color-text-base); }
+  .project-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.75rem; font-family: var(--font-body); }
+  .project-facts { padding: 1.4rem; border: 1px solid var(--color-border); background: var(--color-bg-secondary); box-shadow: var(--shadow-pixel); font-family: var(--font-body); }
+  .facts-label { display: flex; justify-content: space-between; padding-bottom: 0.7rem; border-bottom: 1px solid var(--color-border); color: var(--color-text-muted); font: 0.95rem var(--font-body); }
+  .facts-label > span { color: var(--color-red-light); }
+  .project-category { margin: 1rem 0; color: var(--color-blue-light); font: 1.2rem var(--font-body); }
+  .project-status { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+  .project-year { color: var(--color-text-muted); font-size: 1rem; }
+  .stack-label { color: var(--color-text-muted); font: 0.9rem var(--font-body); margin: 1.25rem 0 0.65rem; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .project-cover { margin-bottom: 3rem; }
+  .media-note { margin-top: 0.8rem; max-width: 75ch; padding-left: 0.8rem; border-left: 2px solid var(--color-gold); color: var(--color-text-muted); font: 0.95rem / 1.6 var(--font-reading); }
+  .project-cover-fallback { display: grid; place-content: center; justify-items: center; gap: 1.2rem; min-height: 300px; padding: 2rem; border: 1px solid var(--color-border); background: repeating-linear-gradient(0deg, transparent 0 39px, #3366ff12 39px 40px), var(--color-bg-secondary); }
+  .project-cover-fallback > span:first-child { font: 3rem var(--font-display); color: var(--color-blue-light); }
+  .project-cover-fallback p { font: 1.8rem var(--font-body); }
+  .fallback-label { font: 1rem var(--font-body); color: var(--color-text-muted); text-align: center; }
+  .case-layout { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 3rem; align-items: start; }
+  .case-index { position: sticky; top: 2rem; }
+  .index-label { font: 0.9rem var(--font-body); color: var(--color-text-muted); margin-bottom: 1rem; }
+  .case-index ol { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--color-border); }
+  .case-index a { display: flex; align-items: center; gap: 0.65rem; min-height: 44px; padding: 0.45rem 0 0.45rem 0.8rem; color: var(--color-text-muted); font: 1.1rem / 1.3 var(--font-body); }
+  .case-index a:hover { color: var(--color-text-heading); }
+  .case-index a > span { color: var(--color-blue-light); font-size: 0.9rem; }
+  .case-index .index-return { margin-top: 1.2rem; color: var(--color-blue-light); }
+  .mobile-index { display: none; }
+  .case-content { min-width: 0; }
+  .case-section { padding-bottom: 3rem; margin-bottom: 3rem; border-bottom: 1px solid var(--color-border); }
+  .section-kicker { color: var(--color-red-light); font: 1rem var(--font-body); letter-spacing: 0.05em; margin-bottom: 0.8rem; }
+  .case-section h2 { font-size: clamp(0.7rem, 1.3vw, 0.9rem); line-height: 1.9; margin-bottom: 1.75rem; }
+  .case-section h3 { font-family: var(--font-reading); font-weight: 600; font-size: 1.25rem; line-height: 1.4; }
+  .case-section p:not(.section-kicker, .media-note) { max-width: 72ch; font: 1.125rem / 1.75 var(--font-reading); }
+  .context-block + .context-block { margin-top: 1.75rem; }
+  .context-block h3 { margin-bottom: 0.6rem; }
+  .solution { border-left: 2px solid var(--color-blue); padding-left: 1.25rem; }
+  .feature-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2rem; margin: 0; padding: 0; }
+  .feature-list li { border-top: 1px solid var(--color-border); padding-top: 1rem; }
+  .feature-number { display: block; font: 1.3rem var(--font-body); color: var(--color-blue-light); margin-bottom: 0.75rem; }
+  .feature-list h3 { margin-bottom: 0.65rem; }
+  .feature-list p { color: var(--color-text-muted); }
+  .decision-list { display: grid; gap: 1.75rem; }
+  .decision-list h3 { margin-bottom: 0.65rem; }
+  .decision-list h3 > span { color: var(--color-blue-light); font-family: var(--font-body); margin-right: 0.25rem; }
+  .case-section .section-description { margin: -0.6rem 0 1.5rem; color: var(--color-text-muted); }
+  .gallery-section > .media-note { margin-bottom: 1.5rem; }
+  .documentation-section { margin-bottom: 0; border-bottom: 0; }
+  .project-documentation { border: 1px solid var(--color-border); background: var(--color-bg-secondary); }
+  .project-documentation > summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; cursor: pointer; list-style: none; padding: 1rem 1.25rem; color: var(--color-text-base); font: 1.25rem / 1.5 var(--font-body); }
+  .project-documentation > summary::-webkit-details-marker { display: none; }
+  .project-documentation > summary:hover { color: var(--color-blue-light); }
+  .documentation-toggle { color: var(--color-blue-light); }
+  .project-documentation[open] .documentation-toggle { transform: rotate(45deg); }
+  .project-reading { padding: 1.5rem; border-top: 1px solid var(--color-border); font: 1.125rem / 1.75 var(--font-reading); overflow-wrap: anywhere; }
+  .project-reading :global(p), .project-reading :global(.descripcion) { font: inherit; margin-bottom: 1.25rem; max-width: 72ch; }
+  .project-reading :global(h2), .project-reading :global(h3), .project-reading :global(h4) { font-family: var(--font-reading); font-size: 1.35rem; font-weight: 600; line-height: 1.5; margin: 2rem 0 0.8rem; }
+  .project-reading :global(ul) { list-style: square; padding-left: 1.4rem; margin-bottom: 1.5rem; }
+  .project-reading :global(li) { margin-bottom: 0.5rem; }
+  .project-reading :global(a) { text-decoration: underline; }
+  .project-reading :global(.imagen) { display: block; width: 100%; max-width: 100%; max-height: 600px; object-fit: contain; margin: 1.5rem auto 2rem; border: 1px solid var(--color-border); background: #080e20; }
+  .project-reading :global(.group-images) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-block: 1.5rem 2rem; }
+  .project-reading :global(.group-images .imagen) { width: 100%; max-width: 100%; height: 100%; max-height: 360px; object-fit: contain; margin: 0; }
+  .project-pagination { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin: 2rem 0 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
+  .project-pagination a { display: flex; flex-direction: column; gap: 0.8rem; padding: 1.25rem; border: 1px solid var(--color-border); background: var(--color-bg-secondary); color: var(--color-text-base); font: 1.5rem / 1.4 var(--font-body); }
+  .project-pagination a:hover { border-color: var(--color-blue-light); }
+  .project-pagination .pagination-label { color: var(--color-text-muted); font-size: 0.95rem; }
+  .project-pagination .next { grid-column: 2; text-align: right; }
+  .project-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 1.5rem; border-top: 1px solid var(--color-border); color: var(--color-text-muted); font: 1.1rem var(--font-body); }
+  @media (width <= 950px) {
+    .project-hero { gap: 1.5rem; }
+    .case-layout { grid-template-columns: 1fr; }
+    .case-index { display: none; }
+    .mobile-index { display: block; margin-bottom: 2.5rem; padding: 0.8rem 1rem; border: 1px solid var(--color-border); background: var(--color-bg-secondary); font: 1.2rem var(--font-body); }
+    .mobile-index summary { display: flex; justify-content: space-between; cursor: pointer; list-style: none; min-height: 28px; }
+    .mobile-index summary::-webkit-details-marker { display: none; }
+    .mobile-index summary > span { color: var(--color-blue-light); }
+    .mobile-index ol { margin: 1rem 0 0; padding-left: 1.4rem; }
+    .mobile-index a { display: block; padding: 0.5rem; }
   }
-
-  .a_back:hover {
-    text-decoration: underline;
+  @media (width <= 680px) {
+    .project-page { width: calc(100% - 2rem); }
+    .portfolio-link { display: none; }
+    .project-topbar { min-height: 72px; }
+    .project-hero { grid-template-columns: 1fr; padding: 2.5rem 0 2rem; gap: 2rem; }
+    .project-summary { font-size: 1.125rem; }
+    .project-cover { margin-bottom: 2rem; }
+    .feature-list { grid-template-columns: 1fr; }
+    .case-section { padding-bottom: 2rem; margin-bottom: 2rem; }
+    .project-reading { padding: 1rem; }
+    .project-reading :global(.group-images) { grid-template-columns: 1fr; }
+    .project-pagination { gap: 0.75rem; }
+    .project-pagination a { padding: 0.9rem; font-size: 1.25rem; }
+    .project-pagination .pagination-label { font-size: 0.8rem; }
   }
-
-  main {
-    width: 90%;
-    padding: 2rem;
-    margin: 0 auto;
-  }
-
-  h1 {
-    margin-bottom: 1rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-  }
-
-  .descripcion {
-    font-size: 1rem;
-  }
-
-  .imagen {
-    max-width: 100%;
-    margin: 2rem auto;
-  }
-
-  @media (width >= 768px) {
-    .imagen {
-      max-width: 35%;
-    }
-  }
-
-  .group-images {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
-  }
-
-  @media (width >= 768px) {
-    .group-images {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .group-images img {
-      max-width: 100%;
-    }
-  }
-
-  .enlace {
-    text-decoration: underline;
+  @media print {
+    :global(html) { overflow: visible !important; }
+    .project-page { width: 100%; font-size: 11pt; }
+    .project-hero { display: block; padding: 0 0 1rem; }
+    h1 { font-size: 16pt; }
+    .project-facts { margin-top: 1rem; padding: 0.5rem; }
+    .project-cover { margin-bottom: 1rem; }
+    .case-layout { display: block; }
+    .case-section { padding-bottom: 1rem; margin-bottom: 1rem; }
+    .case-section h2 { font-size: 10pt; break-after: avoid; }
+    .case-section h3 { font-size: 12pt; }
+    .project-summary, .case-section p:not(.section-kicker, .media-note) { font-size: 11pt; }
+    .feature-list li, .decision-list li { break-inside: avoid; }
+    .project-documentation > summary { display: none; }
+    .project-documentation > .project-reading { display: block !important; }
+    .project-documentation::details-content { content-visibility: visible; }
+    .project-reading { padding: 0; border: 0; font-size: 11pt; }
   }
 </style>

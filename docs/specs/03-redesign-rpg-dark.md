@@ -49,7 +49,8 @@ Rediseñar por completo el portafolio manteniendo el mismo contenido base, archi
 
 ## Tipografía
 - Títulos: `Press Start 2P` (pixel).
-- Cuerpo/labels: `VT323` (monoespaciada retro).
+- Cuerpo/labels de landing y listado: `VT323` (monoespaciada retro).
+- Detalles de proyectos: `Source Sans 3` para lectura; VT323 en etiquetas/controles y Press Start 2P en encabezados cortos (ampliación aprobada en [spec 04](./04-project-case-studies.md)).
 - Fallbacks: `Menlo, Monaco, Consolas, monospace`.
 
 ## Fuentes
@@ -113,10 +114,13 @@ Ubicación: `src/components/retro/`
 - Incluir fallback para proyectos sin imagen (Cafeteria, Tema WP).
 
 ### 5. Detalle de proyecto (`src/layouts/ProjectLayout.astro` + páginas)
-- Encabezado con portada grande, título, stack y enlaces.
-- Galería en grid con lazy loading.
-- Contenido textual actual sin cambios.
-- Lightbox simple (sin librería) opcional.
+- Implementado como caso de estudio compartido para las 13 rutas, según [spec 04](./04-project-case-studies.md).
+- Encabezado con portada grande, título, stack y enlaces documentados.
+- Contexto, cuatro funciones principales y tres decisiones técnicas por proyecto, sin resultados inventados.
+- Galería curada con lazy loading, pies de captura y lightbox accesible sin librerías.
+- Contenido fuente actual intacto, disponible en documentación desplegable con tamaños de texto e imágenes corregidos.
+- Índice lateral/móvil y navegación entre detalles; fuente Source Sans 3 local solo en estas páginas.
+- QA visual y build pendientes de ejecutar por el usuario.
 
 ### 6. `KeyboardManager.astro`
 - Eliminar comando “Cambiar tema” (ya no hay toggle).
@@ -209,7 +213,7 @@ Los demás deben quedar `isFeatured: false` para no exceder 4.
 - Verificar manualmente 320–1440 px, foco/Enter/Espacio, toques repetidos, pausa durante una demo, lámpara, cambio de movimiento reducido en vivo y fallback sin JavaScript. Build/servidor siguen pendientes de ejecución por el usuario.
 
 ### Límites y siguientes fases
-- `/proyectos` y los detalles heredan el tema global, pero **no se ha rediseñado su estructura**. Continúan pendientes las fases 5 y la QA integral de la spec.
+- `/proyectos` hereda el tema global y conserva su estructura: el rediseño del listado sigue pendiente. Los detalles ya tienen estructura de caso de estudio (spec 04); continúa pendiente la QA integral.
 - KontrolFit Desktop utiliza temporalmente `/images/kontrolfit/0.png` (captura de la versión web); reemplazar al disponer de capturas propias.
 - Cafetería y Tema WordPress quedan inicialmente con `image: ""`; `CoverMedia` ya ofrece fallback para cuando se migre el listado.
 

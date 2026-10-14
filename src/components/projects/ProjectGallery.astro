@@ -1,0 +1,125 @@
+---
+import type { ProjectCapture } from '@/data/projectDetails';
+
+interface Props {
+  images: ProjectCapture[];
+  variant?: 'cover' | 'grid';
+  name: string;
+}
+const { images, variant = 'grid', name } = Astro.props;
+---
+<div class:list={['project-gallery', variant]} data-project-gallery>
+  <div class="capture-grid">
+    {images.map(({ src, caption }, index) => (
+      <figure class="capture">
+        <a class="capture-link" href={src} data-capture data-caption={caption} aria-label={`Ampliar: ${caption}`}>
+          <div class="capture-chrome" aria-hidden="true"><span class="window-dots">▪ ▪ ▪</span><span>{variant === 'cover' ? 'VISTA DEL PROYECTO' : `CAPTURA_${String(index + 1).padStart(2, '0')}`}</span><span class="expand-symbol">↗</span></div>
+          <img src={src} alt={caption} loading={variant === 'cover' ? 'eager' : 'lazy'} fetchpriority={variant === 'cover' ? 'high' : 'auto'} decoding="async" />
+          <span class="capture-expand" aria-hidden="true">+ AMPLIAR</span>
+        </a>
+        <figcaption><span class="caption-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{caption}</figcaption>
+      </figure>
+    ))}
+  </div>
+  <dialog class="project-lightbox no-print" aria-label={`Capturas de ${name}`}>
+    <div class="lightbox-toolbar">
+      <span class="lightbox-counter" data-counter aria-live="polite" aria-atomic="true"></span>
+      <div class="lightbox-actions">
+        <button type="button" data-previous aria-label="Captura anterior">←</button>
+        <button type="button" data-next aria-label="Captura siguiente">→</button>
+        <button type="button" data-close aria-label="Cerrar imagen ampliada" autofocus>×</button>
+      </div>
+    </div>
+    <img class="lightbox-image" data-lightbox-image alt="" />
+    <div class="lightbox-footer"><p data-lightbox-caption></p><a data-original>Abrir original ↗</a></div>
+  </dialog>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-project-gallery]').forEach(gallery => {
+    const links = [...gallery.querySelectorAll<HTMLAnchorElement>('[data-capture]')];
+    const dialog = gallery.querySelector<HTMLDialogElement>('dialog');
+    const image = gallery.querySelector<HTMLImageElement>('[data-lightbox-image]');
+    const caption = gallery.querySelector<HTMLElement>('[data-lightbox-caption]');
+    const counter = gallery.querySelector<HTMLElement>('[data-counter]');
+    const original = gallery.querySelector<HTMLAnchorElement>('[data-original]');
+    const previous = gallery.querySelector<HTMLButtonElement>('[data-previous]');
+    const next = gallery.querySelector<HTMLButtonElement>('[data-next]');
+    const close = gallery.querySelector<HTMLButtonElement>('[data-close]');
+    if (!dialog || typeof dialog.showModal !== 'function' || !image || !caption || !counter || !original || !previous || !next || !close) return;
+
+    let current = 0;
+    let opener: HTMLAnchorElement | undefined;
+    let previousOverflow = '';
+    const showCapture = (index: number) => {
+      const link = links[index];
+      if (!link) return;
+      current = index;
+      image.src = link.href;
+      image.alt = link.dataset.caption ?? '';
+      caption.textContent = image.alt;
+      counter.textContent = `${index + 1} / ${links.length}`;
+      original.href = link.href;
+      previous.disabled = index === 0;
+      next.disabled = index === links.length - 1;
+      if ((previous.disabled && document.activeElement === previous) || (next.disabled && document.activeElement === next)) close.focus();
+    };
+    links.forEach((link, index) => link.addEventListener('click', event => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      opener = link;
+      showCapture(index);
+      previousOverflow = document.documentElement.style.overflow;
+      dialog.showModal();
+      document.documentElement.style.overflow = 'hidden';
+    }));
+    previous.addEventListener('click', () => showCapture(current - 1));
+    next.addEventListener('click', () => showCapture(current + 1));
+    close.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('keydown', event => {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        showCapture(current + (event.key === 'ArrowLeft' ? -1 : 1));
+      }
+    });
+    dialog.addEventListener('click', event => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      document.documentElement.style.overflow = previousOverflow;
+      opener?.focus({ preventScroll: true });
+    });
+  });
+</script>
+<style>
+  .capture-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+  .capture { min-width: 0; margin: 0; }
+  .capture-link { display: block; position: relative; border: 1px solid var(--color-border); background: var(--color-bg-secondary); box-shadow: var(--shadow-pixel); transition: border-color 180ms, transform 180ms; }
+  .capture-link:hover { border-color: var(--color-blue-light); transform: translateY(-2px); }
+  .capture-chrome { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.4rem 0.75rem; border-bottom: 1px solid var(--color-border); font: 0.9rem var(--font-body); color: var(--color-text-muted); }
+  .window-dots { color: var(--color-red-light); letter-spacing: 0.1em; }
+  .expand-symbol { color: var(--color-blue-light); }
+  .capture-link img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: contain; background: #080e20; }
+  .capture-expand { position: absolute; right: 0.75rem; bottom: 0.75rem; padding: 0.15rem 0.5rem; border: 1px solid var(--color-border); background: var(--color-bg); color: var(--color-text-base); font: 0.9rem var(--font-body); }
+  figcaption { display: flex; gap: 0.75rem; margin-top: 0.75rem; font: 1rem / 1.5 var(--font-reading); color: var(--color-text-muted); }
+  .caption-index { color: var(--color-blue-light); font: 1.2rem var(--font-body); }
+  .cover .capture-grid { grid-template-columns: 1fr; }
+  .cover .capture-link img { aspect-ratio: 16 / 9; max-height: 560px; min-height: 180px; object-fit: contain; }
+  .project-lightbox { width: min(1280px, calc(100% - 2rem)); max-width: none; max-height: calc(100dvh - 2rem); padding: 0; border: 1px solid var(--color-blue-light); background: var(--color-bg-secondary); color: var(--color-text-base); box-shadow: 8px 8px 0 #02040d; overflow: auto; }
+  .project-lightbox::backdrop { background: #02040def; }
+  .lightbox-toolbar { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; border-bottom: 1px solid var(--color-border); }
+  .lightbox-counter { font: 1.2rem var(--font-body); color: var(--color-text-muted); }
+  .lightbox-actions { display: flex; gap: 0.5rem; }
+  .lightbox-actions button { width: 44px; height: 44px; border: 1px solid var(--color-border); background: var(--color-panel); color: var(--color-text-base); font: 1.5rem var(--font-body); cursor: pointer; }
+  .lightbox-actions button:hover:not(:disabled) { border-color: var(--color-blue-light); }
+  .lightbox-actions button:disabled { color: var(--color-text-muted); opacity: 0.4; cursor: default; }
+  .lightbox-image { display: block; width: 100%; max-height: calc(100dvh - 200px); object-fit: contain; background: #050816; }
+  .lightbox-footer { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.75rem; padding: 1rem; border-top: 1px solid var(--color-border); }
+  .lightbox-footer p { font: 1.05rem / 1.5 var(--font-reading); }
+  .lightbox-footer a { font: 1.15rem var(--font-body); white-space: nowrap; }
+  @media (width <= 620px) { .capture-grid { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .capture-link { transition: none; } .capture-link:hover { transform: none; } }
+  @media print { .capture-link { box-shadow: none; } .capture-chrome, .capture-expand { display: none; } .capture { break-inside: avoid; } .capture-link img { max-height: 230px; } }
+</style>
