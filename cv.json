@@ -187,48 +187,6 @@
       "description_url": "/proyectos/1h-canchitas-app"
     },
     {
-      "name": "RandomTeams",
-      "image": "/images/randomteams/1.png",
-      "isActive": true,
-      "isFeatured": false,
-      "startDate": "2026-04-01",
-      "endDate": "",
-      "description": "Aplicación para crear equipos aleatorios para diferentes propositos.",
-      "highlights": [
-        "nuxt,nuxt-ui,drizzle,turso,github,tailwindcss"
-      ],
-      "url": "https://randomteams-one.vercel.app/",
-      "description_url": "/proyectos/1i-randomteams"
-    },
-    {
-      "name": "DotLog",
-      "image": "/images/dotlog/1.jpg",
-      "isActive": true,
-      "isFeatured": false,
-      "startDate": "2026-04-01",
-      "endDate": "",
-      "description": "Aplicación para registrar habitos por mes",
-      "highlights": [
-        "nuxt,nuxt-ui,tailwindcss,drizzle,turso,googleauth"
-      ],
-      "url": "https://dotlogg.netlify.app/",
-      "description_url": "/proyectos/1j-dotlog"
-    },
-    {
-      "name": "Eventos App",
-      "image": "/images/eventos-app/eventos-app-1.jpg",
-      "isActive": true,
-      "isFeatured": false,
-      "startDate": "2026-02-01",
-      "endDate": "",
-      "description": "Aplicación para administrar eventos donde los usuaros pueden inscribirse.",
-      "highlights": [
-        "nuxt,vue,tailwindcss,postgresql,nuxt-ui,drizzle"
-      ],
-      "url": "",
-      "description_url": "/proyectos/1g-eventos-app"
-    },
-    {
       "name": "KontrolFit Web",
       "image": "/images/kontrolfit/0.png",
       "isActive": true,
@@ -237,7 +195,7 @@
       "endDate": "",
       "description": "Sistema web para gimnasios pequeños y medianos que centraliza socios, planes, pagos, visitas diarias, vencimientos, asistencias e ingresos básicos desde una cabina de administración simple.",
       "highlights": [
-        "laravel,vue,tailwindcss,mysql"
+        "nuxt,nuxt-ui,turso,drizzle,vue"
       ],
       "url": "",
       "description_url": "/proyectos/1l-kontrolfit"
@@ -271,20 +229,6 @@
       "description_url": "/proyectos/1e-app-liga"
     },
     {
-      "name": "App Tortilleria",
-      "image": "/images/app-tortilleria/1.jpg",
-      "isActive": true,
-      "isFeatured": false,
-      "startDate": "2025-09-05",
-      "endDate": "2025-11-20",
-      "description": "Aplicación para registrar las ventas de una tortillería.",
-      "highlights": [
-        "laravel,vue,tailwindcss,mysql"
-      ],
-      "url": "",
-      "description_url": "/proyectos/1d-app-tortilleria"
-    },
-    {
       "name": "Tema de wordpress",
       "image": "",
       "isActive": false,
@@ -296,20 +240,6 @@
         "php,js,wordpress,css,mysql"
       ],
       "url": "https://dev-gymfitnessappwordpress.pantheonsite.io/"
-    },
-    {
-      "name": "QuiscoApp",
-      "image": "/images/react-quiosco/01.png",
-      "isActive": true,
-      "isFeatured": false,
-      "startDate": "2024-01-01",
-      "endDate": "2025-12-01",
-      "description": "Aplicación para administrar los pedidos de los clientes en un restaurante. El administrador puede gestionar los pedidos y cosas generales como los productos y categorias.",
-      "highlights": [
-        "laravel,react,tailwindcss,mysql"
-      ],
-      "url": "https://fs-react-quiosco.vercel.app/auth/login",
-      "description_url": "/proyectos/1a-quiosco-laravel"
     },
     {
       "name": "AppSalon",

@@ -210,7 +210,7 @@ export const projectDetails: ProjectDetail[] = [
       { title: 'Seguimiento y consulta', description: 'Dashboard de ingresos, filtros de vencimientos, contacto por WhatsApp y consulta pública del historial del socio.' },
     ],
     decisions: [
-      { title: 'Operación web full-stack', description: 'Laravel, Vue, Tailwind CSS y MySQL forman el stack de la aplicación.' },
+      { title: 'Operación web full-stack', description: 'Nuxt y Vue construyen la aplicación, con Nuxt UI para la interfaz y Drizzle ORM para gestionar los datos almacenados en Turso.' },
       { title: 'Validar antes de cobrar o ingresar', description: 'No se registra un pago sin una vista previa válida del período; tampoco una asistencia sin pago activo que cubra la fecha.' },
       { title: 'Separar visitas de socios', description: 'Las entradas diarias usan planes activos de un día y cuentan en los ingresos sin crear una membresía.' },
     ],
