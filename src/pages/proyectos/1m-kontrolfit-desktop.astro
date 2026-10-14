@@ -1,0 +1,175 @@
+---
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
+---
+
+<ProjectLayout title="KontrolFit Desktop">
+  <div>
+    <p>
+      KontrolFit es una aplicación de escritorio para administrar las
+      operaciones diarias de un gimnasio: socios, membresías, pagos,
+      asistencias y caja. Funciona completamente sin conexión a internet y
+      almacena la información en una base de datos local.
+    </p>
+
+    <div class="contenedor">
+      <h2>Stack tecnológico</h2>
+      <p class="descripcion">
+        Desarrollada con Go y Wails para el backend e integración con el
+        sistema operativo, Vue 3, Nuxt UI y Tailwind CSS para la interfaz, y
+        SQLite con GORM para la gestión de datos.
+      </p>
+
+      <img
+        src="/images/kontrolfit/0.png"
+        alt="Panel principal de KontrolFit"
+        class="imagen"
+      />
+
+      <h2>Panel principal</h2>
+      <p class="descripcion">
+        Al iniciar sesión, el usuario accede a un dashboard con un resumen de
+        la actividad del gimnasio: asistencias, visitas y pagos del día, estado
+        de la caja y movimientos del período. Desde esta pantalla también puede
+        registrar una asistencia ingresando el código del socio, sin tener que
+        navegar a otro módulo.
+      </p>
+
+      <img
+        src="/images/kontrolfit/1.png"
+        alt="Dashboard de KontrolFit"
+        class="imagen"
+      />
+
+      <h2>Gestión de socios y planes</h2>
+      <p class="descripcion">
+        El sistema permite registrar y editar socios, asignarles un plan y
+        consultar el estado de su membresía. Cada socio tiene un código único
+        que facilita su identificación y el registro de sus entradas. El
+        listado incluye búsqueda por nombre, teléfono o código, además de
+        filtros por plan y estado, lo que permite identificar rápidamente a los
+        socios al día, con membresías vencidas o inactivos.
+      </p>
+
+      <p class="descripcion">
+        Los planes se pueden configurar con nombre, precio y duración en días,
+        así como activar o desactivar según las necesidades del gimnasio.
+      </p>
+
+      <img
+        src="/images/kontrolfit/2.jpg"
+        alt="Gestión de socios y planes"
+        class="imagen"
+      />
+
+      <h2>Pagos y renovación de membresías</h2>
+      <p class="descripcion">
+        El usuario puede registrar pagos, consultar su historial y filtrar los
+        movimientos por fecha, socio y método de pago. También puede dar de
+        alta a un socio junto con su pago inicial en una misma operación. El
+        sistema calcula automáticamente el período de la membresía; si el socio
+        renueva antes de su vencimiento, el nuevo período comienza desde la
+        fecha de vencimiento existente, evitando perder días ya pagados.
+      </p>
+
+      <img
+        src="/images/kontrolfit/3.png"
+        alt="Registro de pagos"
+        class="imagen"
+      />
+
+      <h2>Asistencias y visitas diarias</h2>
+      <p class="descripcion">
+        Las asistencias se registran mediante el código del socio. Antes de
+        guardar una entrada, el sistema valida que el socio esté activo y tenga
+        una membresía vigente con un pago válido. También incluye un módulo de
+        visitas diarias para personas que pagan una entrada individual, sin
+        necesidad de registrarlas como socios; cada visita queda asociada a su
+        plan, importe y método de pago.
+      </p>
+
+      <div class="group-images">
+        <img
+          src="/images/kontrolfit/4.png"
+          alt="Registro de asistencia"
+          class="imagen"
+        />
+        <img
+          src="/images/kontrolfit/5.png"
+          alt="Visitas diarias"
+          class="imagen"
+        />
+      </div>
+
+      <h2>Control de caja</h2>
+      <p class="descripcion">
+        La caja permite registrar un saldo inicial, consultar los ingresos y
+        movimientos del período, y realizar el cierre con su comprobante
+        correspondiente. Para mantener el control de las operaciones, los
+        cobros de membresías y visitas requieren que la caja esté abierta. El
+        historial permite revisar cierres anteriores y consultar los
+        movimientos que forman parte de cada uno.
+      </p>
+
+      <img
+        src="/images/kontrolfit/6.png"
+        alt="Control de caja"
+        class="imagen"
+      />
+
+      <h2>Impresión de tickets</h2>
+      <p class="descripcion">
+        La aplicación integra impresión directa en impresoras térmicas mediante
+        ESC/POS, sin depender del diálogo de impresión del navegador ni generar
+        archivos PDF. Permite imprimir comprobantes de pagos, visitas y
+        cierres de caja, e incluye selección de impresora, configuración de
+        papel de 58 o 80 mm e impresión de prueba, con integración específica
+        para Windows y Linux.
+      </p>
+
+      <img
+        src="/images/kontrolfit/7.png"
+        alt="Impresión de tickets"
+        class="imagen"
+      />
+
+      <h2>Usuarios y permisos</h2>
+      <p class="descripcion">
+        El administrador puede crear cuentas para el personal y asignar
+        permisos de acceso por módulo. El menú y la navegación se adaptan a
+        los permisos de cada usuario, permitiendo distribuir las tareas del
+        gimnasio sin dar acceso a todas las secciones del sistema.
+      </p>
+
+      <img
+        src="/images/kontrolfit/8.png"
+        alt="Usuarios y permisos"
+        class="imagen"
+      />
+
+      <h2>Respaldos y exportación de información</h2>
+      <p class="descripcion">
+        El usuario puede elegir una carpeta de respaldos una sola vez y generar
+        nuevas copias de la base de datos con un botón; cada archivo se guarda
+        con fecha y hora, sin volver a solicitar el destino. La aplicación
+        también permite restaurar una copia existente, creando previamente un
+        respaldo de seguridad de los datos actuales. Además, socios, pagos y
+        movimientos de caja se pueden exportar a CSV compatible con Excel.
+      </p>
+
+      <img
+        src="/images/kontrolfit/9.jpg"
+        alt="Respaldos y exportación"
+        class="imagen"
+      />
+
+      <h2>Activación por equipo</h2>
+      <p class="descripcion">
+        KontrolFit incluye un sistema de licencias offline vinculadas al
+        equipo y verificadas mediante firmas digitales Ed25519. Esto permite
+        distribuir la aplicación con activación por computadora, manteniendo su
+        funcionamiento sin depender de un servidor o una conexión permanente a
+        internet.
+      </p>
+    </div>
+  </div>
+</ProjectLayout>
