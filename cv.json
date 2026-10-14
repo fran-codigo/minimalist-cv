@@ -160,21 +160,21 @@
   "projects": [
     {
       "name": "Cuponcitos - SASS",
-      "image": "/images/cuponcitos/cuponcitos-1.jpg",
+      "image": "/images/cuponcitos/portada.jpg",
       "isActive": true,
       "isFeatured": true,
       "startDate": "2025-08-01",
       "endDate": "",
       "description": "Aplicación para administrar cupones y recompensas de negocios.",
       "highlights": [
-        "laravel,vue,tailwindcss,mysql"
+        "nuxt,nuxt-ui,turso,drizzle,vue"
       ],
       "url": "https://cuponcitos.app",
       "description_url": "/proyectos/1f-cuponcitos"
     },
     {
       "name": "Canchitas - App",
-      "image": "/images/canchitas-app/1.jpg",
+      "image": "/images/canchitas-app/portada.jpg",
       "isActive": true,
       "isFeatured": true,
       "startDate": "2026-03-15",

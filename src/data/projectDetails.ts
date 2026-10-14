@@ -61,7 +61,7 @@ export const projectDetails: ProjectDetail[] = [
       { title: 'Suscripciones y plataforma', description: 'Planes, pagos y facturación por negocio; un superadministrador gestiona negocios, precios y estadísticas generales.' },
     ],
     decisions: [
-      { title: 'API y frontend separados', description: 'Laravel expone la API, Vue construye la interfaz y MySQL almacena los datos de la plataforma.' },
+      { title: 'Aplicación con Nuxt y Vue', description: 'Nuxt y Vue construyen la aplicación, con Nuxt UI para los componentes de interfaz y Drizzle ORM para gestionar los datos almacenados en Turso.' },
       { title: 'Acceso y protección', description: 'Registro, recuperación de contraseña y verificación de correo, con rate limiting para limitar intentos de acceso.' },
       { title: 'Reglas de fidelización configurables', description: 'Las condiciones de puntos y recompensas se activan o desactivan desde el panel de cada negocio.' },
     ],
