@@ -160,6 +160,7 @@
   "projects": [
     {
       "name": "Cuponcitos - SASS",
+      "image": "/images/cuponcitos/cuponcitos-1.jpg",
       "isActive": true,
       "isFeatured": true,
       "startDate": "2025-08-01",
@@ -173,6 +174,7 @@
     },
     {
       "name": "Canchitas - App",
+      "image": "/images/canchitas-app/1.jpg",
       "isActive": true,
       "isFeatured": true,
       "startDate": "2026-03-15",
@@ -186,6 +188,7 @@
     },
     {
       "name": "RandomTeams",
+      "image": "/images/randomteams/1.png",
       "isActive": true,
       "isFeatured": false,
       "startDate": "2026-04-01",
@@ -199,8 +202,9 @@
     },
     {
       "name": "DotLog",
+      "image": "/images/dotlog/1.jpg",
       "isActive": true,
-      "isFeatured": true,
+      "isFeatured": false,
       "startDate": "2026-04-01",
       "endDate": "",
       "description": "Aplicación para registrar habitos por mes",
@@ -212,7 +216,9 @@
     },
     {
       "name": "Eventos App",
+      "image": "/images/eventos-app/eventos-app-1.jpg",
       "isActive": true,
+      "isFeatured": false,
       "startDate": "2026-02-01",
       "endDate": "",
       "description": "Aplicación para administrar eventos donde los usuaros pueden inscribirse.",
@@ -224,6 +230,7 @@
     },
     {
       "name": "KontrolFit Web",
+      "image": "/images/kontrolfit/0.png",
       "isActive": true,
       "isFeatured": false,
       "startDate": "2026-06-01",
@@ -237,6 +244,7 @@
     },
     {
       "name": "KontrolFit Desktop",
+      "image": "/images/kontrolfit/0.png",
       "isActive": true,
       "isFeatured": true,
       "startDate": "2026-06-01",
@@ -250,6 +258,7 @@
     },
     {
       "name": "App Liga de fútbol",
+      "image": "/images/app-liga/1.jpg",
       "isActive": true,
       "isFeatured": true,
       "startDate": "2025-11-01",
@@ -263,6 +272,7 @@
     },
     {
       "name": "App Tortilleria",
+      "image": "/images/app-tortilleria/1.jpg",
       "isActive": true,
       "isFeatured": false,
       "startDate": "2025-09-05",
@@ -276,8 +286,9 @@
     },
     {
       "name": "Tema de wordpress",
+      "image": "",
       "isActive": false,
-      "isFeatured": true,
+      "isFeatured": false,
       "startDate": "2023-06-19",
       "endDate": "2024-01-01",
       "description": "Tema de wordpress adaptable para diferentes empresas, es responsive y utiliza las mejores pracicas para que sea mantenible y escalable",
@@ -288,6 +299,7 @@
     },
     {
       "name": "QuiscoApp",
+      "image": "/images/react-quiosco/01.png",
       "isActive": true,
       "isFeatured": false,
       "startDate": "2024-01-01",
@@ -301,6 +313,7 @@
     },
     {
       "name": "AppSalon",
+      "image": "/images/app-salon/1-registro.jpg",
       "isActive": true,
       "isFeatured": false,
       "startDate": "2024-09-20",
@@ -314,6 +327,7 @@
     },
     {
       "name": "Cafeteria Astro | Wordpress",
+      "image": "",
       "isActive": false,
       "isFeatured": false,
       "startDate": "2025-08-01",

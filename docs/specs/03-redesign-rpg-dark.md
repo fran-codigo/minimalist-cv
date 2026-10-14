@@ -4,7 +4,7 @@
 Rediseñar por completo el portafolio manteniendo el mismo contenido base, archivando la versión actual en Git. La nueva experiencia debe ser **solo modo oscuro**, visualmente striking pero controlada, con enfoque en 32 bits / RPG pixel art, usando **rojo y azul como colores principales**, y destacando los **4 mejores proyectos con imagen**.
 
 ## Requisitos confirmados
-- Archivo de la versión actual **solo mediante Git** (`archive/minimalist-v1` + tag `v1.0.0`).
+- Archivo de la versión actual **solo mediante Git** (`archive/minimalist-v1`). El tag `v1.0.0` preexistente se conserva sin moverlo (ver archivado).
 - Estética: **RPG pixel art oscuro**.
 - Modo: **solo oscuro** (sin toggle claro/oscuro).
 - Motion: **vistoso pero contenido** (respeta `prefers-reduced-motion`).
@@ -53,16 +53,15 @@ Rediseñar por completo el portafolio manteniendo el mismo contenido base, archi
 - Fallbacks: `Menlo, Monaco, Consolas, monospace`.
 
 ## Fuentes
-- Instalar `@fontsource/press-start-2p` y `@fontsource/vt323`.
-- Importar en `src/layouts/Layout.astro`.
+- Primera entrega: fuentes autoalojadas en `public/fonts/`, declaradas con `@font-face` en `src/layouts/Layout.astro`, `font-display: swap` y preload.
+- Se incluyen Press Start 2P y VT323 originales de `google/fonts` con sus respectivas licencias SIL OFL. No hay peticiones externas de fuentes en runtime.
+- Se sustituye la instalación inicialmente propuesta de Fontsource para respetar el flujo SSD sin instalar dependencias ni modificar el entorno.
 
 ## Archivado previo (Git)
-Ejecutar antes del rediseño:
-1. `git add -A`
-2. `git commit -m "chore: freeze v1 before redesign"`
-3. `git branch archive/minimalist-v1`
-4. `git tag v1.0.0`
-5. Push opcional de rama/tag.
+- Árbol de trabajo limpio al comenzar: no fue necesario crear un commit de congelado.
+- Se creó `archive/minimalist-v1` en `5ae13fb`, el HEAD anterior al rediseño.
+- `v1.0.0` ya existía en `5a928c2`; se conserva sin sobrescribirlo y no representa el snapshot más reciente.
+- No se hicieron commits del rediseño ni push. Push de la rama de archivo pendiente si se desea respaldo remoto.
 
 ## Estructura de cambios
 
@@ -88,7 +87,7 @@ Ubicación: `src/components/retro/`
 
 ### 3. Secciones home
 #### `Hero.astro`
-- HUD retro: nombre en pixel font, label, avatar con marco pixelado, ubicación, iconos sociales, CTA a proyectos.
+- HUD retro: nombre en pixel font, label, escena pixel art interactiva programando (sustituye al retrato), ubicación, iconos sociales, CTA a proyectos.
 
 #### `About.astro`
 - Panel “Perfil”; mantener `summary`; mejorar interlineado.
@@ -190,6 +189,33 @@ Los demás deben quedar `isFeatured: false` para no exceder 4.
 7. Motion, accesibilidad, impresión, SEO.
 8. Build y QA.
 
-## Decisión pendiente menor
-- Crear capturas reales para “Cafeteria Astro” y “Tema WordPress”, o dejar fallback inicial.
-- Confirmar si KontrolFit Desktop tendrá carpeta propia o fallback inicial.
+## Primera entrega: landing (2026-10-14)
+
+### Alcance implementado
+- Landing `/`: navegación, HUD con avatar y paisaje pixel art original, Perfil, cuatro Misiones destacadas, Bitácora, Inventario, Academy y contacto.
+- Cinco componentes en `src/components/retro/`, tokens compartidos, dark fijo, fuentes locales y metadatos SEO/OG.
+- Paleta de comandos oscura con navegación, redes e impresión, sin comando de tema; botón accesible además de Ctrl/⌘+K.
+- `image` en todos los proyectos y exactamente cuatro `isFeatured: true`. Se mantienen contenido, rutas y URLs.
+- CSS responsive, foco visible, salto al contenido, motion progresivo con `prefers-reduced-motion` e impresión en claro.
+- Se priorizan los destacados después del Perfil; experiencia, habilidades y educación siguen a los proyectos.
+
+### Ampliación: escritorio pixel art interactivo (2026-10-14)
+- A petición del usuario, sustituir el retrato visible del Hero por `PixelDesk.astro`: ilustración SVG original de Franco con cabello oscuro y camiseta clara, sentado ante un escritorio con computadora. Conservar HUD, nombre, métricas y enlaces.
+- Animación CSS con pasos discretos: manos que alternan al teclear, líneas de código y cursor del monitor, respiración sutil y vapor de café. Sin librerías, audio ni datos personales nuevos.
+- Clic/toque en la escena, o Enter/Espacio con su botón enfocado, ejecuta una demo visual: estado de compilación breve y confirmación en el monitor; no ejecuta código real ni realiza peticiones de red.
+- Controles nativos para pausar/reanudar la escena y encender/apagar la lámpara; estado accesible y mensajes `aria-live` únicamente para la interacción del visitante.
+- `prefers-reduced-motion` mantiene la ilustración estática incluso durante la demo; los controles siguen funcionando y el de animación indica que el movimiento está desactivado. Sin JS, escena estática, botón de demo deshabilitado y controles ocultos; las animaciones solo arrancan tras habilitar las interacciones.
+- Implementación acotada al nuevo componente y su integración en Hero; no modificar datos, foto original ni metadatos sociales. No ampliar el rediseño a otras rutas.
+- Verificar manualmente 320–1440 px, foco/Enter/Espacio, toques repetidos, pausa durante una demo, lámpara, cambio de movimiento reducido en vivo y fallback sin JavaScript. Build/servidor siguen pendientes de ejecución por el usuario.
+
+### Límites y siguientes fases
+- `/proyectos` y los detalles heredan el tema global, pero **no se ha rediseñado su estructura**. Continúan pendientes las fases 5 y la QA integral de la spec.
+- KontrolFit Desktop utiliza temporalmente `/images/kontrolfit/0.png` (captura de la versión web); reemplazar al disponer de capturas propias.
+- Cafetería y Tema WordPress quedan inicialmente con `image: ""`; `CoverMedia` ya ofrece fallback para cuando se migre el listado.
+
+### Verificación de esta entrega
+- Realizada: `git diff --check`; comprobación estática de los cuatro destacados exactos, existencia de portadas, rutas de detalle, imports locales y fuentes/licencias; ausencia de toggle y `localStorage` en `src/`.
+- No se ejecutaron scripts del proyecto, build, servidor ni instalaciones (restricción del flujo SSD).
+- Pendiente para el usuario: `pnpm build` y revisión visual con `pnpm dev` en 320, 375, 768, 1024 y 1440 px; comprobar que no haya overflow horizontal.
+- Revisar teclado (Tab, enlaces, Ctrl/⌘+K, Escape), modo de movimiento reducido, carga inicial oscura e impresión/PDF en claro sin efectos ni navegación auxiliar.
+- Visitar `/proyectos` y cada detalle para detectar regresiones de los estilos compartidos antes de avanzar a la siguiente fase.

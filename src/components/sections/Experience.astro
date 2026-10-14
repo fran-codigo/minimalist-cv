@@ -1,117 +1,39 @@
 ---
-import Section from "@/components/Section.astro";
-
-import { work } from "@cv";
+import RetroPanel from '@/components/retro/RetroPanel.astro';
+import { work } from '@cv';
 ---
-
-<Section title="Experiencia">
-  <ul class="experience-list">
-    {
-      work.map(
-        ({ name, startDate, endDate, position, summary, highlights }) => {
-          const startYear = new Date(startDate).getFullYear();
-          const endYear =
-            endDate != null ? new Date(endDate).getFullYear() : "Actual";
-          const years = `${startYear} - ${endYear}`;
-
-          return (
-            <li>
-              <article class="experience-item">
-                <header>
-                  <div>
-                    <h3>{name}</h3>
-                    <h4>{position}</h4>
-                  </div>
-                  <time>{years}</time>
-                </header>
-                <footer>
-                  <p>{summary}</p>
-                </footer>
-              </article>
-              <div class="highlights">
-                <ul>
-                  {highlights.map((highlight) => {
-                    return <li>{highlight}</li>;
-                  })}
-                </ul>
-              </div>
-            </li>
-          );
-        }
-      )
-    }
-  </ul>
-</Section>
-
+<RetroPanel title="Bitácora de misiones" id="experiencia" index="03" label="EXPERIENCE.log">
+  <ol class="timeline">
+    {work.map(({ name, startDate, endDate, position, summary, highlights }, index) => (
+      <li class:list={['mission', { current: !endDate }]}>
+        <article>
+          <header>
+            <p class="mission-id">MISIÓN {String(work.length - index).padStart(2, '0')} <span aria-hidden="true">/</span> <span>{startDate.slice(0, 4)} — {endDate ? endDate.slice(0, 4) : 'Actual'}</span></p>
+            <h3>{name}</h3>
+            <p class="position">{position}</p>
+          </header>
+          <p class="summary">{summary}</p>
+          <ul class="highlights">{highlights.map(highlight => <li>{highlight}</li>)}</ul>
+        </article>
+      </li>
+    ))}
+  </ol>
+</RetroPanel>
 <style>
-  .experience-list {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .experience-item {
-    border-left: 1px solid var(--color-border);
-    padding-left: 18px;
-  }
-
-  article h3 {
-    font-weight: 500;
-    color: var(--color-text-heading);
-  }
-
-  article h4 {
-    color: var(--color-text-subheading);
-    font-weight: 400;
-  }
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 4px;
-  }
-
-  time {
-    flex: 0 0 auto;
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-  }
-
-  footer {
-    margin: 12px 0;
-  }
-
-  footer p {
-    color: var(--color-text-base);
-    line-height: 1.6;
-  }
-
-  .highlights ul {
-    font-size: 0.85rem;
-    margin-top: 8px;
-    color: var(--color-text-base);
-    list-style-type: disc;
-    padding-left: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .highlights li {
-    line-height: 1.5;
-    padding-left: 2px;
-  }
-
-  @media (width <= 560px) {
-    header {
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .experience-item {
-      padding-left: 14px;
-    }
-  }
+  .timeline { list-style: none; padding: 0; margin: 0 0 0 5px; border-left: 1px solid var(--color-border); }
+  .mission { position: relative; padding: 0 0 2rem 1.75rem; }
+  .mission:last-child { padding-bottom: 0; }
+  .mission::before { content: ''; position: absolute; left: -5px; top: 7px; width: 9px; height: 9px; background: var(--color-text-muted); border: 2px solid var(--color-bg-secondary); }
+  .current::before { background: var(--color-red); box-shadow: 0 0 0 3px #ff3c3c20; }
+  .mission-id { color: var(--color-text-muted); font-size: 1rem; margin-bottom: 0.4rem; }
+  .mission-id > span:first-child { margin: 0 0.5rem; color: var(--color-border-hover); }
+  .current .mission-id > span:last-child { color: var(--color-gold); }
+  h3 { font-size: 1.6rem; line-height: 1.25; }
+  .position { color: var(--color-blue-light); font-size: 1.2rem; margin-top: 0.25rem; }
+  .summary { margin: 1rem 0 0.75rem; font-size: 1.2rem; }
+  .highlights { list-style: square; padding-left: 1rem; color: var(--color-text-muted); font-size: 1.15rem; }
+  .highlights li { margin-top: 0.4rem; padding-left: 0.2rem; }
+  .highlights li::marker { color: var(--color-blue-light); font-size: 0.8rem; }
+  @media (width <= 560px) { .mission { padding-left: 1rem; } }
+  @media print { .mission { break-inside: avoid; } }
 </style>

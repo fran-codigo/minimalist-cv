@@ -1,20 +1,10 @@
 ---
-import Section from '@/components/Section.astro';
+import RetroPanel from '@/components/retro/RetroPanel.astro';
 import { basics } from '@cv';
-
-const { summary } = basics;
 ---
-
-<Section title="Sobre mi">
-  <p class="summary">
-    {summary}
-  </p>
-</Section>
-
+<RetroPanel title="Perfil" id="perfil" index="01" label="ABOUT_ME.txt">
+  <p class="summary">{basics.summary}</p>
+</RetroPanel>
 <style>
-  .summary {
-    max-width: 68ch;
-    line-height: 1.65;
-    color: var(--color-text-base);
-  }
+  .summary { max-width: 85ch; line-height: 1.75; }
 </style>

@@ -1,0 +1,14 @@
+---
+interface Props { status: 'active' | 'archived' | 'featured'; }
+const { status } = Astro.props;
+const labels = { active: 'Activo', archived: 'Archivado', featured: 'Destacado' };
+---
+<span class:list={['status-badge', status]}><span class="dot" aria-hidden="true"></span>{labels[status]}</span>
+<style>
+  .status-badge { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.1rem 0.5rem; border: 1px solid var(--color-border); font-size: 1rem; line-height: 1.5; color: var(--color-text-muted); background: var(--color-bg-secondary); }
+  .active { color: var(--color-green); }
+  .featured { color: var(--color-gold); }
+  .dot { width: 5px; height: 5px; background: currentColor; }
+  .active .dot { animation: status-pulse 3s ease-in-out infinite; }
+  @keyframes status-pulse { 50% { opacity: 0.4; } }
+</style>

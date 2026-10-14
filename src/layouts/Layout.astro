@@ -1,176 +1,128 @@
 ---
+import { basics } from '@cv';
+
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description = basics.summary } = Astro.props;
+const canonical = new URL(Astro.url.pathname, basics.url);
+const socialImage = new URL('/images/foto-cv-2025.jpg', basics.url);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Astro description"
-    />
-    <script is:inline>
-      const theme = (() => {
-        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-          return localStorage.getItem("theme");
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return "light";
-      })();
-
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    </script>
-    <meta
-      name="viewport"
-      content="width=device-width"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/Logo.png"
-    />
-    <meta
-      name="generator"
-      content={Astro.generator}
-    />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050816" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" type="image/png" href="/Logo.png" />
+    <link rel="canonical" href={canonical} />
+    <link rel="preload" href="/fonts/press-start-2p.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/vt323.ttf" as="font" type="font/ttf" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content={`Retrato de ${basics.name}`} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <a class="skip-link no-print" href="#contenido">Saltar al contenido</a>
+    <div class="world-background no-print" aria-hidden="true"></div>
+    <div id="contenido" tabindex="-1"><slot /></div>
   </body>
 </html>
+
 <style is:global>
+  @font-face {
+    font-family: 'Press Start 2P';
+    src: url('/fonts/press-start-2p.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'VT323';
+    src: url('/fonts/vt323.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
   :root {
-    --color-bg: #fff;
-    --color-text-base: #667;
-    --color-text-heading: #111;
-    --color-text-subheading: #222;
-    --color-text-muted: #555;
-    --color-text-light: #aaa;
-    --color-border: #eee;
-    --color-border-hover: #ddd;
-    --color-badge-bg: #eee;
-    --color-badge-text: #000;
-    --color-footer-bg: #fdfdfd;
+    color-scheme: dark;
+    --font-display: 'Press Start 2P', Menlo, Monaco, Consolas, monospace;
+    --font-body: 'VT323', Menlo, Monaco, Consolas, monospace;
+    --color-bg: #050816;
+    --color-bg-secondary: #0a1024;
+    --color-panel: #0d1630;
+    --color-text-base: #dbe4ff;
+    --color-text-heading: #edf2ff;
+    --color-text-subheading: #dbe4ff;
+    --color-text-muted: #8ea0d8;
+    --color-text-light: #8ea0d8;
+    --color-border: #1f2f5c;
+    --color-border-hover: #5f8cff;
+    --color-badge-bg: #111e3d;
+    --color-badge-text: #dbe4ff;
+    --color-footer-bg: #0a1024;
+    --color-red: #ff3c3c;
+    --color-red-light: #ff6b6b;
+    --color-blue: #3366ff;
+    --color-blue-light: #5f8cff;
+    --color-gold: #f7c948;
+    --color-green: #3cff8b;
+    --color-magenta: #ff5fd7;
+    --shadow-pixel: 5px 5px 0 #02040d;
   }
-
-  html.dark {
-    --color-bg: #111;
-    --color-text-base: #f3f4f6;
-    --color-text-heading: #f4f4f5;
-    --color-text-subheading: #e4e4e7;
-    --color-text-muted: #d4d4d8;
-    --color-text-light: #9ca3af;
-    --color-border: #27272a;
-    --color-border-hover: #3f3f46;
-    --color-badge-bg: #27272a;
-    --color-badge-text: #f4f4f5;
-    --color-footer-bg: #18181b;
-  }
-
-  /* Excluir impresion del modo oscuro */
-  @media print {
-    html {
-      --color-bg: #fff !important;
-      --color-text-base: #667 !important;
-      --color-text-heading: #111 !important;
-      --color-text-subheading: #222 !important;
-      --color-text-muted: #555 !important;
-      --color-text-light: #aaa !important;
-      --color-border: #eee !important;
-      --color-border-hover: #ddd !important;
-      --color-badge-bg: #eee !important;
-      --color-badge-text: #000 !important;
-      --color-footer-bg: #fdfdfd !important;
+  *, *::before, *::after { box-sizing: border-box; }
+  html { background: var(--color-bg); scroll-behavior: smooth; scroll-padding-top: 2rem; }
+  body { margin: 0; color: var(--color-text-base); font-family: var(--font-body); font-size: 1.4rem; line-height: 1.5; }
+  figure, p, h1, h2, h3, h4 { margin: 0; }
+  h1, h2, h3, h4 { color: var(--color-text-heading); font-weight: 400; }
+  h1, h2 { font-family: var(--font-display); line-height: 1.65; }
+  p { color: var(--color-text-base); font-size: 1.35rem; line-height: 1.55; text-wrap: pretty; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  a { color: var(--color-blue-light); text-decoration: none; text-underline-offset: 5px; }
+  a:hover { color: var(--color-text-heading); }
+  button { font: inherit; }
+  img { display: block; max-width: 100%; height: auto; }
+  ::selection { background: var(--color-blue); color: #fff; }
+  :focus-visible { outline: 3px solid var(--color-gold); outline-offset: 5px; }
+  [id] { scroll-margin-top: 2rem; }
+  .skip-link { position: fixed; top: -8rem; left: 1rem; z-index: 100; background: var(--color-panel); padding: 1rem; }
+  .skip-link:focus { top: 1rem; }
+  .world-background { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 80% 8%, #14265b55, transparent 50%), linear-gradient(#1f2f5c18 1px, transparent 1px), linear-gradient(90deg, #1f2f5c18 1px, transparent 1px); background-size: auto, 40px 40px, 40px 40px; }
+  .world-background::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(1px 1px at 15% 25%, #8ea0d8 98%, transparent), radial-gradient(2px 2px at 70% 12%, #5f8cff 98%, transparent), radial-gradient(1px 1px at 90% 65%, #dbe4ff 98%, transparent); background-size: 430px 390px; animation: star-drift 90s linear infinite alternate; }
+  .world-background::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(transparent 0 3px, #0000000d 3px 4px); }
+  .eyebrow { color: var(--color-text-muted); font-family: var(--font-display); font-size: 0.55rem; line-height: 2; letter-spacing: 0.08em; text-transform: uppercase; }
+  .print { display: none !important; }
+  @keyframes star-drift { to { transform: translateY(-35px); } }
+  @keyframes section-entry { from { opacity: 0.5; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { animation: section-entry linear both; animation-timeline: view(); animation-range: entry 0% entry 18%; }
     }
   }
-
-  html {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      'Courier New',
-      Courier,
-      monospace;
-    background-color: var(--color-bg);
-    letter-spacing: -0.025rem;
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
   }
-
-  body,
-  figure {
-    margin: 0;
-    padding: 0;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    margin: 0;
-    color: var(--color-text-heading);
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      'Open Sans',
-      'Helvetica Neue',
-      sans-serif;
-  }
-
-  p {
-    color: var(--color-text-base);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin: 0;
-    text-wrap: pretty;
-  }
-
   @media print {
-    .no-print {
-      display: none !important;
-    }
-  }
-
-  .print {
-    display: none !important;
-  }
-
-  @media print {
-    .print {
-      display: block !important;
-    }
+    :root { color-scheme: light; --color-bg: #fff; --color-bg-secondary: #fff; --color-panel: #fff; --color-text-base: #222; --color-text-heading: #111; --color-text-subheading: #222; --color-text-muted: #444; --color-text-light: #444; --color-border: #ccc; --color-badge-bg: #eee; --color-badge-text: #111; --color-footer-bg: #fff; --color-blue-light: #222; --shadow-pixel: none; }
+    html { background: #fff; }
+    body { font-size: 11pt; }
+    *, *::before, *::after { background: transparent !important; color: #111 !important; box-shadow: none !important; text-shadow: none !important; animation: none !important; transition: none !important; }
+    .no-print, ninja-keys { display: none !important; }
+    .print { display: block !important; }
+    p { font-size: 11pt; }
+    a { text-decoration: none; }
   }
 </style>

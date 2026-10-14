@@ -1,0 +1,265 @@
+---
+interface Props { name: string; }
+const { name } = Astro.props;
+---
+
+<figure class="pixel-desk" data-pixel-desk data-paused="true" data-lamp="on" data-building="false" data-complete="false">
+  <button class="scene-trigger" type="button" data-run disabled aria-label={`Ejecutar demo en el escritorio pixel art de ${name}`}>
+    <svg class="desk-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 184" width="560" height="368" fill="none" shape-rendering="crispEdges" role="img" aria-label={`${name}, con cabello oscuro y camiseta clara, sentado en su escritorio tecleando frente a una computadora.`}>
+      <!-- Habitación y ventana: la misma noche azul del resto del portafolio. -->
+      <path fill="#0a1024" d="M0 0h280v184H0z" />
+      <path fill="#0d1630" d="M0 0h280v150H0z" />
+      <path fill="#13203c" d="M0 22h280v1H0zm0 25h280v1H0zm0 25h280v1H0zm0 25h280v1H0zm0 25h280v1H0z" />
+      <path fill="#1f2f5c" d="M18 16h80v71H18z" />
+      <path fill="#050816" d="M22 20h72v63H22z" />
+      <path fill="#3366ff" d="M70 27h10v3h3v10h-3v3H70v-3h-3V30h3z" />
+      <path fill="#8ea0d8" d="M31 28h2v2h-2zm19 13h1v1h-1zm34 13h2v2h-2zm-54 9h1v1h-1z" />
+      <path fill="#182951" d="M22 72h10v-8h8v-9h9v9h8v8h10v-8h9v-9h8v9h10v19H22z" />
+      <path fill="#263c6b" d="M22 76h14v-7h10v7h14v-6h10v6h10v-7h8v7h6v7H22z" />
+      <path fill="#1f2f5c" d="M56 20h4v63h-4zM22 50h72v3H22zM15 85h86v4H15z" />
+      <!-- Repisa, libros y una planta de bloques. -->
+      <path fill="#263c6b" d="M176 36h82v4h-82z" />
+      <path fill="#050816" d="M179 40h4v5h-4zm72 0h4v5h-4z" />
+      <path fill="#ff3c3c" d="M185 22h6v14h-6z" />
+      <path fill="#5f8cff" d="M193 17h6v19h-6z" />
+      <path fill="#8ea0d8" d="M201 24h5v12h-5z" />
+      <path fill="#f7c948" d="M208 21h5v15h-5z" />
+      <path fill="#254c47" d="M236 17h4v13h-4zm-7-2h7v5h-7zm11-6h6v9h-6zm4 11h7v5h-7z" />
+      <path fill="#3cff8b" d="M234 11h4v8h-4zm8 3h5v5h-5z" />
+      <path fill="#b56950" d="M231 27h16v3h-2v6h-12v-6h-2z" />
+      <!-- Un pequeño póster de código, sin texto personal inventado. -->
+      <path fill="#1f2f5c" d="M117 18h32v31h-32z" />
+      <path fill="#0a1024" d="M119 20h28v27h-28z" />
+      <path stroke="#5f8cff" stroke-width="2" d="m127 28-4 5 4 5m12-10 4 5-4 5m-3-12-5 14" />
+      <!-- Suelo, alfombra y sombra del escritorio. -->
+      <path fill="#080e20" d="M0 150h280v34H0z" />
+      <path fill="#14213e" d="M0 150h280v2H0zm0 18h280v1H0zm27-16h1v16h-1zm65 17h1v15h-1zm64-17h1v16h-1zm75 17h1v15h-1z" />
+      <path fill="#101b35" d="M53 166h181v3h9v7H44v-7h9z" />
+      <path fill="#1f2f5c" d="M56 169h175v2H56z" />
+      <path fill="#050816" d="M70 174h154v3H70z" />
+      <!-- Lámpara: el haz se enciende/apaga sin cambiar el tema. -->
+      <g class="lamp-light">
+        <path fill="#f7c948" fill-opacity=".045" d="M46 83h18l49 53H13z" />
+        <path fill="#f7c948" fill-opacity=".08" d="M49 83h12l27 53H25z" />
+        <path fill="#f7c948" d="M47 82h17v3H47z" />
+      </g>
+      <path fill="#52678f" d="M30 130h28v4H30zm11-34h3v34h-3zm0-3h4v5h-4zm2-5h4v7h-4zm3-6h4v8h-4z" />
+      <path fill="#ff3c3c" d="M47 72h14v4h5v6H43v-6h4z" />
+      <path fill="#ff6b6b" d="M47 72h5v4h-5z" />
+      <!-- Silla, piernas y zapatos. -->
+      <path fill="#050816" d="M77 105h22v4h5v43H74v-40h3z" />
+      <path fill="#263c6b" d="M79 109h16v4h4v35H77v-36h2z" />
+      <path fill="#182951" d="M81 149h54v7H81z" />
+      <path fill="#52678f" d="M89 156h4v14h-4zm-12 14h29v3H77z" />
+      <path fill="#050816" d="M74 172h7v4h-7zm29 0h7v4h-7z" />
+      <path fill="#263c6b" d="M109 141h20v17h-7v12h-8v-15h-5z" />
+      <path fill="#1b2948" d="M124 142h13v18h-4v11h-8v-17h-1z" />
+      <path fill="#dbe4ff" d="M114 168h9v4h7v4h-18v-5h2zm12 2h8v3h8v4h-18v-4h2z" />
+      <!-- Sprite de Franco, inspirado en el retrato existente. -->
+      <g class="developer">
+        <path fill="#b97852" d="M106 93h12v14h-12z" />
+        <path fill="#8b543f" d="M106 94h12v5h-12z" />
+        <path fill="#bac9e2" d="M96 103h10v3h12v-3h7v5h5v28h-4v12H92v-29h-2v-11h6z" />
+        <path fill="#edf2ff" d="M98 103h8v6h12v-6h6v8h-5v27H97v-24h-4v-6h5z" />
+        <path fill="#8ea0b8" d="M92 123h6v18h25v7H92z" />
+        <path fill="#b97852" d="M98 65h22v4h6v9h4v6h-4v11h-7v4h-16v-5h-6V78h-3v-8h4z" />
+        <path fill="#d89b6e" d="M105 68h15v5h4v8h4v2h-4v8h-8v4h-10v-5h-4V75h3z" />
+        <path fill="#211f25" d="M95 59h7v-4h17v4h7v7h-3v9h-6v-7h-8v4h-8v12h-6V73h-3V63h3z" />
+        <path fill="#373039" d="M99 59h15v3h-11v4h-8v-3h4z" />
+        <path fill="#211f25" d="M118 76h5v2h-5z" />
+        <path class="eye" fill="#211f25" d="M120 79h2v3h-2z" />
+        <path fill="#8b543f" d="M120 89h5v2h-5zm-19-9h3v7h-3z" />
+      </g>
+      <!-- Torre, monitor, teclado y ratón sobre el escritorio. -->
+      <path fill="#050816" d="M232 99h22v36h-22z" />
+      <path fill="#1f2f5c" d="M235 102h16v31h-16z" />
+      <path fill="#3366ff" d="M238 108h10v2h-10zm0 5h10v2h-10z" />
+      <path class="pc-led" fill="#3cff8b" d="M244 125h3v3h-3z" />
+      <path class="monitor-glow" fill="#3366ff" fill-opacity=".07" d="M152 61h77v65h-77z" />
+      <path fill="#52678f" d="M185 117h6v13h-6zm-11 13h28v3h-28z" />
+      <path fill="#050816" d="M151 64h76v55h-76z" />
+      <path fill="#354d7a" d="M154 67h70v48h-70z" />
+      <path fill="#080f26" d="M157 70h64v41h-64z" />
+      <path fill="#182951" d="M157 70h64v6h-64zm0 6h8v35h-8z" />
+      <path fill="#ff6b6b" d="M160 72h2v2h-2z" />
+      <path fill="#f7c948" d="M164 72h2v2h-2z" />
+      <path fill="#3cff8b" d="M168 72h2v2h-2z" />
+      <g class="editor-lines">
+        <path fill="#5f8cff" d="M169 81h12v2h-12zm16 0h20v2h-20z" />
+        <path fill="#ff5fd7" d="M173 86h16v2h-16z" />
+        <path fill="#dbe4ff" d="M192 86h16v2h-16z" />
+        <path class="code-line line-one" fill="#3cff8b" d="M177 91h32v2h-32z" />
+        <path class="code-line line-two" fill="#f7c948" d="M177 96h23v2h-23z" />
+        <path fill="#ff5fd7" d="M173 101h7v2h-7z" />
+        <path class="screen-cursor" fill="#dbe4ff" d="M184 101h3v3h-3z" />
+      </g>
+      <g class="build-screen">
+        <path fill="#5f8cff" d="M170 85h37v3h-37z" />
+        <path class="build-progress" fill="#3cff8b" d="M170 93h37v4h-37z" />
+        <text x="188" y="106" text-anchor="middle" fill="#8ea0d8">building...</text>
+      </g>
+      <g class="complete-screen">
+        <path stroke="#3cff8b" stroke-width="3" d="m182 86 4 4 9-10" />
+        <text x="189" y="104" text-anchor="middle" fill="#3cff8b">BUILD OK</text>
+      </g>
+      <path fill="#8ea0d8" d="M186 116h4v1h-4z" />
+      <path fill="#1f2f5c" d="M123 130h47v3h4v4h-56v-4h5z" />
+      <path fill="#52678f" d="M125 131h43v2h-43zm-3 3h48v1h-48z" />
+      <path fill="#8ea0d8" d="M126 131h2v1h-2zm6 0h2v1h-2zm6 0h2v1h-2zm6 0h2v1h-2zm6 0h2v1h-2zm6 0h2v1h-2zm6 0h2v1h-2z" />
+      <path class="key-light" fill="#5f8cff" d="M132 134h5v1h-5zm16-3h4v1h-4zm12 3h4v1h-4z" />
+      <path fill="#52678f" d="M187 130h7v2h3v5h-13v-5h3z" />
+      <path fill="#8ea0d8" d="M190 131h1v3h-1z" />
+      <!-- Brazos con dos ritmos opuestos: el gesto de teclear queda siempre visible. -->
+      <g class="typing-hand hand-back">
+        <path fill="#bac9e2" d="M118 110h9v13h-9z" />
+        <path fill="#b97852" d="M122 122h7v4h15v5h-22z" />
+        <path fill="#d89b6e" d="M137 125h9v3h3v3h-12z" />
+      </g>
+      <g class="typing-hand hand-front">
+        <path fill="#edf2ff" d="M105 112h12v12h-12z" />
+        <path fill="#d89b6e" d="M109 123h8v6h14v5h-20v-3h-2z" />
+        <path fill="#e5ae80" d="M129 128h9v3h4v3h-13z" />
+      </g>
+      <!-- Taza, vapor y borde rojo del escritorio. -->
+      <path fill="#050816" d="M55 135h23v2H55z" />
+      <path fill="#dbe4ff" d="M57 123h13v12H57zm13 2h5v7h-5v-2h3v-3h-3z" />
+      <path fill="#8b543f" d="M59 123h9v2h-9z" />
+      <path fill="#ff3c3c" d="M60 128h5v4h-5z" />
+      <g class="coffee-steam" stroke="#8ea0d8" stroke-width="1" opacity=".5"><path d="M61 120v-4h2v-4m4 8v-5h2v-3" /></g>
+      <path fill="#354d7a" d="M29 137h227v5H29z" />
+      <path fill="#182951" d="M33 142h219v5H33z" />
+      <path fill="#ff3c3c" d="M33 142h219v1H33z" />
+      <path fill="#263c6b" d="M38 147h7v24h-7zm198 0h7v24h-7z" />
+      <path fill="#050816" d="M42 147h3v24h-3zm198 0h3v24h-3z" />
+      <text class="room-label" x="254" y="13" text-anchor="end" fill="#52678f">FRANCO'S WORKSPACE</text>
+    </svg>
+    <span class="scene-invitation" aria-hidden="true"><span>↵</span> CLIC PARA EJECUTAR</span>
+  </button>
+  <figcaption class="desk-toolbar">
+    <span class="desk-status" role="status" aria-live="polite" aria-atomic="true" data-status>En el escritorio</span>
+    <div class="desk-controls">
+      <button type="button" data-toggle-motion aria-pressed="false" aria-label="Pausar animación del escritorio"><span data-motion-icon aria-hidden="true">Ⅱ</span><span data-motion-label>Pausar</span></button>
+      <button type="button" data-toggle-lamp aria-pressed="true" aria-label="Luz del escritorio"><span class="lamp-indicator" aria-hidden="true"></span>Luz</button>
+    </div>
+  </figcaption>
+</figure>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-pixel-desk]').forEach(desk => {
+    const run = desk.querySelector<HTMLButtonElement>('[data-run]');
+    const motion = desk.querySelector<HTMLButtonElement>('[data-toggle-motion]');
+    const lamp = desk.querySelector<HTMLButtonElement>('[data-toggle-lamp]');
+    const status = desk.querySelector<HTMLElement>('[data-status]');
+    const motionLabel = desk.querySelector<HTMLElement>('[data-motion-label]');
+    const motionIcon = desk.querySelector<HTMLElement>('[data-motion-icon]');
+    if (!run || !motion || !lamp || !status || !motionLabel || !motionIcon) return;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let paused = false;
+    let building = false;
+    let resetTimer: ReturnType<typeof setTimeout> | undefined;
+
+    const updateMotion = () => {
+      const reduced = reducedMotion.matches;
+      desk.dataset.paused = String(paused || reduced);
+      motion.disabled = reduced;
+      motion.setAttribute('aria-pressed', String(paused || reduced));
+      motion.setAttribute('aria-label', reduced ? 'Animación desactivada por movimiento reducido' : paused ? 'Reanudar animación del escritorio' : 'Pausar animación del escritorio');
+      motionLabel.textContent = reduced ? 'Sin movimiento' : paused ? 'Reanudar' : 'Pausar';
+      motionIcon.textContent = paused || reduced ? '▶' : 'Ⅱ';
+      if (!building && desk.dataset.complete !== 'true') {
+        status.textContent = reduced ? 'Modo sin movimiento' : paused ? 'En pausa. Un respiro.' : 'Escribiendo código…';
+      }
+    };
+
+    run.disabled = false;
+    updateMotion();
+    desk.classList.add('is-ready');
+    reducedMotion.addEventListener('change', updateMotion);
+
+    motion.addEventListener('click', () => {
+      paused = !paused;
+      updateMotion();
+    });
+    lamp.addEventListener('click', () => {
+      const on = desk.dataset.lamp !== 'on';
+      desk.dataset.lamp = on ? 'on' : 'off';
+      lamp.setAttribute('aria-pressed', String(on));
+    });
+    run.addEventListener('click', () => {
+      if (building) return;
+      clearTimeout(resetTimer);
+      building = true;
+      desk.dataset.building = 'true';
+      desk.dataset.complete = 'false';
+      run.setAttribute('aria-disabled', 'true');
+      status.textContent = 'Compilando la demo…';
+      setTimeout(() => {
+        building = false;
+        desk.dataset.building = 'false';
+        desk.dataset.complete = 'true';
+        run.removeAttribute('aria-disabled');
+        status.textContent = '¡Build listo! Sin errores.';
+        resetTimer = setTimeout(() => {
+          desk.dataset.complete = 'false';
+          updateMotion();
+        }, 3000);
+      }, 1600);
+    });
+
+  });
+</script>
+
+<style>
+  .pixel-desk { --typing-speed: 420ms; margin: 0; background: #0d1630; }
+  .scene-trigger { position: relative; display: block; width: 100%; padding: 0; border: 0; border-radius: 0; background: transparent; text-align: left; color: var(--color-text-base); cursor: pointer; touch-action: manipulation; }
+  .scene-trigger:disabled { cursor: default; }
+  .scene-trigger[aria-disabled='true'] { cursor: progress; }
+  .scene-trigger:focus-visible { outline-offset: -4px; }
+  .desk-art { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+  .desk-art text { font-family: var(--font-body); font-size: 6px; }
+  .desk-art .room-label { font-size: 5px; letter-spacing: 0.8px; }
+  .scene-invitation { position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); display: none; align-items: center; gap: 0.5rem; padding: 0.1rem 0.5rem; background: #050816e6; border: 1px solid #1f2f5c; color: #8ea0d8; font-size: 0.75rem; white-space: nowrap; pointer-events: none; }
+  .scene-invitation > span { color: var(--color-gold); }
+  .is-ready .scene-invitation { display: flex; }
+  .scene-trigger:hover .scene-invitation, .scene-trigger:focus-visible .scene-invitation { border-color: var(--color-blue-light); color: var(--color-text-heading); }
+  .desk-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.3rem 0.75rem; padding: 0.45rem 0.8rem; border-top: 1px solid var(--color-border); background: var(--color-bg-secondary); }
+  .desk-status { font-size: 0.95rem; color: var(--color-text-muted); }
+  .desk-controls { display: none; gap: 0.4rem; }
+  .is-ready .desk-controls { display: flex; }
+  .desk-controls button { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; min-height: 36px; padding: 0.15rem 0.5rem; border: 1px solid var(--color-border); background: var(--color-panel); color: var(--color-text-base); font-size: 0.9rem; cursor: pointer; }
+  .desk-controls button:hover:not(:disabled) { border-color: var(--color-blue-light); }
+  .desk-controls button:disabled { color: var(--color-text-muted); cursor: default; }
+  [data-motion-icon] { font-size: 0.7rem; color: var(--color-blue-light); }
+  .lamp-indicator { width: 5px; height: 5px; background: var(--color-gold); }
+  [data-lamp='off'] .lamp-light { opacity: 0; }
+  [data-lamp='off'] .lamp-indicator { background: var(--color-text-muted); }
+  .typing-hand { animation: type-key var(--typing-speed) steps(2, end) infinite; }
+  .hand-back { animation-delay: -210ms; }
+  .developer { animation: developer-breathe 4s steps(2, end) infinite; }
+  .eye { animation: eye-blink 6s steps(1, end) infinite; }
+  .code-line { transform-box: fill-box; transform-origin: left; animation: write-code 3.6s steps(8, end) infinite; }
+  .line-two { animation-delay: -1.8s; }
+  .screen-cursor { animation: cursor-blink 1s steps(1, end) infinite; }
+  .key-light { animation: cursor-blink 600ms steps(1, end) infinite; }
+  .coffee-steam { animation: steam-rise 3s steps(3, end) infinite; }
+  .build-screen, .complete-screen { display: none; }
+  [data-building='true'] { --typing-speed: 160ms; }
+  [data-building='true'] .editor-lines, [data-complete='true'] .editor-lines { display: none; }
+  [data-building='true'] .build-screen, [data-complete='true'] .complete-screen { display: block; }
+  [data-building='true'] .monitor-glow { fill-opacity: 0.16; }
+  [data-building='true'] .desk-status { color: var(--color-gold); }
+  [data-complete='true'] .desk-status { color: var(--color-green); }
+  .build-progress { transform-box: fill-box; transform-origin: left; }
+  [data-building='true'] .build-progress { animation: build-code 1.5s steps(10, end) both; }
+  [data-paused='true'] *, [data-paused='true'] *::before, [data-paused='true'] *::after { animation-play-state: paused !important; }
+  @keyframes type-key { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(2px); } }
+  @keyframes developer-breathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(1px); } }
+  @keyframes eye-blink { 0%, 94%, 98%, 100% { opacity: 1; } 95%, 97% { opacity: 0; } }
+  @keyframes write-code { 0%, 10% { transform: scaleX(0.15); } 65%, 100% { transform: scaleX(1); } }
+  @keyframes cursor-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  @keyframes steam-rise { 0% { transform: translateY(1px); opacity: 0; } 35%, 65% { opacity: 0.45; } 100% { transform: translateY(-4px); opacity: 0; } }
+  @keyframes build-code { from { transform: scaleX(0.05); } to { transform: scaleX(1); } }
+  @media (prefers-reduced-motion: reduce) { .pixel-desk *, .pixel-desk *::before, .pixel-desk *::after { animation: none !important; transition: none !important; } }
+  @media print { .pixel-desk { display: none; } }
+</style>

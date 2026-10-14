@@ -7,27 +7,58 @@ import Projects from '@/components/sections/Projects.astro';
 import Experience from '@/components/sections/Experience.astro';
 import Skills from '@/components/sections/Skills.astro';
 import KeyboardManager from '@/components/KeyboardManager.astro';
+import PixelButton from '@/components/retro/PixelButton.astro';
 import { basics } from '@cv';
-const { name, label } = basics;
+const { name, label, email } = basics;
 ---
-
 <Layout title={`Portafolio de ${name} - ${label}`}>
-  <main>
-    <Hero />
-    <About />
-    <Experience />
-    <Education />
-    <Projects />
-    <Skills />
-  </main>
-
-  <KeyboardManager />
+  <div class="landing-shell">
+    <header class="site-header no-print">
+      <a class="brand" href="/" aria-label={`${name}, inicio`}><span class="brand-mark" aria-hidden="true">FS</span><span>FRANCO SILVA<span class="brand-caption">DEVELOPER PORTFOLIO</span></span></a>
+      <nav aria-label="Navegación principal">
+        <a href="#perfil">Perfil</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href={`mailto:${email}`} class="nav-contact">Contacto <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main>
+      <Hero />
+      <About />
+      <Projects />
+      <div class="journey-grid">
+        <Experience />
+        <div class="sidebar"><Skills /><Education /></div>
+      </div>
+      <section class="contact no-print" aria-labelledby="contact-title">
+        <div><p class="eyebrow">¿EL SIGUIENTE PROYECTO?</p><h2 id="contact-title">Comencemos una<br />nueva misión<span aria-hidden="true">.</span></h2></div>
+        <PixelButton href={`mailto:${email}`}>Hablemos por correo <span aria-hidden="true">↗</span></PixelButton>
+      </section>
+    </main>
+    <footer class="site-footer no-print"><span>© {new Date().getFullYear()} {name}</span><span class="save-label"><span aria-hidden="true">◆</span> FIN DEL RECORRIDO. SIGAMOS CREANDO.</span><a href="#contenido">Volver arriba ↑</a></footer>
+    <KeyboardManager />
+  </div>
 </Layout>
-
 <style>
-  main {
-    padding: 2rem;
-    margin: auto;
-    width: 100%;
-  }
+  .landing-shell { width: min(1120px, calc(100% - 4rem)); margin-inline: auto; }
+  .site-header { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 100px; border-bottom: 1px solid var(--color-border); }
+  .brand { display: flex; gap: 0.85rem; align-items: center; color: var(--color-text-heading); font-size: 1rem; line-height: 1.4; letter-spacing: 0.05em; }
+  .brand-mark { display: grid; place-items: center; width: 40px; height: 40px; background: var(--color-red); color: #050816; font-family: var(--font-display); font-size: 0.65rem; box-shadow: 3px 3px 0 #751d32; }
+  .brand-caption { display: block; font-size: 0.7rem; color: var(--color-text-muted); }
+  nav { display: flex; gap: 1.5rem; align-items: center; }
+  nav a { color: var(--color-text-muted); font-size: 1.2rem; }
+  nav a:hover { color: var(--color-text-heading); }
+  .nav-contact { color: var(--color-red-light); }
+  .journey-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+  .sidebar { display: grid; gap: 1.5rem; min-width: 0; }
+  .contact { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 3rem 2.5rem; margin-block: 3.5rem; border: 1px solid var(--color-border); border-left: 3px solid var(--color-red); background: linear-gradient(110deg, #ff3c3c08, transparent 55%), var(--color-bg-secondary); }
+  .contact .eyebrow { margin-bottom: 1rem; }
+  .contact h2 { font-size: clamp(0.9rem, 2vw, 1.2rem); line-height: 1.8; }
+  .contact h2 span { color: var(--color-red); }
+  .site-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--color-border); padding-block: 1.5rem; font-size: 1rem; color: var(--color-text-muted); }
+  .save-label { font-size: 0.85rem; }
+  .save-label > span { color: var(--color-blue-light); margin-right: 0.4rem; }
+  @media (width <= 850px) { nav { gap: 1rem; } .journey-grid { grid-template-columns: 1fr; } .sidebar { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } .save-label { display: none; } }
+  @media (width <= 680px) { .landing-shell { width: calc(100% - 2rem); } .site-header { flex-wrap: wrap; gap: 1rem; padding-block: 1.25rem; } nav { width: 100%; justify-content: space-between; gap: 0.5rem; } nav a { font-size: 1.1rem; } .sidebar { grid-template-columns: 1fr; } .contact { flex-direction: column; align-items: flex-start; padding: 1.5rem; margin-block: 2.5rem; } }
+  @media print { .landing-shell { width: 100%; } .journey-grid, .sidebar { display: block; } .sidebar > :global(*) { margin-top: 1rem; } }
 </style>

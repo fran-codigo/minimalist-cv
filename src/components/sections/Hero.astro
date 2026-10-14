@@ -1,212 +1,88 @@
 ---
-import { basics } from '@cv';
-import Section from '@/components/Section.astro';
+import { basics, projects, skills } from '@cv';
+import PixelButton from '@/components/retro/PixelButton.astro';
+import PixelDesk from '@/components/retro/PixelDesk.astro';
 import Mail from '@/icons/Mail.astro';
 import Phone from '@/icons/Phone.astro';
 import Linkedin from '@/icons/Linkedin.astro';
 import GitHub from '@/icons/GitHub.astro';
 import WorldMap from '@/icons/WorldMap.astro';
 
-const { name, label, image, location, profiles, phone, email } = basics;
-
-const { city, region } = location;
-
-const SOCIAL_ICONS: Record<string, any> = {
-  GitHub,
-  Linkedin,
-};
-
-const linkedinInfo = profiles.find(({ network }) => network === 'LinkedIn');
-const linkedinUrl = linkedinInfo?.url;
-const printInfo = [email, phone, linkedinUrl].filter(Boolean).join(' • ');
+const { name, label, location, profiles, phone, email } = basics;
+const SOCIAL_ICONS: Record<string, typeof GitHub> = { GitHub, Linkedin };
+const printInfo = [email, phone, ...profiles.map(({ url }) => url)].join(' • ');
 ---
 
-<Section>
-  <div class="container">
-    <div class="info">
-      <header>
-        <h1>{name}</h1>
-        <button id="theme-toggle" class="no-print" aria-label="Cambiar tema">
-          <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-      </header>
-      <h2>{label}</h2>
-      <span>
-        <WorldMap />
-        {city}, {region}
-      </span>
-
-      <footer class="print">
-        {printInfo}
-      </footer>
-
-      <footer class="no-print">
-        {
-          email && (
-            <a
-              href={`mailto:${email}`}
-              title={`Enviar un correo electrónico a ${name} al correo ${email}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Mail />
-            </a>
-          )
-        }
-        {
-          phone && (
-            <a
-              href={`tel:${phone}`}
-              title={`Llamar por télefono a ${name} al numero ${phone}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Phone />
-            </a>
-          )
-        }
-        {
-          profiles.map(({ network, url, username }) => {
-            const Icon = SOCIAL_ICONS[network];
-
-            return (
-              <a
-                href={url}
-                title={`Visitar el perfil de ${name} en ${network}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon />
-              </a>
-            );
-          })
-        }
-      </footer>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="cursor" aria-hidden="true">&gt;</span> PORTAFOLIO / FULL-STACK DEVELOPER</p>
+    <h1 id="hero-title">{name.split(' ')[0]}<br /><span>{name.split(' ').slice(1).join(' ')}<span class="period">.</span></span></h1>
+    <p class="role">{label}<span class="role-line" aria-hidden="true"></span></p>
+    <p class="intro">Aplicaciones web claras, mantenibles y listas para crecer.</p>
+    <p class="location"><WorldMap /> {location.city}, {location.region}</p>
+    <div class="hero-actions no-print">
+      <PixelButton href="#proyectos"><span aria-hidden="true">▶</span> Explorar proyectos</PixelButton>
+      <PixelButton href={`mailto:${email}`} variant="secondary">Hablemos <span aria-hidden="true">↗</span></PixelButton>
     </div>
-    <figure>
-      <img
-        src={image}
-        alt={name}
-      />
-    </figure>
+    <ul class="social-links no-print" aria-label="Contacto y redes sociales">
+      <li><a href={`mailto:${email}`} aria-label={`Enviar correo a ${name}`} title={email}><Mail /></a></li>
+      <li><a href={`tel:${phone.replace(/\s/g, '')}`} aria-label={`Llamar a ${name}`} title={phone}><Phone /></a></li>
+      {profiles.map(({ network, url }) => {
+        const Icon = SOCIAL_ICONS[network];
+        return <li><a href={url} target="_blank" rel="noopener noreferrer" aria-label={`Visitar ${network} de ${name}`}>{Icon ? <Icon /> : network}</a></li>;
+      })}
+      <li class="social-caption" aria-hidden="true">ENCUÉNTRAME EN LA RED</li>
+    </ul>
+    <p class="print">{printInfo}</p>
   </div>
-</Section>
-
-<script>
-  const toggleTheme = () => {
-    const isDark = document.documentElement.classList.contains('dark');
-    if (isDark) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    }
-  };
-
-  const btn = document.getElementById('theme-toggle');
-  if (btn) {
-    btn.addEventListener('click', toggleTheme);
-  }
-</script>
-
+  <div class="character-panel">
+    <div class="character-top"><span>PLAYER_01</span><span class="character-symbols" aria-hidden="true">+ + +</span></div>
+    <PixelDesk name={name} />
+    <div class="character-info"><span>{name}</span><span class="class-label">{label}</span></div>
+    <dl class="character-stats">
+      <div><dt>PROYECTOS</dt><dd>{String(projects.length).padStart(2, '0')}</dd></div>
+      <div><dt>TECNOLOGÍAS</dt><dd>{String(skills.length).padStart(2, '0')}</dd></div>
+      <div><dt>BASE</dt><dd>{location.countryCode}</dd></div>
+    </dl>
+    <div class="character-bottom" aria-hidden="true"><span class="segments"></span><span>CREAR · APRENDER · REPETIR</span></div>
+  </div>
+</section>
 <style>
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  #theme-toggle {
-    background: transparent;
-    border: none;
-    color: var(--color-text-muted);
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s, color 0.2s;
-  }
-
-  #theme-toggle:hover {
-    background: var(--color-badge-bg);
-    color: var(--color-text-heading);
-  }
-
-  :global(html:not(.dark)) .sun {
-    display: none;
-  }
-  :global(html.dark) .moon {
-    display: none;
-  }
-
-  .info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-right: 32px;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    color: var(--color-text-subheading);
-    font-weight: 500;
-    font-size: 1.1rem;
-    text-wrap: balance;
-  }
-
-  img {
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    width: 120px;
-    border-radius: 16px;
-  }
-
-  span {
-    color: var(--color-text-muted);
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: 0.85rem;
-    letter-spacing: -0.05rem;
-  }
-
-  footer {
-    color: var(--color-text-muted);
-    font-size: 0.65rem;
-    display: flex;
-    gap: 4px;
-    margin-top: 8px;
-  }
-
-  footer a {
-    color: var(--color-text-light);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--color-border);
-    padding: 4px;
-    height: 32px;
-    width: 32px;
-    border-radius: 16px;
-    transition: all 0.3s ease;
-  }
-
-  footer a:hover {
-    background: var(--color-badge-bg);
-    border: 1px solid var(--color-border-hover);
-  }
+  .hero { display: grid; grid-template-columns: 1.2fr 0.85fr; gap: 4rem; align-items: center; padding: 4rem 0 4.5rem; }
+  .eyebrow { margin-bottom: 1.4rem; }
+  .cursor { color: var(--color-red-light); margin-right: 0.5rem; }
+  h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.5; letter-spacing: -0.055em; }
+  h1 > span { color: var(--color-blue-light); }
+  .period { color: var(--color-red); }
+  .role { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; color: var(--color-gold); font-size: 1.65rem; }
+  .role-line { width: 50px; height: 2px; background: var(--color-border); }
+  .intro { max-width: 34ch; margin: 0.75rem 0; color: var(--color-text-muted); font-size: 1.5rem; }
+  .location { display: flex; align-items: center; gap: 0.5rem; color: var(--color-text-muted); font-size: 1.15rem; }
+  .location :global(svg) { width: 16px; height: 16px; }
+  .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; margin: 1.75rem 0; }
+  .social-links { display: flex; gap: 0.5rem; align-items: center; }
+  .social-links a { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1px solid var(--color-border); color: var(--color-text-muted); transition: color 150ms, border-color 150ms, transform 150ms; }
+  .social-links a:hover { color: var(--color-blue-light); border-color: var(--color-blue-light); transform: translateY(-2px); }
+  .social-links :global(svg) { width: 17px; height: 17px; }
+  .social-caption { margin-left: 0.7rem; color: var(--color-text-muted); font-size: 0.8rem; letter-spacing: 0.05em; }
+  .character-panel { position: relative; border: 2px solid var(--color-border); background: var(--color-bg-secondary); box-shadow: 7px 7px 0 #02040d, 0 0 60px #3366ff0d; }
+  .character-panel::before, .character-panel::after { content: ''; position: absolute; width: 9px; height: 9px; background: var(--color-blue-light); z-index: 1; }
+  .character-panel::before { top: -2px; left: -2px; }
+  .character-panel::after { bottom: -2px; right: -2px; background: var(--color-red); }
+  .character-top { display: flex; justify-content: space-between; padding: 0.7rem 1rem; border-bottom: 1px solid var(--color-border); font-size: 0.9rem; color: var(--color-text-muted); }
+  .character-symbols { color: var(--color-blue-light); }
+  .character-info { display: flex; align-items: baseline; justify-content: space-between; gap: 0.6rem; padding: 1rem 1rem 0.5rem; border-top: 1px solid var(--color-border); }
+  .character-info > span:first-child { font-size: 1.5rem; }
+  .class-label { color: var(--color-text-muted); font-size: 1rem; }
+  .character-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0.5rem 1rem 1rem; padding: 0; }
+  .character-stats div { text-align: center; border-right: 1px solid var(--color-border); }
+  .character-stats div:last-child { border: none; }
+  dt { font-size: 0.8rem; color: var(--color-text-muted); }
+  dd { margin: 0; color: var(--color-gold); font-size: 1.65rem; }
+  .character-bottom { border-top: 1px solid var(--color-border); padding: 0.65rem 1rem; display: flex; align-items: center; gap: 1rem; font-size: 0.75rem; color: var(--color-text-muted); }
+  .segments { width: 44px; height: 6px; background: repeating-linear-gradient(90deg, var(--color-blue) 0 5px, transparent 5px 8px); }
+  @media (width <= 850px) { .hero { gap: 2rem; } .social-caption { display: none; } .class-label { font-size: 0.85rem; } }
+  @media (width <= 680px) { .hero { grid-template-columns: 1fr; padding: 2.5rem 0; gap: 2.5rem; } h1 { font-size: clamp(2rem, 9vw, 3rem); } .character-panel { max-width: 420px; width: 100%; justify-self: center; } .hero-actions { gap: 0.75rem; } }
+  @media (width <= 360px) { .eyebrow { font-size: 0.47rem; } }
+  @media print { .hero { padding: 1rem 0; display: block; } h1 { font-size: 1.4rem; } .character-panel { display: none; } .intro { max-width: none; } .print { overflow-wrap: anywhere; } }
 </style>

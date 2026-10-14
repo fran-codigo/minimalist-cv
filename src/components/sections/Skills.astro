@@ -1,34 +1,19 @@
 ---
-import Section from '@/components/Section.astro';
-
+import RetroPanel from '@/components/retro/RetroPanel.astro';
+import SkillChip from '@/components/retro/SkillChip.astro';
 import { skills } from '@cv';
 ---
-
-<Section title="Habilidades">
-  <ul>
-    {
-      skills.map(({ name }) => (
-        <li>
-          <span>{name}</span>
-        </li>
-      ))
-    }
-  </ul>
-</Section>
-
+<RetroPanel title="Inventario" id="habilidades" index="04" label="STACK">
+  <p class="inventory-label">Habilidades / tecnologías</p>
+  <ul class="inventory">{skills.map(({ name }, index) => <li><span class="slot-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><SkillChip name={name} /></li>)}</ul>
+  <p class="inventory-footer">{skills.length} tecnologías en el inventario</p>
+</RetroPanel>
 <style>
-  ul {
-    display: inline-flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  li {
-    border-radius: 6px;
-    background-color: var(--color-badge-bg);
-    color: var(--color-badge-text);
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 0.2rem 0.6rem;
-  }
+  .inventory-label { color: var(--color-text-muted); font-size: 1.1rem; margin-bottom: 1rem; }
+  .inventory { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; }
+  li { position: relative; display: flex; align-items: center; gap: 0.5rem; padding: 0.35rem; border: 1px solid var(--color-border); background: var(--color-panel); }
+  .slot-number { font-size: 0.85rem; color: var(--color-text-muted); padding-left: 0.2rem; }
+  li :global(.skill-chip) { padding: 0.1rem 0.2rem; border: 0; background: transparent; }
+  .inventory-footer { margin-top: 1rem; font-size: 0.95rem; color: var(--color-text-muted); }
+  @media (width <= 360px) { .slot-number { display: none; } }
 </style>

@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  id: string;
+  index?: string;
+  label?: string;
+}
+const { title, id, index, label } = Astro.props;
+---
+<section id={id} class="retro-panel reveal" aria-labelledby={`${id}-title`}>
+  <header>
+    <div class="heading">
+      {index && <span class="index" aria-hidden="true">{index}</span>}
+      <h2 id={`${id}-title`}>{title}</h2>
+    </div>
+    {label && <span class="panel-label" aria-hidden="true">{label}</span>}
+  </header>
+  <div class="panel-content"><slot /></div>
+</section>
+<style>
+  .retro-panel { min-width: 0; border: 1px solid var(--color-border); background: var(--color-bg-secondary); box-shadow: var(--shadow-pixel); position: relative; }
+  .retro-panel::before { content: ''; width: 5px; height: 5px; position: absolute; top: -1px; left: -1px; background: var(--color-blue-light); }
+  header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--color-border); }
+  .heading { display: flex; align-items: center; gap: 0.85rem; min-width: 0; }
+  h2 { font-size: 0.7rem; overflow-wrap: anywhere; }
+  .index { color: var(--color-red-light); font-size: 1.1rem; }
+  .panel-label { color: var(--color-text-muted); font-size: 1rem; white-space: nowrap; }
+  .panel-content { padding: 1.5rem; }
+  @media (width <= 560px) { header, .panel-content { padding: 1.1rem; } .panel-label { display: none; } h2 { font-size: 0.6rem; } }
+  @media print { .retro-panel { break-inside: avoid; } header, .panel-content { padding: 0.6rem; } }
+</style>
