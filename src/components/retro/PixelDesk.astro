@@ -5,7 +5,7 @@ const { name } = Astro.props;
 
 <figure class="pixel-desk" data-pixel-desk data-paused="true" data-lamp="on" data-building="false" data-complete="false">
   <button class="scene-trigger" type="button" data-run disabled aria-label={`Ejecutar demo en el escritorio pixel art de ${name}`}>
-    <svg class="desk-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 184" width="560" height="368" fill="none" shape-rendering="crispEdges" role="img" aria-label={`${name}, con cabello oscuro y camiseta clara, sentado en su escritorio tecleando frente a una computadora.`}>
+    <svg class="desk-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 184" width="560" height="368" fill="none" shape-rendering="crispEdges" role="img" aria-label={`${name}, con cabello oscuro, gafas redondas y camiseta clara, sentado en su escritorio tecleando frente a una computadora.`}>
       <!-- Habitación y ventana: la misma noche azul del resto del portafolio. -->
       <path fill="#0a1024" d="M0 0h280v184H0z" />
       <path fill="#0d1630" d="M0 0h280v150H0z" />
@@ -67,6 +67,12 @@ const { name } = Astro.props;
         <path fill="#211f25" d="M95 59h7v-4h17v4h7v7h-3v9h-6v-7h-8v4h-8v12h-6V73h-3V63h3z" />
         <path fill="#373039" d="M99 59h15v3h-11v4h-8v-3h4z" />
         <path fill="#211f25" d="M118 76h5v2h-5z" />
+        <!-- Gafas redondas de perfil, con montura oscura y reflejo azul del monitor. -->
+        <g class="glasses">
+          <path fill="#050816" d="M104 78h12v2h-12zM126 79h3v2h-3z" />
+          <circle cx="121" cy="81" r="5" fill="#5f8cff" fill-opacity=".16" stroke="#050816" stroke-width="2" />
+          <path fill="#8ea0d8" d="M118 78h2v1h-2z" />
+        </g>
         <path class="eye" fill="#211f25" d="M120 79h2v3h-2z" />
         <path fill="#8b543f" d="M120 89h5v2h-5zm-19-9h3v7h-3z" />
       </g>

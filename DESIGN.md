@@ -192,7 +192,7 @@ Hero: columnas `1.2fr / 0.85fr`, gap `4rem`. Experiencia y sidebar: `1.65fr / 1f
 
 Los destacados son Cuponcitos, Canchitas, KontrolFit Desktop y App Liga de fútbol. La selección sale de `cv.json`, filtra `isFeatured` y se limita a cuatro; mantener los flags coherentes, no una segunda lista fija en el componente. Las métricas del Hero salen de los datos reales.
 
-El escritorio es SVG inline con píxeles nítidos (`shape-rendering="crispEdges"`), tecleo animado por pasos y una demo visual al pulsarlo. Mantener controles de pausa y luz, alternativa estática y mensajes accesibles. La luz cambia la ilustración, no el tema del sitio.
+El escritorio es SVG inline con píxeles nítidos (`shape-rendering="crispEdges"`), tecleo animado por pasos y una demo visual al pulsarlo. El personaje lleva gafas redondas de montura oscura con un reflejo azul discreto; se mueven con la cabeza sin parpadear junto al ojo. Mantener controles de pausa y luz, alternativa estática y mensajes accesibles. La luz cambia la ilustración, no el tema del sitio.
 
 ### Detalle `/proyectos/*`
 
