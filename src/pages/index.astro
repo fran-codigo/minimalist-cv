@@ -6,6 +6,7 @@ import Education from '@/components/sections/Education.astro';
 import Projects from '@/components/sections/Projects.astro';
 import Experience from '@/components/sections/Experience.astro';
 import Skills from '@/components/sections/Skills.astro';
+import Learning from '@/components/sections/Learning.astro';
 import KeyboardManager from '@/components/KeyboardManager.astro';
 import PixelButton from '@/components/retro/PixelButton.astro';
 import { basics } from '@cv';
@@ -28,7 +29,7 @@ const { name, label, email } = basics;
       <Projects />
       <div class="journey-grid">
         <Experience />
-        <div class="sidebar"><Skills /><Education /></div>
+        <div class="sidebar"><Skills /><Learning /><Education /></div>
       </div>
       <section class="contact no-print" aria-labelledby="contact-title">
         <div><p class="eyebrow">¿EL SIGUIENTE PROYECTO?</p><h2 id="contact-title">Comencemos una<br />nueva misión<span aria-hidden="true">.</span></h2></div>

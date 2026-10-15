@@ -1,0 +1,65 @@
+---
+import RetroPanel from "@/components/retro/RetroPanel.astro";
+---
+
+<RetroPanel title="Actualmente aprendiendo" id="aprendizaje" index="05">
+    <p class="learning-status">
+        <span aria-hidden="true">◆</span> EN PROGRESO
+    </p>
+    <ul class="learning-list">
+        <li>
+            <h3>Hono + Vue + Cloudflare</h3>
+            <p>Creando APIs con Hono para conectarlas a aplicaciones Vue.</p>
+            <p>
+                Explorando Cloudflare y sus planes gratuitos para desplegar
+                proyectos full stack sin coste inicial.
+            </p>
+        </li>
+        <li>
+            <h3>Wails + Go</h3>
+            <p>Profundizando en el desarrollo de aplicaciones de escritorio.</p>
+        </li>
+    </ul>
+</RetroPanel>
+<style>
+    .learning-status {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--color-gold);
+        font-size: 0.95rem;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.85rem;
+    }
+    .learning-status span {
+        font-size: 0.7rem;
+    }
+    .learning-list {
+        display: grid;
+        gap: 1.15rem;
+    }
+    .learning-list li {
+        position: relative;
+        padding-left: 1.1rem;
+    }
+    .learning-list li::before {
+        content: "";
+        position: absolute;
+        top: 0.6rem;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        background: var(--color-blue-light);
+    }
+    h3 {
+        font-size: 1.35rem;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+    .learning-list p {
+        margin-top: 0.35rem;
+        color: var(--color-text-muted);
+        font-size: 1.15rem;
+        line-height: 1.6;
+    }
+</style>
