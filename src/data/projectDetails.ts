@@ -40,12 +40,11 @@ export const projectDetails: ProjectDetail[] = [
       { title: 'Activación sin conexión', description: 'Licencias vinculadas al equipo, verificadas con firmas Ed25519, para mantener el funcionamiento offline.' },
     ],
     gallery: [
-      { src: '/images/kontrolfit/1.png', caption: 'Panel de actividad del gimnasio' },
-      { src: '/images/kontrolfit/2.jpg', caption: 'Gestión de socios' },
-      { src: '/images/kontrolfit/6.png', caption: 'Operaciones de caja' },
-      { src: '/images/kontrolfit/7.png', caption: 'Impresión y comprobantes' },
+      { src: '/images/kontrolfit-desktop/1.jpg', caption: 'Panel de actividad del gimnasio' },
+      { src: '/images/kontrolfit-desktop/2.jpg', caption: 'Gestión de socios' },
+      { src: '/images/kontrolfit-desktop/3.jpg', caption: 'Operaciones de caja' },
+      { src: '/images/kontrolfit-desktop/4.jpg', caption: 'Registro de pagos' },
     ],
-    mediaNote: 'Capturas provisionales de KontrolFit Web como referencia visual. Pendiente incorporar capturas propias de la versión Desktop.',
   },
   {
     path: '/proyectos/1f-cuponcitos',
