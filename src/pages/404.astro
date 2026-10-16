@@ -1,0 +1,252 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import RetroPanel from "@/components/retro/RetroPanel.astro";
+import PixelButton from "@/components/retro/PixelButton.astro";
+import KeyboardManager from "@/components/KeyboardManager.astro";
+import { basics } from "@cv";
+const { name, email } = basics;
+
+const destinations = [
+  { href: "/", title: "Inicio", detail: "Presentación y ficha de jugador" },
+  { href: "/proyectos", title: "Proyectos", detail: "Misiones y casos de estudio" },
+  { href: "/#experiencia", title: "Experiencia", detail: "Bitácora de trabajo" },
+  { href: `mailto:${email}`, title: "Contacto", detail: "Escríbeme un correo" },
+];
+---
+
+<Layout
+  title={`Página no encontrada · ${name}`}
+  description="La página solicitada no existe. Vuelve al portafolio o explora los proyectos."
+>
+  <div class="notfound-shell">
+    <header class="topbar no-print">
+      <a href="/" class="back-link">
+        <span aria-hidden="true">←</span> Volver al inicio
+      </a>
+      <a href="/" class="portfolio-link">
+        FRANCO SILVA <span aria-hidden="true">/</span> PORTAFOLIO
+      </a>
+    </header>
+
+    <main>
+      <section class="notfound" aria-labelledby="notfound-title">
+        <div class="notfound-copy">
+          <p class="eyebrow">
+            <span class="cursor" aria-hidden="true">&gt;</span> SISTEMA / ERROR 404
+          </p>
+          <p class="error-code" aria-hidden="true">4<span>0</span>4</p>
+          <h1 id="notfound-title">
+            Misión no encontrada<span aria-hidden="true">_</span>
+          </h1>
+          <p class="lead">
+            La dirección a la que intentas llegar no existe, cambió de nombre o
+            quedó fuera del mapa. Revisa el enlace o vuelve a una zona conocida
+            del portafolio.
+          </p>
+          <div class="notfound-actions no-print">
+            <PixelButton href="/">
+              <span aria-hidden="true">◀</span> Volver al inicio
+            </PixelButton>
+            <PixelButton href="/proyectos" variant="secondary">
+              Explorar proyectos <span aria-hidden="true">↗</span>
+            </PixelButton>
+          </div>
+        </div>
+
+        <RetroPanel title="Zonas conocidas" id="zonas" label="MAP.txt">
+          <nav aria-label="Zonas conocidas del portafolio">
+            <ul class="destinations">
+              {
+                destinations.map(({ href, title, detail }) => (
+                  <li>
+                    <a href={href}>
+                      <span class="destination-title">
+                        {title} <span aria-hidden="true">→</span>
+                      </span>
+                      <span class="destination-detail">{detail}</span>
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+        </RetroPanel>
+      </section>
+    </main>
+
+    <footer class="site-footer no-print">
+      <span>© {new Date().getFullYear()} {name}</span>
+      <span class="save-label">
+        <span aria-hidden="true">◆</span> RUTA PERDIDA. VOLVAMOS AL MAPA.
+      </span>
+      <a href="#contenido">Volver arriba ↑</a>
+    </footer>
+  </div>
+  <KeyboardManager />
+</Layout>
+
+<style>
+  .notfound-shell {
+    width: min(1120px, calc(100% - 4rem));
+    margin-inline: auto;
+  }
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    min-height: 100px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-height: 44px;
+    font-size: 1.2rem;
+    color: var(--color-text-base);
+  }
+  .back-link > span {
+    color: var(--color-red-light);
+  }
+  .portfolio-link {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+  }
+  .portfolio-link > span {
+    color: var(--color-red-light);
+    margin-inline: 0.4rem;
+  }
+  .notfound {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.85fr);
+    gap: 4rem;
+    align-items: center;
+    padding: 4rem 0 4.5rem;
+  }
+  .notfound-copy {
+    min-width: 0;
+  }
+  .eyebrow {
+    margin-bottom: 1.4rem;
+  }
+  .cursor {
+    color: var(--color-red-light);
+    margin-right: 0.5rem;
+  }
+  .error-code {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 10vw, 5rem);
+    line-height: 1;
+    letter-spacing: 0.08em;
+    color: var(--color-blue-light);
+  }
+  .error-code > span {
+    color: var(--color-red);
+  }
+  h1 {
+    margin-top: 1.5rem;
+    font-size: clamp(1rem, 2.6vw, 1.5rem);
+    line-height: 1.7;
+  }
+  h1 > span {
+    color: var(--color-red);
+  }
+  .lead {
+    max-width: 46ch;
+    margin-top: 1.2rem;
+    color: var(--color-text-muted);
+    font-size: 1.5rem;
+  }
+  .notfound-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1.75rem;
+  }
+  .destinations {
+    display: grid;
+    gap: 0.75rem;
+  }
+  .destinations a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+    min-height: 44px;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-panel);
+    color: var(--color-text-base);
+    transition:
+      border-color 150ms,
+      transform 150ms;
+  }
+  .destinations a:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-2px);
+  }
+  .destination-title {
+    font-size: 1.3rem;
+  }
+  .destination-title > span {
+    color: var(--color-blue-light);
+  }
+  .destination-detail {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+  }
+  .site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 1rem;
+    color: var(--color-text-muted);
+  }
+  .save-label > span {
+    color: var(--color-blue-light);
+    margin-right: 0.4rem;
+  }
+  @media (width <= 850px) {
+    .notfound {
+      gap: 2rem;
+    }
+    .save-label {
+      display: none;
+    }
+  }
+  @media (width <= 680px) {
+    .notfound-shell {
+      width: calc(100% - 2rem);
+    }
+    .topbar {
+      min-height: 72px;
+    }
+    .notfound {
+      grid-template-columns: 1fr;
+      padding: 2.5rem 0 3rem;
+    }
+    .lead {
+      font-size: 1.35rem;
+    }
+  }
+  @media print {
+    .notfound-shell {
+      width: 100%;
+    }
+    .notfound {
+      display: block;
+      padding: 1rem 0;
+    }
+    .error-code {
+      font-size: 2rem;
+    }
+    .notfound-copy {
+      margin-bottom: 1rem;
+    }
+  }
+</style>

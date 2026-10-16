@@ -222,6 +222,16 @@ El contenido original de cada página Astro llega al `<slot />` dentro de la doc
 
 Conservar mientras tanto su comportamiento: activos no destacados primero, activos destacados después, archivados al final; dentro de cada grupo, fecha de inicio descendente.
 
+### Página 404 `/404`
+
+Referencia: [`src/pages/404.astro`](src/pages/404.astro). Astro genera `dist/404.html`, que el hosting sirve ante cualquier ruta inexistente.
+
+1. Barra superior con regreso al inicio y marca de portafolio.
+2. Composición asimétrica: a la izquierda el estado `SISTEMA / ERROR 404`, el código `404` en Press Start 2P, el título «Misión no encontrada» y las acciones de regreso; a la derecha un `RetroPanel` con zonas conocidas y sus enlaces (inicio, proyectos, experiencia y contacto).
+3. Footer y acceso a la paleta de comandos.
+
+Reutiliza fuentes, tokens y componentes de la landing; no añade estilos globales ni una estética distinta.
+
 ## 7. Imágenes y contenido
 
 ### Tres puntos de integración distintos
