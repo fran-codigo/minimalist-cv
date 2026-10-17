@@ -46,41 +46,41 @@ const printInfo = [email, ...profiles.map(({ url }) => url)].join(' • ');
   </div>
 </section>
 <style>
-  .hero { display: grid; grid-template-columns: 1.2fr 0.85fr; gap: 4rem; align-items: center; padding: 4rem 0 4.5rem; }
-  .eyebrow { margin-bottom: 1.4rem; }
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 1.5rem; align-items: center; max-width: 960px; margin-inline: auto; padding: 1.5rem 0 1.75rem; }
+  .eyebrow { margin-bottom: 0.65rem; }
   .cursor { color: var(--color-red-light); margin-right: 0.5rem; }
-  h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.5; letter-spacing: -0.055em; }
+  h1 { font-size: clamp(2rem, 4.3vw, 3.15rem); line-height: 1.2; letter-spacing: -0.055em; }
   h1 > span { color: var(--color-blue-light); }
   .period { color: var(--color-red); }
-  .role { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; color: var(--color-gold); font-size: 1.65rem; }
-  .role-line { width: 50px; height: 2px; background: var(--color-border); }
-  .intro { max-width: 34ch; margin: 0.75rem 0; color: var(--color-text-muted); font-size: 1.5rem; }
-  .location { display: flex; align-items: center; gap: 0.5rem; color: var(--color-text-muted); font-size: 1.15rem; }
+  .role { display: flex; align-items: center; gap: 0.85rem; margin-top: 0.5rem; color: var(--color-gold); font-size: 1.5rem; line-height: 1.3; }
+  .role-line { width: 44px; height: 2px; background: var(--color-border); }
+  .intro { max-width: 34ch; margin: 0.35rem 0; color: var(--color-text-muted); font-size: 1.4rem; line-height: 1.4; }
+  .location { display: flex; align-items: center; gap: 0.5rem; color: var(--color-text-muted); font-size: 1.1rem; }
   .location :global(svg) { width: 16px; height: 16px; }
-  .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; margin: 1.75rem 0; }
+  .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 0.9rem 0; }
   .social-links { display: flex; gap: 0.5rem; align-items: center; }
-  .social-links a { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1px solid var(--color-border); color: var(--color-text-muted); transition: color 150ms, border-color 150ms, transform 150ms; }
+  .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--color-border); color: var(--color-text-muted); transition: color 150ms, border-color 150ms, transform 150ms; }
   .social-links a:hover { color: var(--color-blue-light); border-color: var(--color-blue-light); transform: translateY(-2px); }
   .social-links :global(svg) { width: 17px; height: 17px; }
   .social-caption { margin-left: 0.7rem; color: var(--color-text-muted); font-size: 0.8rem; letter-spacing: 0.05em; }
-  .character-panel { position: relative; border: 2px solid var(--color-border); background: var(--color-bg-secondary); box-shadow: 7px 7px 0 #02040d, 0 0 60px #3366ff0d; }
+  .character-panel { position: relative; width: 100%; max-width: 400px; justify-self: start; border: 2px solid var(--color-border); background: var(--color-bg-secondary); box-shadow: 7px 7px 0 #02040d, 0 0 60px #3366ff0d; }
   .character-panel::before, .character-panel::after { content: ''; position: absolute; width: 9px; height: 9px; background: var(--color-blue-light); z-index: 1; }
   .character-panel::before { top: -2px; left: -2px; }
   .character-panel::after { bottom: -2px; right: -2px; background: var(--color-red); }
-  .character-top { display: flex; justify-content: space-between; padding: 0.7rem 1rem; border-bottom: 1px solid var(--color-border); font-size: 0.9rem; color: var(--color-text-muted); }
+  .character-top { display: flex; justify-content: space-between; padding: 0.5rem 0.85rem; border-bottom: 1px solid var(--color-border); font-size: 0.85rem; color: var(--color-text-muted); }
   .character-symbols { color: var(--color-blue-light); }
-  .character-info { display: flex; align-items: baseline; justify-content: space-between; gap: 0.6rem; padding: 1rem 1rem 0.5rem; border-top: 1px solid var(--color-border); }
-  .character-info > span:first-child { font-size: 1.5rem; }
-  .class-label { color: var(--color-text-muted); font-size: 1rem; }
-  .character-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0.5rem 1rem 1rem; padding: 0; }
+  .character-info { display: flex; align-items: baseline; justify-content: space-between; gap: 0.6rem; padding: 0.75rem 0.85rem 0.35rem; border-top: 1px solid var(--color-border); }
+  .character-info > span:first-child { font-size: 1.35rem; }
+  .class-label { color: var(--color-text-muted); font-size: 0.95rem; }
+  .character-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0.3rem 0.85rem 0.75rem; padding: 0; }
   .character-stats div { text-align: center; border-right: 1px solid var(--color-border); }
   .character-stats div:last-child { border: none; }
-  dt { font-size: 0.8rem; color: var(--color-text-muted); }
-  dd { margin: 0; color: var(--color-gold); font-size: 1.65rem; }
-  .character-bottom { border-top: 1px solid var(--color-border); padding: 0.65rem 1rem; display: flex; align-items: center; gap: 1rem; font-size: 0.75rem; color: var(--color-text-muted); }
+  dt { font-size: 0.75rem; color: var(--color-text-muted); }
+  dd { margin: 0; color: var(--color-gold); font-size: 1.45rem; }
+  .character-bottom { border-top: 1px solid var(--color-border); padding: 0.45rem 0.85rem; display: flex; align-items: center; gap: 0.85rem; font-size: 0.72rem; color: var(--color-text-muted); }
   .segments { width: 44px; height: 6px; background: repeating-linear-gradient(90deg, var(--color-blue) 0 5px, transparent 5px 8px); }
-  @media (width <= 850px) { .hero { gap: 2rem; } .social-caption { display: none; } .class-label { font-size: 0.85rem; } }
-  @media (width <= 680px) { .hero { grid-template-columns: 1fr; padding: 2.5rem 0; gap: 2.5rem; } h1 { font-size: clamp(2rem, 9vw, 3rem); } .character-panel { max-width: 420px; width: 100%; justify-self: center; } .hero-actions { gap: 0.75rem; } }
+  @media (width <= 850px) { .hero { gap: 1.25rem; } .social-caption { display: none; } .class-label { font-size: 0.85rem; } }
+  @media (width <= 680px) { .hero { grid-template-columns: 1fr; padding: 1.25rem 0 1.5rem; gap: 1rem; } h1 { font-size: clamp(2rem, 9vw, 3rem); } .character-panel { max-width: 340px; width: 100%; justify-self: center; } .hero-actions { gap: 0.75rem; } }
   @media (width <= 360px) { .eyebrow { font-size: 0.47rem; } }
   @media print { .hero { padding: 1rem 0; display: block; } h1 { font-size: 1.4rem; } .character-panel { display: none; } .intro { max-width: none; } .print { overflow-wrap: anywhere; } }
 </style>
